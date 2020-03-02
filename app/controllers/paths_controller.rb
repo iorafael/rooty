@@ -9,7 +9,7 @@ class PathsController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
+    route = Route.find(params[:user_id])
 
   end
 

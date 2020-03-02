@@ -13,6 +13,7 @@ class RoutesController < ApplicationController
       redirect_to user_path(@user)
     else
       render :new
+    end
   end
 
   def edit
