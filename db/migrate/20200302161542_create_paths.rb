@@ -5,6 +5,7 @@ class CreatePaths < ActiveRecord::Migration[6.0]
       t.string :startpoint
       t.string :endpoint
       t.datetime :time
+      t.references :route, null: false, foreign_key: true
 
       t.timestamps
     end

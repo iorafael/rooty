@@ -1,4 +1,10 @@
 class PathsController < ApplicationController
+  has_many :routes
+
+  def index
+    @paths = Path.all
+  end
+
   def new
     @path = Path.new
   end

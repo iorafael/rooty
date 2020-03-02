@@ -9,26 +9,22 @@ class RoutesController < ApplicationController
   def create
     @route = Route.new(route_params)
     user = User.find(params[:user_id])
-    path = Path.find(params[:path_id])
     @route.user = @user
     @route.path = @path
     if @route.save
       redirect_to path_path(@path)
     else
       render :new
-
   end
 
   def edit
 
   end
 
-  def update
-
-  end
-
   def delete
-
+    @route = Route.find(params[:id])
+    @route.destroy
+    redirect_to path_path(@route.path)
   end
 
     private
