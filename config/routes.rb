@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update, :delete]
+  resources :routes
+  resources :paths
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
