@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_161552) do
+ActiveRecord::Schema.define(version: 2020_03_03_173846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,20 +24,22 @@ ActiveRecord::Schema.define(version: 2020_03_02_161552) do
     t.index ["routes_id"], name: "index_events_on_routes_id"
   end
 
-  create_table "paths", force: :cascade do |t|
-    t.integer "distance"
-    t.string "startpoint"
-    t.string "endpoint"
-    t.datetime "time"
+  create_table "nodes", force: :cascade do |t|
+    t.float "distance", default: 0.0
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
+    t.string "name"
     t.bigint "route_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["route_id"], name: "index_paths_on_route_id"
+    t.boolean "real"
+    t.index ["route_id"], name: "index_nodes_on_route_id"
   end
 
   create_table "routes", force: :cascade do |t|
-    t.integer "distance"
-    t.string "type"
+    t.integer "distance", default: 0
+    t.string "form", default: "Circular"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -60,6 +62,6 @@ ActiveRecord::Schema.define(version: 2020_03_02_161552) do
   end
 
   add_foreign_key "events", "routes", column: "routes_id"
-  add_foreign_key "paths", "routes"
+  add_foreign_key "nodes", "routes"
   add_foreign_key "routes", "users"
 end
