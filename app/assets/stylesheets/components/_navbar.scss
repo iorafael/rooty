@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgba(255,255,255,0.1);
+  opacity: 1 !important;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +10,35 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.bg-blue {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.navbar-toggler {
+  color: blue;
+}
+
+.navbar-toggler-icon {
+  background-image: url("navbar-icons.png");
+ border-left: 0;
+}
+
+.navbar-position {
+  margin-left: 0px;
+}
+
+.logo-position {
+  position: left;
+  margin-left: 230px;
+  margin-top: 5px;
+}
+
+.navbar-links {
+  float: right;
+  display: block;
+  color: white !important;
+  border: 0;
+  margin: 1rem 5px 1rem 5px;
 }
