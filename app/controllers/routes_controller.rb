@@ -1,5 +1,4 @@
 class RoutesController < ApplicationController
-  belongs_to :path
   belongs_to :user
 
   def new
@@ -10,11 +9,11 @@ class RoutesController < ApplicationController
     @route = Route.new(route_params)
     user = User.find(params[:user_id])
     @route.user = @user
-    @route.path = @path
     if @route.save
-      redirect_to path_path(@path)
+      redirect_to user_path(@user)
     else
       render :new
+    end
   end
 
   def edit

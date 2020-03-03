@@ -1,5 +1,13 @@
 <h1>Pages#home</h1>
 
+  <%= form_tag(routes_path, :method => "get") do %>
+    <div class="input-group">
+    <%= search_field_tag :search, params[:search], placeholder: "Enter your location" %>
+    <div class="input-group-btn">
+      <%= submit_tag "Search", :class => 'btn btn-primary',:name => nil%>
+    </div>
+    </div>
+  <% end %>
 <div class="routes-container">
   <div class="input-group">
     <div class="input-group-prepend">
@@ -25,3 +33,4 @@
     <input type="text" class="form-control">
   </div>
 </div>
+

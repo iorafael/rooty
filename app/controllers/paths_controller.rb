@@ -1,6 +1,5 @@
 class PathsController < ApplicationController
-  has_many :routes
-
+  belongs_to :route
   def index
     @paths = Path.all
   end
@@ -10,7 +9,7 @@ class PathsController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
+    route = Route.find(params[:user_id])
 
   end
 
