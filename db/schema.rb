@@ -10,28 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_143012) do
+
+ActiveRecord::Schema.define(version: 2020_03_02_161552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string "description"
+    t.datetime "starttime"
+    t.bigint "routes_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["routes_id"], name: "index_events_on_routes_id"
+  end
 
   create_table "paths", force: :cascade do |t|
     t.integer "distance"
     t.string "startpoint"
     t.string "endpoint"
     t.datetime "time"
+    t.bigint "route_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["route_id"], name: "index_paths_on_route_id"
   end
 
   create_table "routes", force: :cascade do |t|
     t.integer "distance"
     t.string "type"
     t.bigint "user_id", null: false
-    t.bigint "path_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["path_id"], name: "index_routes_on_path_id"
     t.index ["user_id"], name: "index_routes_on_user_id"
   end
 
@@ -50,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_143012) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "routes", "paths"
+  add_foreign_key "events", "routes", column: "routes_id"
+  add_foreign_key "paths", "routes"
   add_foreign_key "routes", "users"
 end
