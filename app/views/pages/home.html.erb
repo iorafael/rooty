@@ -1,6 +1,7 @@
+
 <div class="container">
   <div class="text-center">
-    <%= form_for @nodes do |f|%>
+    <%= form_for @new_node do |f|%>
       <div class="search-container h-100">
         <div class="d-flex justify-content-center h-100">
           <div class="searchbar">
@@ -39,4 +40,6 @@
       </div>
     </div>
   </div>
-</div>
+  
+  </div>
+  <div id="mapa" data-path="<%= @paths.to_json %>" data-node="<%= @nodes.first.to_json %>"></div>
