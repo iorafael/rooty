@@ -1,9 +1,11 @@
 .navbar-lewagon {
+  background-color: rgba(255,255,255,0);
   justify-content: space-between;
-  background: rgba(255,255,255,0.1);
   opacity: 1 !important;
+  z-index: 101;
+  position: sticky;
+  top: 0;
 }
-
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -30,9 +32,8 @@
 }
 
 .logo-position {
-  position: left;
-  margin-left: 350px;
-  margin-top: 5px;
+  margin-top: 0px;
+  position: flex;
 }
 
 
@@ -46,6 +47,11 @@
 .background-nav {
   background-color: black;
 }
+
+.trans {
+  background: transparent;
+}
+
 .carousel-item {
   border: none !important ;
 }
