@@ -1,13 +1,15 @@
-<div class="navbar-lewagon <%= 'trans' if action_name == 'home' %>">
-  <div class="button_container" id="toggle">
-    <span class="top"></span>
-    <span class="middle"></span>
-    <span class="bottom"></span>
+<div class="d-flex justify-content-between w-100 navbar-lewagon <%= 'trans' if action_name == 'home' %>">
+ <div>
+    <div class="button_container" id="toggle">
+      <span class="top"></span>
+      <span class="middle"></span>
+      <span class="bottom"></span>
+    </div>
   </div>
   <div class="overlay" id="overlay">
     <nav class="overlay-menu">
      <ul>
-       <li><%= link_to "Routes", routes_path, class: "text-dark" %></li>
+       <li><%= link_to "Routes", root_path, class: "text-dark" %></li>
        <li><%= link_to "Events", events_path, class: "text-dark" %></li>
        <% if user_signed_in? %>
          <li><%= link_to "Profile", user_path(current_user), class: "text-dark" %></li>
