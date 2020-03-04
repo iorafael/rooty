@@ -5,15 +5,16 @@
 
   <div>
     <div class="event-info-show">
-    <h2><strong>Early morning</strong></h2>
-      <p> <strong>Description: </strong>Early morning run passing by some important London spots. </p>
+    <h2><%= @event.title %></h2>
+      <p> <strong>Description: </strong><%= @event.description %> </p>
     </div>
     <div>
       <p><strong><i class="fas fa-map-marker-alt"></i></strong> London Bridge  </p>
       <p><strong><i class="fas fa-running"></i></strong> 5km </p>
-      <p><strong><i class="fas fa-clock"></i></strong> 6am</p>
+      <p><strong><i class="fas fa-clock"></i></strong><%= @event.starttime %></p>
       <p><i class="fas fa-users"></i></p>
     </div>
+    <% end %>
   </div>
   <div class="card">
     <div class="event_map">
@@ -21,4 +22,7 @@
     </div>
   </div>
 
+</div>
+
+<div class="bottom-img">
 </div>
