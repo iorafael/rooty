@@ -1,15 +1,17 @@
 <div class="container">
-  <div class="text-right">
+  <div class="button-right">
     <button type='button' class='btn-animate mb-3'><span><%=link_to "return", root_path, class:"white-text"%> </span></button>
   </div>
-  <div class="d-flex">
-    <img class="profile-photo" id="navbarDropdown" data-toggle="dropdown" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+  <div class="d-flex profile-box">
+    <img class="profiles-photo" id="navbarDropdown" data-toggle="dropdown" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
     <div class="user-info">
       <h5><%= @user.username %></h5>
       <p><%= @user.name %> <%= @user.lastname %></p>
     </div>
   </div>
-  <div class="title-left">
+</div>
+<div class="container">
+  <div class="title-left m-3">
     <h3>My previous runs</h3>
   </div>
   <div>
@@ -18,7 +20,7 @@
   <div class="text-center">
     <%= link_to 'see more' %>
   </div>
-  <div class="title-left">
+  <div class="title-left m-3">
     <h3>my events</h3>
   </div>
   <div>

@@ -1,6 +1,7 @@
+
 <div class="text-center">
   <%= form_for @nodes do |f|%>
-    <div class="container h-100">
+    <div class="search-container h-100">
       <div class="d-flex justify-content-center h-100">
         <div class="searchbar">
           <%= f.text_field :address, class: "search_input", placeholder: "Search location" %>
@@ -10,29 +11,32 @@
     </div>
   <% end %>
 </div>
-<div class="routes-container">
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Route</span>
-    </div>
-    <input type="text" class="form-control">
-    <input type="text" class="form-control">
-  </div>
 
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Route</span>
+<div class="container justify-content-center">
+  <div class="routes-container">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Route</span>
+      </div>
+      <input type="text" class="form-control">
+      <input type="text" class="form-control">
     </div>
-    <input type="text" class="form-control">
-    <input type="text" class="form-control">
-  </div>
 
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">Route</span>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Route</span>
+      </div>
+      <input type="text" class="form-control">
+      <input type="text" class="form-control">
     </div>
-    <input type="text" class="form-control">
-    <input type="text" class="form-control">
+
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Route</span>
+      </div>
+      <input type="text" class="form-control">
+      <input type="text" class="form-control">
+    </div>
   </div>
 </div>
 
