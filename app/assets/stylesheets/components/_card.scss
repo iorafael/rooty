@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+}
+
+
 .card-event {
   overflow: hidden;
   height: 100px;
@@ -13,6 +18,7 @@
   height: 100%;
   width: 30%;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .card-event h2 {
@@ -78,3 +84,15 @@
   display: flex;
   justify-content: space-between;
 }
+
+.bottom-img {
+  background-image: url(wireframe.png);
+  opacity: 0.5;
+  position: fixed;
+  z-index:-1;
+  bottom: 0;
+  height: 300px;
+  width: 100% !important;
+  margin-right: 15px;
+}
+
