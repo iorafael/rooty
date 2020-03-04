@@ -1,9 +1,10 @@
 .navbar-lewagon {
+  background-color: white;
   justify-content: space-between;
-  background: rgba(255,255,255,0.1);
   opacity: 1 !important;
+  z-index: 101;
+  position: fixed;
 }
-
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -46,6 +47,11 @@
 .background-nav {
   background-color: black;
 }
+
+.trans {
+  background: transparent;
+}
+
 .carousel-item {
   border: none !important ;
 }
