@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:edit, :update, :delete, :show]
   resources :routes
-  resources :paths
+  resources :nodes
   resources :events, only: [:index, :show, :new, :create, :edit, :destroy ]
 end
