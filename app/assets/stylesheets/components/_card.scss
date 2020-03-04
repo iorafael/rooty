@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+}
+
+
 .card-event {
   overflow: hidden;
   height: 100px;
@@ -13,16 +18,17 @@
   height: 100%;
   width: 30%;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .card-event h2 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-event p {
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 8px;
@@ -34,11 +40,9 @@
   margin: 10px;
   }
 
-
-
 .card-event-lg {
   overflow: hidden;
-  height: 200px;
+  height: 250px;
   background: white;
   display: flex;
   align-items: center;
@@ -58,13 +62,13 @@
 }
 
 .card-event-lg h2 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-event-lg p {
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -81,4 +85,14 @@
   justify-content: space-between;
 }
 
+.bottom-img {
+  background-image: url(wireframe.png);
+  opacity: 0.5;
+  position: fixed;
+  z-index:-1;
+  bottom: 0;
+  height: 300px;
+  width: 100% !important;
+  margin-right: 15px;
+}
 
