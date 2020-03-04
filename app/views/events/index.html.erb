@@ -10,11 +10,13 @@
         <div class="card-event-lg">
           <%= image_tag "test_4.jpg" %>
           <div class="card-event-lg-info">
+            <% @events.each do |event| %>
             <div>
-              <h2>Early morning</h2>
+              <h2><%= event.title %></h2>
               <p><strong> <i class="fas fa-map-marker-alt"></i> London Bridge </strong></p>
               <p><strong> Distance: </strong> 5km </p>
             </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -59,11 +61,13 @@
     <div class="card-event">
      <%= image_tag "test_6.jpg" %>
      <div class="card-event-info">
+      <% @events.each do |event| %>
         <div class="card-body">
-          <h2>Title</h2>
-          <p><strong>When:</strong> Monday </p>
-          <p><strong> Distance: </strong> 3km </p>
+          <h2><%= event.title %></h2>
+          <p><strong>When:</strong> <%= event.starttime %> </p>
+          <p><strong> Distance: </strong> 5km </p>
         </div>
+        <% end %>
       </div>
     </div>
 
