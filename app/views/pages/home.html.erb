@@ -1,3 +1,4 @@
+
 <div class="container flex-direction-column justify-content-center">
   <div class="text-center">
     <%= form_for @new_node do |f|%>
@@ -11,6 +12,8 @@
       </div>
     <% end %>
   </div>
+
+
   <div class="routes-container">
     <div class="input-group">
       <div class="input-group-prepend">
@@ -36,6 +39,8 @@
       <input type="text" class="form-control">
     </div>
   </div>
-</div>
-<div id="mapa" data-path="<%= @paths.to_json %>" data-node="<%= @nodes.first.to_json %>">
+
+
+  </div>
+  <div id="mapa" data-path="<%= @paths.to_json %>" data-node="<%= @nodes.first.to_json %>"></div>
 </div>
