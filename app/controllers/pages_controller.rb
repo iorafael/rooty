@@ -9,7 +9,7 @@ class PagesController < ApplicationController
       
       @nodes = route.nodes
       @markers = []
-      @nodes.map do |node|
+      @nodes.each do |node|
         @markers << {
           lat: node.latitude,
           lng: node.longitude
