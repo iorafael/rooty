@@ -1,19 +1,18 @@
-a {
-  color: #413E44 !important;
-  opacity: 0.9;
+.container {
+  margin-top: 35px;
 }
 
 .background-color {
   background-color: #FFFBE8;
 }
 
-.bottom-img {
-  background-image: url(wireframe.png);
-  opacity: 0.5;
+.bottom-img-events {
+  background: linear-gradient(#FFFBE8, rgb(255,255,255), transparent), url('wireframe.png');
+  opacity: 0.9;
   position: fixed;
   z-index:-1;
   bottom: 0;
-  height: 300px;
+  height: 350px;
   width: 100% !important;
 }
 
