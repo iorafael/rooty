@@ -24,14 +24,14 @@
 
   <div class="routes_history_card">
     <% @routes.each do |r| %>
-      <a href="/">
+      <a href="/?route=<%= r.id%>">
         <div class="card-event">
           <%= image_tag "test_map.jpg" %>
           <div class="card-event-info">
             <div>
               <p><strong> Distance: </strong> <%= r.distance %> </p>
               <p><strong> Start point: </strong> <%= r.nodes.first.address %> </p>
-              <p><strong> End point: </strong> <%= r.nodes.last.address %> </p>
+              <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address : r.nodes.last.address %> </p>
             </div>
           </div>
         </div>
