@@ -1,6 +1,10 @@
 <div class="container">
   <div class="event_cover">
-    <%= image_tag "test_map.png" %>
+  <div id="mapa" 
+    data-path="<%= @paths.to_json %>" 
+    data-node="<%= @nodes.first.to_json %>"
+    data-markers="<%= @markers.to_json %>"
+    data-zoom_size="12"></div>
   </div>
 
   <div>

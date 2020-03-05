@@ -17,6 +17,8 @@ if (mapa){
     map.on('load', function() {
         if (Object.keys(paths).length != 0){
             const markers = JSON.parse(mapa.dataset.markers);
+            const zoom = JSON.parse(mapa.dataset.zoom_size);
+            console.log(zoom)
             markers.forEach((marker) => {
                 new mapboxgl.Marker()
                 .setLngLat([ marker.lng, marker.lat ])
@@ -26,7 +28,7 @@ if (mapa){
             const fitMapToMarkers = (map, markers) => {
                 const bounds = new mapboxgl.LngLatBounds();
                 markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-                map.fitBounds(bounds, { padding: 70, maxZoom: 13, duration: 1500 });
+                map.fitBounds(bounds, { padding: 70, maxZoom: zoom, duration: 1500 });
             };
             for (var i = 0; i < Object.keys(paths).length; i++){
                 map.addSource(`route${i}`, {
