@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_141817) do
+ActiveRecord::Schema.define(version: 2020_03_05_115227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 2020_03_04_141817) do
     t.index ["route_id"], name: "index_nodes_on_route_id"
   end
 
+  create_table "participants", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_participants_on_event_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+
   create_table "routes", force: :cascade do |t|
     t.integer "distance", default: 0
     t.string "form", default: "Circular"
@@ -65,5 +74,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_141817) do
 
   add_foreign_key "events", "routes", column: "routes_id"
   add_foreign_key "nodes", "routes"
+  add_foreign_key "participants", "events"
+  add_foreign_key "participants", "users"
   add_foreign_key "routes", "users"
 end

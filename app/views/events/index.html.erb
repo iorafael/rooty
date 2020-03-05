@@ -63,9 +63,9 @@
      <div class="card-event-info">
       <% @events.each do |event| %>
         <div class="card-body">
-          <h2><%= event.title %></h2>
-          <p><strong>When:</strong> <%= event.starttime %> </p>
-          <p><strong> Distance: </strong> 5km </p>
+          <h2> event.title </h2>
+          <p><strong>When:</strong> event.starttime  </p>
+          <p><strong> Distance: </strong> <%= event.distance %> </p>
         </div>
         <% end %>
       </div>
@@ -75,9 +75,9 @@
      <%= image_tag "test_6.jpg" %>
      <div class="card-event-info">
         <div class="card-body">
-          <h2>Title</h2>
-          <p><strong>When:</strong> Monday </p>
-          <p><strong> Distance: </strong> 3km </p>
+          <h2>Event.title</h2>
+          <p><strong>When:</strong> event.starttime </p>
+          <p><strong> Distance: </strong> event.distance </p>
         </div>
       </div>
     </div>
@@ -86,23 +86,13 @@
      <%= image_tag "test_6.jpg" %>
      <div class="card-event-info">
         <div class="card-body">
-          <h2>Title</h2>
-          <p><strong>When:</strong> Monday </p>
-          <p><strong> Distance: </strong> 3km </p>
+          <h2>Event.title</h2>
+          <p><strong>When:</strong> event.starttime </p>
+          <p><strong> Distance: </strong> event.distance </p>
         </div>
       </div>
     </div>
 
-    <div class="card-event">
-     <%= image_tag "test_6.jpg" %>
-     <div class="card-event-info">
-        <div class="card-body">
-          <h2>Title</h2>
-          <p><strong>When:</strong> Monday </p>
-          <p><strong> Distance: </strong> 3km </p>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
  <div class="bottom-img">
