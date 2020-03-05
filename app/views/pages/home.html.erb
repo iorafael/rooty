@@ -43,7 +43,10 @@
     </div>
   </div>
 </div>
-  <div id="mapa" 
-       data-path="<%= @paths.to_json %>" 
-       data-node="<%= @nodes.first.to_json %>"
-       data-markers="<%= @markers.to_json %>"></div>
+  <div id="home-map">
+    <div id="mapa"
+        data-path="<%= @paths.to_json %>" 
+        data-node="<%= @nodes.first.to_json %>"
+        data-markers="<%= @markers.to_json %>"
+        data-zoom_size="13"></div>
+  </div>
