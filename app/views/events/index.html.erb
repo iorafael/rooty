@@ -8,12 +8,12 @@
       <div class="carousel-item active">
         <card class="d-block w-100">
         <div class="card-event-lg">
-          <%= image_tag "test_4.jpg" %>
-          <div class="card-event-lg-info">
             <% @events.each do |event| %>
+          <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
+          <div class="card-event-lg-info">
             <div>
               <h2><%= event.title %></h2>
-              <p><strong> <i class="fas fa-map-marker-alt"></i> London Bridge </strong></p>
+              <p><strong> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </strong></p>
               <p><strong> Distance: </strong> 5km </p>
             </div>
             <% end %>
@@ -23,23 +23,27 @@
       <div class="carousel-item">
         <card class="d-block w-100">
         <div class="card-event-lg">
-          <%= image_tag "test_5.jpg" %>
+          <% @events.each do |event| %>
+          <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
           <div>
-            <h2>Around the Park</h2>
+            <h2>event.title</h2>
             <p><strong> <i class="fas fa-map-marker-alt"></i> Hyde Park </strong></p>
             <p><strong> Distance: </strong> 3km </p>
           </div>
+          <% end %>
         </div>
       </div>
       <div class="carousel-item">
         <card class="d-block w-100">
         <div class="card-event-lg">
-          <%= image_tag "test_2.jpg" %>
+          <% @events.each do |event| %>
+          <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
           <div>
-            <h2>Dog Run</h2>
+            <h2>event.title</h2>
             <p><strong> <i class="fas fa-map-marker-alt"></i> Hoxton </strong></p>
-            <p><strong> Distance: </strong> 2km </p>
+            <p><strong> Distance: </strong> 3km </p>
           </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -70,40 +74,8 @@
         <% end %>
       </div>
     </div>
-
-    <div class="card-event">
-     <%= image_tag "test_6.jpg" %>
-     <div class="card-event-info">
-        <div class="card-body">
-          <h2>Title</h2>
-          <p><strong>When:</strong> Monday </p>
-          <p><strong> Distance: </strong> 3km </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-event">
-     <%= image_tag "test_6.jpg" %>
-     <div class="card-event-info">
-        <div class="card-body">
-          <h2>Title</h2>
-          <p><strong>When:</strong> Monday </p>
-          <p><strong> Distance: </strong> 3km </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-event">
-     <%= image_tag "test_6.jpg" %>
-     <div class="card-event-info">
-        <div class="card-body">
-          <h2>Title</h2>
-          <p><strong>When:</strong> Monday </p>
-          <p><strong> Distance: </strong> 3km </p>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
+
  <div class="bottom-img">
  </div>
