@@ -2,8 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    puts "PARAMS ARE"
-    puts params
     @new_node = Node.new
     if params[:route]
       @paths = []
