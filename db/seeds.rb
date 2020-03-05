@@ -42,6 +42,15 @@ Node.create!(name: "T1.1", route: r5, real: false, longitude: long + 0.0012 * di
 Node.create!(name: "T1.2", route: r5, real: false, longitude: long + 0.0012 * distance, latitude: lat + 0.002 * distance)
 Node.create!(name: "T1.3", route: r5, real: false, longitude: long, latitude: lat + 0.002 * distance)
 
+r6 = Route.create!(user: user2, form: "Linear")
+init = Node.create!(name: "Max's house", route: r6, real:true, address: "SW18 1PS")
+long = init.longitude
+lat = init.latitude
+Node.create!(name: "T1.1", route: r6, real: false, longitude: long + 0.0012 * distance, latitude: lat)
+Node.create!(name: "T1.2", route: r6, real: false, longitude: long + 0.0012 * distance, latitude: lat + 0.002 * distance)
+Node.create!(name: "T1.3", route: r6, real: false, longitude: long, latitude: lat + 0.002 * distance)
+Node.create!(name: "Previous house", route: r6, real: true, address: "SW13 0LW")
+
 profile_pic1 = URI.open('https://cdn.guidingtech.com/media/assets/WordPress-Import/2012/10/Smiley-Thumbnail.png')
 profile_pic2 = URI.open('https://cdn2.f-cdn.com/contestentries/1376995/30494909/5b5e3e75ab981_thumb900.jpg')
 

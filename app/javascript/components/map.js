@@ -1,6 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RlcGhhbm9mdyIsImEiOiJjazZjOGQ0aWMwcGk1M2xtdm8yOWRrbzA2In0.8TtzQLyDozmJPJFdBCdRtw';
 
-
 const mapa = document.getElementById('mapa');
 if (mapa){
     const paths = JSON.parse(mapa.dataset.path)
@@ -9,10 +8,26 @@ if (mapa){
         container: 'mapa',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [node.longitude, node.latitude],
-        zoom: 13
     });
+
+    
+    
+
+
     map.on('load', function() {
         if (Object.keys(paths).length != 0){
+            const markers = JSON.parse(mapa.dataset.markers);
+            markers.forEach((marker) => {
+                new mapboxgl.Marker()
+                .setLngLat([ marker.lng, marker.lat ])
+                .addTo(map);
+            });
+
+            const fitMapToMarkers = (map, markers) => {
+                const bounds = new mapboxgl.LngLatBounds();
+                markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+                map.fitBounds(bounds, { padding: 70, maxZoom: 13, duration: 1500 });
+            };
             for (var i = 0; i < Object.keys(paths).length; i++){
                 map.addSource(`route${i}`, {
                     'type': 'geojson',
@@ -30,7 +45,7 @@ if (mapa){
                     'type': 'line',
                     'source': `route${i}`,
                     'layout': {
-                        'line-join': 'round',
+                        'line-join': 'miter',
                         'line-cap': 'round'
                     },
                     'paint': {
@@ -39,6 +54,9 @@ if (mapa){
                     }
                 });
             };
+            fitMapToMarkers(map, markers);
         }
     });
+
 }
+
