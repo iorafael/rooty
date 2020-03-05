@@ -14,6 +14,26 @@
   border-radius: 8px;
 }
 
+.card-event-profile {
+  overflow: hidden;
+  height: 100px;
+  width: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.card-event-profile img {
+  height: 100%;
+  width: 30%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .card-event img {
   height: 100%;
   width: 30%;
@@ -95,7 +115,6 @@
   width: 100% !important;
   margin-right: 15px;
 }
-
 
 .profile_card {
   background-position: center;
