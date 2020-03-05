@@ -1,9 +1,11 @@
 
 <div class="container flex-direction-column justify-content-center">
+
   <div class="text-center">
     <%= form_for @new_node do |f|%>
       <div class="search-container h-100">
         <div class="d-flex justify-content-center h-100">
+
           <div class="searchbar">
             <%= f.text_field :address, class: "search_input", placeholder: "Search location" %>
             <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
@@ -11,6 +13,7 @@
         </div>
       </div>
     <% end %>
+
   </div>
 
 

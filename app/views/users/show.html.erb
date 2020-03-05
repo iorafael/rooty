@@ -8,41 +8,33 @@
       </div>
     </div>
   </div>
-  <div class="button-right">
-    <button type='button' class='btn-animate mb-3'><span><%=link_to "Return", root_path, class:"white-text"%> </span></button>
-  </div>
-</div>
-<div class="container">
-  <div class="title-left m-3">
-    <h3>My previous runs</h3>
-  </div>
-  <div class="routes_history_card">
-    <% @routes.each do |r| %>
-      <a href="/?route=<%= r.id%>">
-        <div class="card-event">
-          <%= image_tag "test_map.jpg" %>
-          <div class="card-event-info">
-            <div>
-              <p><strong> Distance: </strong> <%= r.distance %> </p>
-              <p><strong> Start point: </strong> <%= r.nodes.first.address %> </p>
-              <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address : r.nodes.last.address %> </p>
+  
+  <div class="container">
+    <div class="title-left m-3">
+      <h3>My previous runs</h3>
+    </div>
+    <div class="routes_history_card">
+      <% @routes.first(3).each do |r| %>
+        <a href="/?route=<%= r.id%>">
+          <div class="card-event-profile">
+            <%= image_tag "test_map.jpg" %>
+            <div class="card-event-info">
+              <div>
+                <p><strong> Distance: </strong> <%= r.distance %> </p>
+                <p><strong> Start point: </strong> <%= r.nodes.first.address %> </p>
+                <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address : r.nodes.last.address %> </p>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    <% end %>
-  </div>
-  <div class="text-center">
-    <%= link_to 'See more' %>
-  </div>
-  <div class="title-left m-3">
-    <h3>My events</h3>
-  </div>
-  <div>
+        </a>
+      <% end %>
+    </div>
 
-  </div>
-   <div class="text-center">
-    <%= link_to 'See more' %>
+    <div class="title-left m-3">
+      <h3>My events</h3>
+    </div>
+    <div>
+      <div class="bottom-img-profile">
   </div>
 </div>
 <div class="bottom-img-profile">
