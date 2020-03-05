@@ -53,8 +53,8 @@ event_photo_2 = URI.open('https://images.unsplash.com/photo-1513593771513-7b58b6
 user1.photo.attach(io: profile_pic1, filename: 'pp1.png', content_type: 'image/png')
 user2.photo.attach(io: profile_pic2, filename: 'pp2.png', content_type: 'image/png')
 
-event1 = Event.create!(route: r1, description: 'The challenge? To run around 5km on our epic closed road route past some of London’s most famous and historic landmarks.', title: '5km run', starttime: Date.new)
+event1 = Event.create!(route: r1, description: 'The challenge? To run around 5km on our epic closed road route past some of London’s most famous and historic landmarks.', title: '5km run', starttime:Time.zone.parse('2020-03-13 9:00') )
 event1.photo.attach(io: event_photo_1, filename: 'event_photo_1.png', content_type: 'image/jpg')
 
-event2 = Event.create!(route: r5, description: 'Come and run a chip timed 3k and see how your winter training is progressing so far!', title: '3km run', starttime: Date.new)
+event2 = Event.create!(route: r5, description: 'Come and run a chip timed 3k and see how your winter training is progressing so far!', title: '3km run', starttime: Time.zone.parse('2020-03-11 10:00'))
 event2.photo.attach(io: event_photo_2, filename: 'event_photo_2.png', content_type: 'image/jpg')

@@ -1,6 +1,7 @@
 <div class="container">
   <div class="event_cover">
-    <%= image_tag "test_4.jpg" %>
+    <%=cl_image_tag(@event.photo.key,
+      width: 400, height: 300, crop: :fill) %>
   </div>
 
   <div>
@@ -9,19 +10,12 @@
       <p> <strong>Description: </strong><%= @event.description %> </p>
     </div>
     <div>
-      <p><strong><i class="fas fa-map-marker-alt"></i></strong> London Bridge  </p>
-      <p><strong><i class="fas fa-running"></i></strong> 5km </p>
+      <p><strong><i class="fas fa-map-marker-alt"></i></strong> <%= @event.route.nodes.first.address %></p>
+      <p><strong><i class="fas fa-running"></i></strong><%= @event.route.distance %></p>
       <p><strong><i class="fas fa-clock"></i></strong><%= @event.starttime %></p>
       <p><i class="fas fa-users"></i></p>
     </div>
-    <% end %>
   </div>
-  <div class="card">
-    <div class="event_map">
-      <%= image_tag "test_map.jpg" %>
-    </div>
-  </div>
-
 </div>
 
 <div class="bottom-img">
