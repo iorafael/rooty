@@ -1,36 +1,48 @@
 user1 = User.create!(name:'max', lastname:"denton", email:"max@mail.com", username:"bakemypotatoes", password:"123456")
 user2 = User.create!(username: "test1", name: "Dan", lastname:"ghimpu", email:"daniel@test.com", password:"123456", password_confirmation:"123456")
 
+distance = 5
+
 r1 = Route.create!(user: user1)
-Node.create!(name: "Max's house", route: r1, real:true, address: "SW18 1PS")
-Node.create!(name: "T1.1", route: r1, real: false)
-Node.create!(name: "T1.2", route: r1, real: false)
-Node.create!(name: "T1.3", route: r1, real: false)
+init = Node.create!(name: "Max's house", route: r1, real:true, address: "SW18 1PS")
+long = init.longitude
+lat = init.latitude
+Node.create!(name: "T1.1", route: r1, real: false, longitude: long + 0.0012 * distance, latitude: lat)
+Node.create!(name: "T1.2", route: r1, real: false, longitude: long + 0.0012 * distance, latitude: lat + 0.002 * distance)
+Node.create!(name: "T1.3", route: r1, real: false, longitude: long, latitude: lat + 0.002 * distance)
 
 
 r2 = Route.create!(user: user1)
-Node.create!(name: "stinky's house", route: r2, real:true, address: "SW13 0LW")
-Node.create!(name: "T1.1", route: r2, real: false)
-Node.create!(name: "T1.2", route: r2, real: false)
-Node.create!(name: "T1.3", route: r2, real: false)
+init = Node.create!(name: "stinky's house", route: r2, real:true, address: "SW13 0LW")
+long = init.longitude
+lat = init.latitude
+Node.create!(name: "T1.1", route: r2, real: false, longitude: long + 0.0012 * distance, latitude: lat)
+Node.create!(name: "T1.2", route: r2, real: false, longitude: long + 0.0012 * distance, latitude: lat + 0.002 * distance)
+Node.create!(name: "T1.3", route: r2, real: false, longitude: long, latitude: lat + 0.002 * distance)
 
 r3 = Route.create!(user: user1)
-Node.create!(name: "willies house", route: r3, real:true, address: "NW2 2AR")
-Node.create!(name: "T1.1", route: r3, real: false)
-Node.create!(name: "T1.2", route: r3, real: false)
-Node.create!(name: "T1.3", route: r3, real: false)
+init = Node.create!(name: "willies house", route: r3, real:true, address: "NW2 2AR")
+long = init.longitude
+lat = init.latitude
+Node.create!(name: "T1.1", route: r3, real: false, longitude: long + 0.0012 * distance, latitude: lat)
+Node.create!(name: "T1.2", route: r3, real: false, longitude: long + 0.0012 * distance, latitude: lat + 0.002 * distance)
+Node.create!(name: "T1.3", route: r3, real: false, longitude: long, latitude: lat + 0.002 * distance)
 
 r4 = Route.create!(user: user2)
-Node.create!(name: "Max's house", route: r4, real:true, address: "SW15 2SP")
-Node.create!(name: "T1.1", route: r4, real: false)
-Node.create!(name: "T1.2", route: r4, real: false)
-Node.create!(name: "T1.3", route: r4, real: false)
+init = Node.create!(name: "Max's house", route: r4, real:true, address: "SW15 2SP")
+long = init.longitude
+lat = init.latitude
+Node.create!(name: "T1.1", route: r4, real: false, longitude: long + 0.0012 * distance, latitude: lat)
+Node.create!(name: "T1.2", route: r4, real: false, longitude: long + 0.0012 * distance, latitude: lat + 0.002 * distance)
+Node.create!(name: "T1.3", route: r4, real: false, longitude: long, latitude: lat + 0.002 * distance)
 
 r5 = Route.create!(user: user2)
-Node.create!(name: "Max's house", route: r5, real:true, address: "KT12 3PU")
-Node.create!(name: "T1.1", route: r5, real: false)
-Node.create!(name: "T1.2", route: r5, real: false)
-Node.create!(name: "T1.3", route: r5, real: false)
+init = Node.create!(name: "Max's house", route: r5, real:true, address: "KT12 3PU")
+long = init.longitude
+lat = init.latitude
+Node.create!(name: "T1.1", route: r5, real: false, longitude: long + 0.0012 * distance, latitude: lat)
+Node.create!(name: "T1.2", route: r5, real: false, longitude: long + 0.0012 * distance, latitude: lat + 0.002 * distance)
+Node.create!(name: "T1.3", route: r5, real: false, longitude: long, latitude: lat + 0.002 * distance)
 
 profile_pic1 = URI.open('https://cdn.guidingtech.com/media/assets/WordPress-Import/2012/10/Smiley-Thumbnail.png')
 profile_pic2 = URI.open('https://cdn2.f-cdn.com/contestentries/1376995/30494909/5b5e3e75ab981_thumb900.jpg')
