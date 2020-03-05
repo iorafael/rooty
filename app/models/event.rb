@@ -1,7 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :routes
-  has_many :participants
+  belongs_to :route
   has_one_attached :photo
-
-  validates :description, :starttime, presence: true
+  has_many :participants
 end
