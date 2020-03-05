@@ -67,9 +67,9 @@
      <div class="card-event-info">
       <% @events.each do |event| %>
         <div class="card-body">
-          <h2><%= event.title %></h2>
-          <p><strong>When:</strong> <%= event.starttime %> </p>
-          <p><strong> Distance: </strong> 5km </p>
+          <h2> event.title </h2>
+          <p><strong>When:</strong> event.starttime  </p>
+          <p><strong> Distance: </strong> <%= event.distance %> </p>
         </div>
         <% end %>
       </div>

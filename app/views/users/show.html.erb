@@ -1,6 +1,4 @@
 <div class="container d-flex ">
-
-
   <div class="container justify-content-between">
     <div class="row align-items-center">
     <img class="profiles-photo" id="navbarDropdown" data-toggle="dropdown" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
@@ -14,7 +12,6 @@
       <button type='button' class='btn-animate mb-3'><span><%=link_to "Return", root_path, class:"white-text"%> </span></button>
     </div>
   </div>
-
 </div>
 
 <div class="container">
@@ -38,20 +35,33 @@
       </a>
     <% end %>
   </div>
-
   <div class="text-center">
     <%= link_to 'See more' %>
   </div>
   <div class="title-left m-3">
     <h3>My events</h3>
   </div>
-
   <div>
-
+    <div class="routes_history_card">
+      <% @events.each do |r| %>
+        <a href="/">
+          <div class="card-event">
+            <%= image_tag "test_map.jpg" %>
+            <div class="card-event-info">
+              <div>
+                <p><%= r.title %> </p>
+                <p><%= r.route %> </p>
+                <p><%= r.description %> </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      <% end %>
+    </div>
   </div>
-
    <div class="text-center">
     <%= link_to 'See more' %>
   </div>
-
+</div>
+<div class="bottom-img-profile">
 </div>

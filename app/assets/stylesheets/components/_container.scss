@@ -2,7 +2,36 @@
   margin-top: 35px;
 }
 
-
 .background-color {
   background-color: #FFFBE8;
+}
+
+.bottom-img {
+  background-image: url(wireframe.png);
+  opacity: 0.5;
+  position: fixed;
+  z-index:-1;
+  bottom: 0;
+  height: 300px;
+  width: 100% !important;
+}
+
+.bottom-img-profile {
+  background: linear-gradient(#FFFBE8, rgb(255,255,255), transparent), url("city.png");
+  opacity: 0.1;
+  position: fixed;
+  z-index:-1;
+  bottom: 0;
+  height: 800px;
+  width: 100% !important;
+}
+
+.add-stop {
+  text-align: left;
+  border-radius: 4px;
+}
+
+.add-stop div {
+  display:block;
+  box-sizing: border-box;
 }
