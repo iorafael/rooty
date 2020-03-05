@@ -8,8 +8,7 @@ class NodesController < ApplicationController
         Node.create!(name: "T1.1", route: newroute, real: false, longitude: long + 0.0012 * distance, latitude: lat)
         Node.create!(name: "T1.2", route: newroute, real: false, longitude: long + 0.0012 * distance, latitude: lat + 0.002 * distance)
         Node.create!(name: "T1.3", route: newroute, real: false, longitude: long, latitude: lat + 0.002 * distance)
-        # Node.create!(name: "T1.4", route: newroute, real: false, longitude: long+0.006, latitude: lat)
-        # Node.create!(name: "Le Wagon", address: "E2 8DY", route: Route.first, real: true)
+        redirect_to root_path(route: newroute.id)
     end
 
 end
