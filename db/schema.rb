@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 2020_03_05_115227) do
   create_table "events", force: :cascade do |t|
     t.string "description"
     t.datetime "starttime"
-    t.bigint "routes_id", null: false
+    t.bigint "route_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
     t.string "photo"
-    t.index ["routes_id"], name: "index_events_on_routes_id"
+    t.index ["route_id"], name: "index_events_on_route_id"
   end
 
   create_table "nodes", force: :cascade do |t|
