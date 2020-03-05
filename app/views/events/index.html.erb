@@ -5,25 +5,27 @@
   </br>
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-          <% @events.each do |event| %>
-      <div class="carousel-item <%= 'active' if event == @events.first %>">
-        <card class="d-block w-100">
-          <div class="card-event-lg">
-            <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
-            <% if event == @events.first %>
-            <div class="card-event-lg-info">
-              <% end %>
-              <div>
-                <h2><%= event.title %></h2>
-                <p><strong> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </strong></p>
-                <p><strong> Distance: </strong><%= event.route.distance %></p>
-              </div>
+      <% @events.each do |event| %>
+        <a href="/events/<%= event.id %>">
+        <div class="carousel-item <%= 'active' if event == @events.first %>">
+          <card class="d-block w-100">
+            <div class="card-event-lg">
+              <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
               <% if event == @events.first %>
+              <div class="card-event-lg-info">
+                <% end %>
+                <div>
+                  <h2><%= event.title %></h2>
+                  <p><strong> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </strong></p>
+                  <p><strong> Distance: </strong><%= event.route.distance %></p>
+                </div>
+                <% if event == @events.first %>
+              </div>
+                <% end %>
             </div>
-              <% end %>
-          </div>
-        </card>
-      </div>
+          </card>
+        </div>
+        </a>
       <% end %>
     </div>
 
@@ -42,19 +44,20 @@
 
   <div class="container">
     <% @events.each do |event| %>
-    <div class="card-event">
-     <%= image_tag "test_6.jpg" %>
-     <div class="card-event-info">
-        <div class="card-body">
-          <h2><%= event.title %></h2>
-          <p><strong>When:</strong> <%= event.starttime %> </p>
-          <p><strong> Distance: </strong> <%= event.route.distance %> </p>
+    <a href="/events/<%= event.id %>">
+      <div class="card-event">
+       <%= image_tag "test_6.jpg" %>
+       <div class="card-event-info">
+          <div class="card-body">
+            <h2><%= event.title %></h2>
+            <p><strong>When:</strong> <%= event.starttime %> </p>
+            <p><strong> Distance: </strong> <%= event.route.distance %> </p>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
     <% end %>
   </div>
 </div>
-
- <div class="bottom-img">
- </div>
+<div class="bottom-img-events">
+</div>
