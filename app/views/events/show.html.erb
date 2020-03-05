@@ -1,7 +1,6 @@
 <div class="container">
   <div class="event_cover">
-    <%=cl_image_tag(@event.photo.key,
-      width: 400, height: 300, crop: :fill) %>
+    <%= image_tag "test_map.png" %>
   </div>
 
   <div>
@@ -17,5 +16,14 @@
     </div>
   </div>
 </div>
+
+<div class="join-container">
+  <div class="row">
+    <div class="col-md-12">
+    <button class="btn btn-default charcoal-circle-button" href="">Join<span class="charcoal-circle-greater-than"></span></button>
+    </div>
+  </div>
+</div>
+
 <div class="bottom-img-events">
 </div>
