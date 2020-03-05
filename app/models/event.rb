@@ -1,5 +1,4 @@
 class Event < ApplicationRecord
-
   belongs_to :routes
   has_many :users, through: :participants
 
