@@ -36,18 +36,30 @@
       </a>
     <% end %>
   </div>
-
   <div class="text-center">
     <%= link_to 'See more' %>
   </div>
   <div class="title-left m-3">
     <h3>My events</h3>
   </div>
-
   <div>
-
+    <div class="routes_history_card">
+      <% @events.each do |r| %>
+        <a href="/">
+          <div class="card-event">
+            <%= image_tag "test_map.jpg" %>
+            <div class="card-event-info">
+              <div>
+                <p><%= r.title %> </p>
+                <p><%= r.route %> </p>
+                <p><%= r.description %> </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      <% end %>
+    </div>
   </div>
-
    <div class="text-center">
     <%= link_to 'See more' %>
   </div>
