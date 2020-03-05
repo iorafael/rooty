@@ -9,13 +9,13 @@
   <div class="overlay" id="overlay">
     <nav class="overlay-menu">
      <ul>
-       <li><%= link_to "Routes", root_path, class: "text-dark" %></li>
-       <li><%= link_to "Events", events_path, class: "text-dark" %></li>
+       <li><%= link_to "Home", root_path, class: "black-text" %></li>
+       <li><%= link_to "Events", events_path, class: "black-text" %></li>
        <% if user_signed_in? %>
-         <li><%= link_to "Profile", user_path(current_user), class: "text-dark" %></li>
-         <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-dark"%></li>
+         <li><%= link_to "Profile", user_path(current_user), class: "black-text" %></li>
+         <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "black-text"%></li>
        <% else %>
-         <li><%= link_to "Login", new_user_session_path, class: "text-dark" %></li>
+         <li><%= link_to "Login", new_user_session_path, class: "black-text" %></li>
        <% end %>
      </ul>
     </nav>

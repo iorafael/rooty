@@ -1,8 +1,9 @@
 
 .routes-container {
   position: fixed;
-  bottom: 10px;
-  margin: 2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
 }
 
 .map-background {
@@ -217,7 +218,7 @@ $button-width: 23px;
 }
 
 #mapa {
-  margin: 0; 
+  margin: 0;
   padding: 0;
   position: absolute;
   height: 100%;
