@@ -1,8 +1,6 @@
 user1 = User.create!(name:'max', lastname:"denton", email:"max@mail.com", username:"bakemypotatoes", password:"123456")
 user2 = User.create!(username: "test1", name: "Dan", lastname:"ghimpu", email:"daniel@test.com", password:"123456", password_confirmation:"123456")
-
 distance = 5
-
 r1 = Route.create!(user: user1)
 init = Node.create!(name: "Max's house", route: r1, real:true, address: "SW18 1PS")
 long = init.longitude
