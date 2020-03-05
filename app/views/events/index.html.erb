@@ -5,47 +5,26 @@
   </br>
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
+          <% @events.each do |event| %>
+      <div class="carousel-item <%= 'active' if event == @events.first %>">
         <card class="d-block w-100">
-        <div class="card-event-lg">
-            <% @events.each do |event| %>
-          <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
-          <div class="card-event-lg-info">
-            <div>
-              <h2><%= event.title %></h2>
-              <p><strong> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </strong></p>
-              <p><strong> Distance: </strong> 5km </p>
+          <div class="card-event-lg">
+            <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
+            <% if event == @events.first %>
+            <div class="card-event-lg-info">
+              <% end %>
+              <div>
+                <h2><%= event.title %></h2>
+                <p><strong> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </strong></p>
+                <p><strong> Distance: </strong><%= event.route.distance %></p>
+              </div>
+              <% if event == @events.first %>
             </div>
-            <% end %>
+              <% end %>
           </div>
-        </div>
+        </card>
       </div>
-      <div class="carousel-item">
-        <card class="d-block w-100">
-        <div class="card-event-lg">
-          <% @events.each do |event| %>
-          <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
-          <div>
-            <h2>event.title</h2>
-            <p><strong> <i class="fas fa-map-marker-alt"></i> Hyde Park </strong></p>
-            <p><strong> Distance: </strong> 3km </p>
-          </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <card class="d-block w-100">
-        <div class="card-event-lg">
-          <% @events.each do |event| %>
-          <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
-          <div>
-            <h2>event.title</h2>
-            <p><strong> <i class="fas fa-map-marker-alt"></i> Hoxton </strong></p>
-            <p><strong> Distance: </strong> 3km </p>
-          </div>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     </div>
 
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -62,18 +41,18 @@
   </br>
 
   <div class="container">
+    <% @events.each do |event| %>
     <div class="card-event">
      <%= image_tag "test_6.jpg" %>
      <div class="card-event-info">
-      <% @events.each do |event| %>
         <div class="card-body">
           <h2><%= event.title %></h2>
           <p><strong>When:</strong> <%= event.starttime %> </p>
-          <p><strong> Distance: </strong> 5km </p>
+          <p><strong> Distance: </strong> <%= event.route.distance %> </p>
         </div>
-        <% end %>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
 
