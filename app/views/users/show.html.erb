@@ -1,14 +1,16 @@
-<div class="container d-flex ">
-  <div class="container justify-content-between">
-    <div class="row align-items-center">
-      <img class="profiles-photo" id="navbarDropdown" data-toggle="dropdown" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
-      <div>
-        <h2><%= current_user.username %></h2>
-        <p><%= current_user.name %> <%= current_user.lastname %></p>
+<div class="profile-card">
+  <div class="container d-flex background-profile-page ">
+    <div class="container justify-content-between">
+      <div class="row align-items-center">
+        <img class="profiles-photo" id="navbarDropdown" data-toggle="dropdown" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+        <div>
+          <h2><%= current_user.username %></h2>
+          <p><%= current_user.name %> <%= current_user.lastname %></p>
+        </div>
       </div>
     </div>
   </div>
-  
+
   <div class="container">
     <div class="title-left m-3">
       <h3>My previous runs</h3>
@@ -36,6 +38,4 @@
     <div>
       <div class="bottom-img-profile">
   </div>
-</div>
-<div class="bottom-img-profile">
 </div>
