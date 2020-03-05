@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_115227) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "events", "route", column: "route_id"
+  add_foreign_key "events", "routes"
   add_foreign_key "nodes", "routes"
   add_foreign_key "participants", "events"
   add_foreign_key "participants", "users"
