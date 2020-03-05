@@ -34,8 +34,8 @@ if (mapa){
                         'line-cap': 'round'
                     },
                     'paint': {
-                        'line-color': '#888',
-                        'line-width': 8
+                        'line-color': '#669DF6',
+                        'line-width': 5
                     }
                 });
             };
