@@ -23,7 +23,7 @@
 }
 
 .btn-animate {
-  background-color: white;
+  background-color: #413E44;
   color: black;
   font-size: 16px;
   font-family: 'Titillium Web', 'Times New Roman', Times, serif ;
@@ -31,6 +31,12 @@
   width: 100px;
   text-align: center;
   margin-top: 5px;
+  border-radius: 24px;
+}
+
+.btn-animate a {
+  color: #fffbe8;
+  font-family: roboto;
 }
 
 .button-right {
@@ -45,4 +51,12 @@
 
 .routes_history_card a {
   text-decoration: none;
+}
+
+.background-profile-page {
+  background-image:url(profil-background.jpg);
+  background-size: 100%;
+  width: 93%;
+  border-radius: 12px;
+  margin-top: 5px;
 }
