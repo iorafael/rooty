@@ -2,7 +2,7 @@
   <div class="container d-flex background-profile-page ">
     <div class="container justify-content-center">
       <div class="row align-items-center">
-        <img class="profiles-photo" id="navbarDropdown" data-toggle="dropdown" src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+        <%= cl_image_tag(current_user.photo.key, crop: :fill, class: "profiles-photo") %>
         <div>
           <h2><%= current_user.username %></h2>
           <p><%= current_user.name %> <%= current_user.lastname %></p>
