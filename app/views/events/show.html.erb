@@ -1,7 +1,7 @@
 <div class="container">
   <div class="event_cover">
-  <div id="mapa" 
-    data-path="<%= @paths.to_json %>" 
+  <div id="mapa"
+    data-path="<%= @paths.to_json %>"
     data-node="<%= @nodes.first.to_json %>"
     data-markers="<%= @markers.to_json %>"
     data-zoom_size="12"></div>
@@ -28,6 +28,5 @@
     </div>
   </div>
 </div>
-
-<div class="bottom-img-events">
+<div class="bottom-img-events" style="background: linear-gradient(#FFFBE8, rgb(255,255,255), transparent), url(<%= image_path('wireframe.png') %>);">
 </div>
