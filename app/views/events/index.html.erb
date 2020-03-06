@@ -11,7 +11,11 @@
         <a href="/events/<%= event.id %>">
           <card class="d-block w-100">
             <div class="card-event-lg">
-              <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
+              <% if event.photo.attached? %>
+                <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
+              <% else %>
+                <%= image_tag "test_6.jpg", width: 400, height: 300 %>
+              <% end %>
               <% if event == @today_events.first %>
               <div class="card-event-lg-info">
                 <% end %>
