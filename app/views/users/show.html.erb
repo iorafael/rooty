@@ -22,7 +22,7 @@
             <%= image_tag "test_map.jpg" %>
             <div class="card-event-info">
               <div>
-                <p><strong> Distance: </strong> <%= r.distance %> </p>
+                <p><strong> Distance: </strong> <%= r.distance %> meters</p>
                 <p><strong> Start point: </strong> <%= r.nodes.first.address %> </p>
                 <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address : r.nodes.last.address %> </p>
               </div>

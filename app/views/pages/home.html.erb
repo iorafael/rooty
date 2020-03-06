@@ -31,10 +31,6 @@
     </div>
   </div>
 
-
-  <div id="mapa" data-path="<%= @paths.to_json %>" data-node="<%= @nodes.first.to_json %>"></div>
-</div>
-
 <!-- add stop - form to be used on the next implementation -->
   <!-- <div class="routes-container">
     <div class="input-group">
@@ -61,3 +57,11 @@
       <input type="text" class="form-control">
     </div>
   </div> -->
+</div>
+  <div id="home-map">
+    <div id="mapa"
+        data-path="<%= @paths.to_json %>" 
+        data-node="<%= @nodes.first.to_json %>"
+        data-markers="<%= @markers.to_json %>"
+        data-zoom_size="13"></div>
+  </div>
