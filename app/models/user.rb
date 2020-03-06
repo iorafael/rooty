@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :routes
 
   has_many :participants
-  has_many :events, through: :participants
+  has_many :events, through: :routes
 
   has_one_attached :photo
 

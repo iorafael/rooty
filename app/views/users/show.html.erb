@@ -51,7 +51,20 @@
   </div>
 
   <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-  <!-- code here for my events -->
+    <% current_user.events do |r| %>
+      <a href="/?route=<%= r.id%>">
+              <div class="card-event-profile">
+                <%= image_tag "test_map.jpg" %>
+                <div class="card-event-info">
+                  <div>
+                    <p><strong> Distance: </strong> <%= r.distance %> meters</p>
+                    <p><strong> Start point: </strong> <%= r.nodes.first.address.upcase %> </p>
+                    <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address.upcase : r.nodes.last.address.upcase %> </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+    <% end %>
   </div>
 </div>
 <div class="bottom-img-profile" style="background: linear-gradient(#FFFBE8, rgb(255,255,255), transparent), url(<%= image_path('city.png') %>);">
