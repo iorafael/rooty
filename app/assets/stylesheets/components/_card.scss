@@ -2,6 +2,34 @@
   margin: 0;
 }
 
+.card-home {
+  overflow: hidden;
+  width: 100%;
+  height: 160px;
+  background: white;
+  opacity:0.6;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  flex-direction: column;
+  position: fixed;
+  bottom: 1px;
+  left: 2px;
+  right: 2px;
+  font-size: 24px;
+}
+
+.card-home input {
+  width: 50%;
+  font-size: 16px;
+}
+
+.card-home button {
+  opacity: 1 !important;
+}
+
 .card-event {
   overflow: hidden;
   height: 100px;
@@ -12,6 +40,7 @@
   margin-bottom: 20px;
   border: 10px;
   border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2)
 }
 
 .card-event-profile {
@@ -62,12 +91,12 @@
 
 .card-event-lg {
   overflow: hidden;
-  height: 250px;
+  height: 220px;
   background: white;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  border-radius: 8px;
+  border-radius: 25px;
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
 

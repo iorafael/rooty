@@ -1,10 +1,49 @@
-.btn-stop {
+.btn-login {
   border-radius: 20px;
   padding: 8px 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background: white;
+  background: #BFFBF8;
+  opacity: .9;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  margin: 8px;
+  width: 100%;
+}
+
+.bungee-font {
+  font-family: 'Bungee Inline', cursive;
+  font-size: 100px;
+  color: #413E44;
+  text-align: center;
+  position: relative;
+}
+
+.bungee-font-nav {
+  font-family: 'Bungee Inline', cursive;
+  font-size: 70px;
+  color: #413E44;
+}
+
+.btn-signup {
+  width: 100%;
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+  background: #00c2fd;
+  opacity: .75;
+  align-items: center;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.btn-recovery {
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fffbea;
+  opacity: .8;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  width: 100%;
 }
