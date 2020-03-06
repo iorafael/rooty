@@ -5,31 +5,30 @@
     <%= form_for @new_node do |f|%>
       <div class="search-container h-100">
         <div class="d-flex justify-content-center h-100">
-
           <div class="searchbar">
             <%= f.text_field :address, class: "search_input", placeholder: "Search location" %>
             <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
-            </div>
           </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="card-home">
+    <div class="row">
+      <p><i class="fas fa-mug-hot"></i></p>
+      <p><i class="fas fa-dumbbell"></i></p>
+      <p><i class="fas fa-dog"></i></p>
+      <p><i class="fas fa-utensils"></i></p>
+      <p><i class="fas fa-beer"></i></p>
     </div>
-
-
-    <div class="card-home">
-      <div class="row">
-        <p><i class="fas fa-mug-hot"></i></p>
-        <p><i class="fas fa-dumbbell"></i></p>
-        <p><i class="fas fa-dog"></i></p>
-        <p><i class="fas fa-utensils"></i></p>
-        <p><i class="fas fa-beer"></i></p>
-      </div>
       <input placeholder="Add stops to your Rooty">
-      <div>
-        <button class="btn-lg btn-danger">Coming Soon...</button>
-      </div>
+    <div>
+      <button class="btn-lg btn-danger">Coming Soon...</button>
     </div>
   </div>
+</div>
 
 <!-- add stop - form to be used on the next implementation -->
   <!-- <div class="routes-container">
@@ -58,10 +57,11 @@
     </div>
   </div> -->
 </div>
-  <div id="home-map">
-    <div id="mapa"
-        data-path="<%= @paths.to_json %>" 
-        data-node="<%= @nodes.first.to_json %>"
-        data-markers="<%= @markers.to_json %>"
-        data-zoom_size="13"></div>
+<div id="home-map">
+  <div id="mapa"
+    data-path="<%= @paths.to_json %>"
+    data-node="<%= @nodes.first.to_json %>"
+    data-markers="<%= @markers.to_json %>"
+    data-zoom_size="13">
   </div>
+</div>
