@@ -51,20 +51,25 @@
   </div>
 
   <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-    <% current_user.events do |r| %>
-      <a href="/?route=<%= r.id%>">
-              <div class="card-event-profile">
-                <%= image_tag "test_map.jpg" %>
-                <div class="card-event-info">
-                  <div>
-                    <p><strong> Distance: </strong> <%= r.distance %> meters</p>
-                    <p><strong> Start point: </strong> <%= r.nodes.first.address.upcase %> </p>
-                    <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address.upcase : r.nodes.last.address.upcase %> </p>
-                  </div>
-                </div>
+  <div class="container">
+  <div class="title-left m-3">
+    <div class="routes_history_card">
+      <% @events.each do |e| %>
+        <a href="/events/<%= e.id%>">
+          <div class="card-event-profile">
+            <%= image_tag "test_map.jpg" %>
+            <div class="card-event-info">
+              <div>
+                <p><strong> Distance: </strong> <%= e.title %> meters</p>
+                <p><strong> Start point: </strong> <%= e.route.distance %> </p>
+                <p><strong> End point: </strong> <%= e.route.form == "Circular" ? e.route.nodes.first.address.upcase : e.route.nodes.last.address.upcase %> </p>
               </div>
-            </a>
-    <% end %>
+            </div>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  </div>
   </div>
 </div>
 <div class="bottom-img-profile" style="background: linear-gradient(#FFFBE8, rgb(255,255,255), transparent), url(<%= image_path('city.png') %>);">
