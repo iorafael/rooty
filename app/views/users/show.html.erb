@@ -2,7 +2,11 @@
   <div class="container d-flex background-profile-page ">
     <div class="container justify-content-center">
       <div class="row align-items-center">
-        <%= cl_image_tag(current_user.photo.key, crop: :fill, class: "profiles-photo") %>
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag(current_user.photo.key, crop: :fill, class: "profiles-photo") %>
+        <% else %>
+          <%= image_tag "pp.png", crop: :fill, class: "profiles-photo"%>
+        <% end %>
         <div>
           <h2><%= current_user.username %></h2>
           <p><%= current_user.name %> <%= current_user.lastname %></p>
