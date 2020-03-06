@@ -10,51 +10,45 @@
       </div>
     </div>
   </div>
-
-</br>
-
-<nav>
-  <div class="d-flex justify-content-center"><h2 class="bungee-font-small">My routes</h2></div>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="true">History</a>
-    <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>
-  </div>
-</nav>
-</br>
-
-<div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
-    <div class="container">
-      <div class="title-left m-3">
-        <div class="routes_history_card">
-          <% @routes.first(3).each do |r| %>
-            <a href="/?route=<%= r.id%>">
-              <div class="card-event-profile">
-                <%= image_tag "test_map.jpg" %>
-                <div class="card-event-info">
-                  <div>
-                    <p><strong> Distance: </strong> <%= r.distance %> meters</p>
-                    <p><strong> Start point: </strong> <%= r.nodes.first.address %> </p>
-                    <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address : r.nodes.last.address %> </p>
+  </br>
+  <nav>
+    <div class="d-flex justify-content-center"><h2 class="bungee-font-small">My routes</h2></div>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="true">History</a>
+      <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>
+    </div>
+  </nav>
+  </br>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
+      <div class="container">
+        <div class="title-left m-3">
+          <div class="routes_history_card">
+            <% @routes.first(3).each do |r| %>
+              <a href="/?route=<%= r.id%>">
+                <div class="card-event-profile">
+                  <%= image_tag "test_map.jpg" %>
+                  <div class="card-event-info">
+                    <div>
+                      <p><strong> Distance: </strong> <%= r.distance %> meters</p>
+                      <p><strong> Start point: </strong> <%= r.nodes.first.address %> </p>
+                      <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address : r.nodes.last.address %> </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </a>
-          <% end %>
+              </a>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-    <div class="title-left m-3">
-      <h1>seyugdhiehslj</h1>
+    <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
+      <div class="title-left m-3">
+        <h1>seyugdhiehslj</h1>
+      </div>
     </div>
-  </div>
-
-</div>
-
-  <div>
+    <div>
     <div class="bottom-img-profile">
+    </div>
   </div>
 </div>
