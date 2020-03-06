@@ -27,20 +27,21 @@
 </br>
 
 <div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
-    <div class="container">
-      <div class="title-left m-3">
-        <div class="routes_history_card">
-          <% @routes.first(3).each do |r| %>
-            <a href="/?route=<%= r.id%>">
-              <div class="card-event-profile">
-                <%= image_tag "test_map.jpg" %>
-                <div class="card-event-info">
-                  <div>
-                    <p><strong> Distance: </strong> <%= r.distance %> meters</p>
-                    <p><strong> Start point: </strong> <%= r.nodes.first.address.upcase %> </p>
-                    <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address.upcase : r.nodes.last.address.upcase %> </p>
-                  </div>
+   <div class="tab-pane fade show active" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
+      <div class="container">
+        <div class="title-left m-3">
+         <div class="routes_history_card">
+            <% @routes.first(3).each do |r| %>
+              <a href="/?route=<%= r.id%>">
+                <div class="card-event-profile">
+                 <%= image_tag "test_map.jpg" %>
+                 <div class="card-event-info">
+                   <div>
+                      <p><strong> Distance: </strong> <%= r.distance %> meters</p>
+                      <p><strong> Start point: </strong> <%= r.nodes.first.address.upcase %> </p>
+                      <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address.upcase : r.nodes.last.address.upcase %> </p>
+                    </div>
+                 </div>
                 </div>
               </a>
             <% end %>
