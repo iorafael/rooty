@@ -7,8 +7,8 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <% @events.each do |event| %>
-        <a href="/events/<%= event.id %>">
         <div class="carousel-item <%= 'active' if event == @events.first %>">
+        <a href="/events/<%= event.id %>">
           <card class="d-block w-100">
             <div class="card-event-lg">
               <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
@@ -24,9 +24,8 @@
               </div>
                 <% end %>
             </div>
-          </card>
+          </a>
         </div>
-        </a>
       <% end %>
     </div>
 
@@ -45,18 +44,18 @@
 
   <div class="container">
     <% @events.each do |event| %>
-    <a href="/events/<%= event.id %>">
-      <div class="card-event">
-       <%= image_tag "test_6.jpg" %>
-       <div class="card-event-info">
-          <div class="card-body">
-            <h2><%= event.title %></h2>
-            <p><strong>When:</strong> <%= event.starttime %> </p>
-            <p><strong> Distance: </strong> <%= event.route.distance %> meters </p>
+      <a href="/events/<%= event.id %>">
+        <div class="card-event">
+          <%= cl_image_tag(event.photo.key, crop: :fill) %>
+          <div class="card-event-info">
+            <div class="card-body">
+              <h2><%= event.title %></h2>
+              <p><strong>When:</strong> <%= event.starttime %> </p>
+              <p><strong> Distance: </strong> <%= event.route.distance %> meters </p>
+            </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
     <% end %>
   </div>
 </div>
