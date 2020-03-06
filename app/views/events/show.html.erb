@@ -13,11 +13,10 @@
       <p> <strong>Description: </strong><%= @event.description %> </p>
     </div>
     <div>
-      <p><strong><i class="fas fa-map-marker-alt"></i> </strong> <%= @event.route.nodes.first.address %></p>
-      <p><strong><i class="fas fa-running"></i>  </strong><%= @event.route.distance %> meters </p>
-      <p><strong><i class="fas fa-clock"></i> </strong><%= @event.starttime %></p>
+      <p><strong><i class="fas fa-map-marker-alt"></i></strong> <%= @event.route.nodes.first.address %></p>
+      <p><strong><i class="fas fa-running"></i></strong><%= @event.route.distance %> meters </p>
+      <p><strong><i class="fas fa-clock"></i></strong><%= @event.starttime.strftime("%B %d, %Y at %I:%M%p") %></p>
       <p><i class="fas fa-users"></i> <%= @event.participants.count %></p>
-
     </div>
   </div>
 </div>
@@ -37,6 +36,5 @@
     </div>
   </div>
 </div>
-
-<div class="bottom-img-events">
+<div class="bottom-img-events" style="background: linear-gradient(#FFFBE8, rgb(255,255,255), transparent), url(<%= image_path('wireframe.png') %>);">
 </div>
