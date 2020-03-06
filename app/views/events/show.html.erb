@@ -15,7 +15,7 @@
     <div>
       <p><strong><i class="fas fa-map-marker-alt"></i></strong> <%= @event.route.nodes.first.address %></p>
       <p><strong><i class="fas fa-running"></i></strong><%= @event.route.distance %> meters </p>
-      <p><strong><i class="fas fa-clock"></i></strong><%= @event.starttime %></p>
+      <p><strong><i class="fas fa-clock"></i></strong><%= @event.starttime.strftime("%B %d, %Y at %I:%M%p") %></p>
       <p><i class="fas fa-users"></i></p>
     </div>
   </div>
