@@ -34,8 +34,8 @@
                 <div class="card-event-info">
                   <div>
                     <p><strong> Distance: </strong> <%= r.distance %> meters</p>
-                    <p><strong> Start point: </strong> <%= r.nodes.first.address %> </p>
-                    <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address : r.nodes.last.address %> </p>
+                    <p><strong> Start point: </strong> <%= r.nodes.first.address.upcase %> </p>
+                    <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address.upcase : r.nodes.last.address.upcase %> </p>
                   </div>
                 </div>
               </div>
@@ -47,9 +47,7 @@
   </div>
 
   <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-    <div class="title-left m-3">
-      <h1>seyugdhiehslj</h1>
-    </div>
+  <!-- code here for my events -->
   </div>
 
 </div>

@@ -6,9 +6,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-
-
-
+    @participants = @event.users
+    @participant = Participant.where(event: @event, user: current_user)[0]
 
     @paths = []
       route = @event.route
@@ -35,9 +34,6 @@ class EventsController < ApplicationController
           number += 1
         end
       end
-
-
-
 
   end
 end

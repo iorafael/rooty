@@ -1,7 +1,7 @@
 <div class="container">
   <div class="event_cover">
-  <div id="mapa" 
-    data-path="<%= @paths.to_json %>" 
+  <div id="mapa"
+    data-path="<%= @paths.to_json %>"
     data-node="<%= @nodes.first.to_json %>"
     data-markers="<%= @markers.to_json %>"
     data-zoom_size="12"></div>
@@ -13,10 +13,11 @@
       <p> <strong>Description: </strong><%= @event.description %> </p>
     </div>
     <div>
-      <p><strong><i class="fas fa-map-marker-alt"></i></strong> <%= @event.route.nodes.first.address %></p>
-      <p><strong><i class="fas fa-running"></i></strong><%= @event.route.distance %> meters </p>
-      <p><strong><i class="fas fa-clock"></i></strong><%= @event.starttime %></p>
-      <p><i class="fas fa-users"></i></p>
+      <p><strong><i class="fas fa-map-marker-alt"></i> </strong> <%= @event.route.nodes.first.address %></p>
+      <p><strong><i class="fas fa-running"></i>  </strong><%= @event.route.distance %> meters </p>
+      <p><strong><i class="fas fa-clock"></i> </strong><%= @event.starttime %></p>
+      <p><i class="fas fa-users"></i> <%= @event.participants.count %></p>
+
     </div>
   </div>
 </div>
@@ -24,7 +25,15 @@
 <div class="join-container">
   <div class="row">
     <div class="col-md-12">
-    <button class="btn btn-default charcoal-circle-button" href="">Join<span class="charcoal-circle-greater-than"></span></button>
+      <% if @participant.present? %>
+        <%= link_to event_participant_path(participant_id: @participant.id, event_id: @event.id), method: :delete do  %>
+          <button class="btn btn-default charcoal-circle-button">Leave<span class="charcoal-circle-greater-than"></span></button>
+          <% end %>
+        <% else %>
+        <%= link_to event_participants_path([@event, @participant]), method: :post do  %>
+          <button class="btn btn-default charcoal-circle-button">Join<span class="charcoal-circle-greater-than"></span></button>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
