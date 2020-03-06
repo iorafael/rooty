@@ -6,13 +6,13 @@
 
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <% @events.each do |event| %>
-        <div class="carousel-item <%= 'active' if event == @events.first %>">
+      <% @today_events.each do |event| %>
+        <div class="carousel-item <%= 'active' if event == @today_events.first %>">
         <a href="/events/<%= event.id %>">
           <card class="d-block w-100">
             <div class="card-event-lg">
               <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
-              <% if event == @events.first %>
+              <% if event == @today_events.first %>
               <div class="card-event-lg-info">
                 <% end %>
                 <div>
@@ -20,7 +20,7 @@
                   <p><strong> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </strong></p>
                   <p><strong> Distance: </strong><%= event.route.distance %> meters</p>
                 </div>
-                <% if event == @events.first %>
+                <% if event == @today_events.first %>
               </div>
                 <% end %>
             </div>
@@ -43,7 +43,7 @@
   </br>
 
   <div class="container">
-    <% @events.each do |event| %>
+    <% @next_events.each do |event| %>
       <a href="/events/<%= event.id %>">
         <div class="card-event">
           <%= cl_image_tag(event.photo.key, crop: :fill) %>

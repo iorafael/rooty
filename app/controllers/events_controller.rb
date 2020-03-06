@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @events = Event.all
+    @today_events = Event.where("starttime between ? and ?", DateTime.now().to_date, (DateTime.now() + 1).to_date)
+    @next_events = Event.where("starttime between ? and ?", (DateTime.now() + 1).to_date, (DateTime.now() + 7).to_date)
   end
 
   def show
