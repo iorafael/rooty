@@ -50,8 +50,11 @@
     <% @next_events.each do |event| %>
       <a href="/events/<%= event.id %>">
         <div class="card-event">
-          <%= cl_image_tag(event.photo.key, crop: :fill) %>
-          <div class="card-event-info">
+          <% if event.photo.attached? %>
+            <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
+          <% else %>
+            <%= image_tag "test_6.jpg", width: 400, height: 300 %>
+          <% end %>          <div class="card-event-info">
             <div class="card-body">
               <h2><%= event.title %></h2>
               <p><strong>When:</strong> <%= event.starttime.strftime("%B %d, %Y at %I:%M%p") %> </p>
