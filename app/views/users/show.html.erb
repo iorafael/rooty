@@ -17,6 +17,32 @@
 
 </br>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create your event!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <%= simple_form_for @event do |f| %>
+        <%= f.input :title, placeholder: "Name" %>
+        <%= f.input :description, placeholder: "Enter route description" %>
+        <%= f.input :starttime, input_html: {class: "datepicker"} %>
+        <%= f.hidden_field :route %>
+        <div class="modal-footer">
+          <%= f.submit value: "Create event!", class: "btn btn-primary rounded" %>
+          <% end %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <nav>
   <div class="d-flex justify-content-center"><h2 class="bungee-font-small">My routes</h2></div>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -35,15 +61,18 @@
             <a href="/?route=<%= r.id%>">
               <div class="card-event-profile">
                 <%= image_tag "test_map.jpg" %>
-                <div class="card-event-info">
+                <div class="card-event-info flex-grow-1">
                   <div>
                     <p><strong> Distance: </strong> <%= r.distance %> meters</p>
                     <p><strong> Start point: </strong> <%= r.nodes.first.address.upcase %> </p>
                     <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address.upcase : r.nodes.last.address.upcase %> </p>
                   </div>
                 </div>
-              </div>
-            </a>
+                </div>
+                </a>
+                <button type="button" class="event-creator btn btn-primary mr-5" data-toggle="modal" data-route="<%= r.id %>" data-target="#exampleModal">
+                  Make it an event!
+                </button>
           <% end %>
         </div>
       </div>
@@ -58,11 +87,14 @@
         <a href="/events/<%= e.id%>">
           <div class="card-event-profile">
             <%= image_tag "test_map.jpg" %>
-            <div class="card-event-info">
+            <div class="card-event-info ">
               <div>
-                <p><strong> Distance: </strong> <%= e.title %> meters</p>
-                <p><strong> Start point: </strong> <%= e.route.distance %> </p>
-                <p><strong> End point: </strong> <%= e.route.form == "Circular" ? e.route.nodes.first.address.upcase : e.route.nodes.last.address.upcase %> </p>
+                <h5><strong> <%= e.title %> </strong></h5>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p><strong>Distance: </strong><%= e.route.distance %> </p>
+                <p><strong> Start point: </strong> <%= e.route.nodes.first.address.upcase %> </p>
+                <p><strong>End point: </strong> <%= e.route.form == "Circular" ? e.route.nodes.first.address.upcase : e.route.nodes.last.address.upcase %> </p>
               </div>
             </div>
           </div>
