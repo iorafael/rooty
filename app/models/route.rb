@@ -21,4 +21,8 @@ class Route < ApplicationRecord
     hour_string = hours > 0 ? "#{hours} hr" : ""
     hour_string + "#{time} min"
   end
+  
+  def display_distance
+    self.distance < 1000 ? "#{distance} meters" : "#{distance / 1000.0} kilometers"
+  end
 end
