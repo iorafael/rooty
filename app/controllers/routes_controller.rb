@@ -33,18 +33,7 @@ class RoutesController < ApplicationController
   def edit
     newroute = Route.find(params[:id])
     distance = params[:distance] ? params[:distance] : 5
-    init = newroute.nodes.first
-    dir = [[1,1,1,1],[-1,-1,-1,-1],[-1,-1,1,1],[1,1,-1,-1]].sample
-    margin1 = rand(-0.0005..0.0005)
-    margin2 = rand(-0.0001..0.0001)
-    long = init.longitude
-    lat = init.latitude
-    newroute.nodes.second.update(name: "T1.1", route: newroute, real: false, longitude: long + margin1 + 0.0012 * distance * dir[0], latitude: lat - margin2)
-    sleep(1)
-    newroute.nodes.third.update(name: "T1.2", route: newroute, real: false, longitude: long - margin1 + 0.0012 * distance * dir[1], latitude: lat + margin2 + 0.002 * distance * dir[2])
-    sleep(1)
-    newroute.nodes.fourth.update(name: "T1.3", route: newroute, real: false, longitude: long, latitude: lat + 0.002 * distance * dir[3])
-    sleep(1)
+    newroute.define_nodes(distance)
     redirect_to root_path(route: newroute.id)
   end
   
