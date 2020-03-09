@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :routes
 
+  has_many :friends
+
   has_many :participants
   has_many :events, through: :routes
 
