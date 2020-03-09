@@ -44,24 +44,49 @@
   box-shadow: 0 0 8px rgba(0,0,0,0.2)
 }
 
-.card-event-profile {
+.card-history-profile {
   overflow: hidden;
   height: 100px;
   width: 100%;
   background: white;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  border: 10px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.card-event-profile {
+  overflow: hidden;
+  height: 135px;
+  width: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
   border: 10px;
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    h5{
+      margin:0;
+    }
+}
+
+.big-card-profile{
+  margin-bottom: 20px;
+}
+
+.card-history-profile img {
+  height: 100%;
+  width: 30%;
+  object-fit: cover;
+  border-radius: 8px 0 0 0;
 }
 
 .card-event-profile img {
   height: 100%;
   width: 30%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 8px 0 0 0;
 }
 
 .card-event img {
@@ -146,16 +171,6 @@
   margin-right: 15px;
 }
 
-.profile_card {
-  background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  .event-creator{
+    border-radius: 0 0 8px 8px;
   }

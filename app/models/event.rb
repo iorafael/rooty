@@ -3,5 +3,5 @@ class Event < ApplicationRecord
   has_one_attached :photo
   has_many :participants
   has_many :users, through: :participants
-  validates :description, :starttime, presence: true
+  validates :description, :starttime, :title, presence: true
 end
