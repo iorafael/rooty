@@ -9,7 +9,12 @@ class ParticipantsController < ApplicationController
     @event = Event.find(params[:event_id])
     @participant.event = @event
     if @participant.save
-      redirect_to @event
+      @count = @event.participants.count
+      respond_to do |format|
+        format.html { redirect_to @event }
+        format.js 
+      end
+    
     else
       render 'events/show'
     end

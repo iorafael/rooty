@@ -1,0 +1,6 @@
+button = document.getElementById("join-button");
+if (button){
+        const count = <%= @count %>;
+        console.log(count)
+        button.innerText = button.innerText == "Leave" ? "Join" : "Leave"
+}
