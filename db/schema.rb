@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_115227) do
+ActiveRecord::Schema.define(version: 2020_03_09_160910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 2020_03_05_115227) do
     t.string "title"
     t.string "photo"
     t.index ["route_id"], name: "index_events_on_route_id"
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
   create_table "nodes", force: :cascade do |t|
@@ -95,6 +102,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_115227) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "events", "routes"
+  add_foreign_key "friends", "users"
   add_foreign_key "nodes", "routes"
   add_foreign_key "participants", "events"
   add_foreign_key "participants", "users"
