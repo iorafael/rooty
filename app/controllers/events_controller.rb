@@ -42,7 +42,11 @@ class EventsController < ApplicationController
     params[:event][:route] = Route.find(params[:event][:route])
     event = Event.new(require_params)
     event.route = params[:event][:route]
+    participant = Participant.new
+    participant.user = current_user
+    participant.event = event
     event.save
+    participant.save
     redirect_to event
   end
   
