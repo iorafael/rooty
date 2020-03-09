@@ -3,6 +3,9 @@ class EventsController < ApplicationController
   def index
     @today_events = Event.where("starttime between ? and ?", DateTime.now().to_date, (DateTime.now() + 1).to_date)
     @next_events = Event.where("starttime between ? and ?", (DateTime.now() + 1).to_date, (DateTime.now() + 7).to_date)
+    @get_text = -> (distance) {
+      return distance < 1000 ? "#{distance} meters" : "#{distance / 1000.0} kilometers"
+  }
   end
 
   def show
