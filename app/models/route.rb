@@ -10,9 +10,9 @@ class Route < ApplicationRecord
     margin2 = rand(-0.0001..0.0001)
     long = init.longitude
     lat = init.latitude
-    nodes.second.update(name: "T1.1", real: false, longitude: long + margin1 + 0.0012 * distance * dir[0], latitude: lat - margin2)
-    nodes.third.update(name: "T1.2", real: false, longitude: long - margin1 + 0.0012 * distance * dir[1], latitude: lat + margin2 + 0.002 * distance * dir[2])
-    nodes.fourth.update(name: "T1.3", real: false, longitude: long, latitude: lat + 0.002 * distance * dir[3])
+    nodes.find_by_name("T1.1").update(name: "T1.1", real: false, longitude: long + margin1 + 0.0012 * distance * dir[0], latitude: lat - margin2)
+    nodes.find_by_name("T1.2").update(name: "T1.2", real: false, longitude: long - margin1 + 0.0012 * distance * dir[1], latitude: lat + margin2 + 0.002 * distance * dir[2])
+    nodes.find_by_name("T1.3").update(name: "T1.3", real: false, longitude: long, latitude: lat + 0.002 * distance * dir[3])
   end
 
   def display_time
