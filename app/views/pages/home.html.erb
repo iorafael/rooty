@@ -12,10 +12,12 @@
       </div>
     <% end %>
   </div>
+  <% if @route %>
   <div class="bottom-choices center-route">
-    <h3 class="m-1 mt-4"><i class="fas fa-running"></i>: 5km   ||   <i class="far fa-clock"></i>: 35mins</h3>
-    <button type="submit" class="btn btn-dark m-1">Different route</button>
+    <h3 class="m-1 mt-4"><i class="fas fa-running"></i> <%= @route.distance %>   ||   <i class="far fa-clock"></i> <%= @route.display_time %></h3>
+    <%= link_to "Different route", edit_route_path(@route), class: "btn btn-dark m-1 text-light" %>
   </div>
+  <% end %>
 </div>
 
 

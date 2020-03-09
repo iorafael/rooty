@@ -31,9 +31,12 @@ class RoutesController < ApplicationController
   end
 
   def edit
-    
+    newroute = Route.find(params[:id])
+    distance = params[:distance] ? params[:distance] : 5
+    newroute.define_nodes(distance)
+    redirect_to root_path(route: newroute.id)
   end
-
+  
   def delete
     @route = Route.find(params[:id])
     @route.destroy
