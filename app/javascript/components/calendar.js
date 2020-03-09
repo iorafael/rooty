@@ -1,5 +1,9 @@
 import 'flatpickr/dist/flatpickr.min.css'
+import flatpickr from 'flatpickr';
 flatpickr(".datepicker", {
+    altInput: true,
+    enableTime: true,
+    disableMobile: true
 });
 
 const events = document.querySelectorAll(".event-creator");
