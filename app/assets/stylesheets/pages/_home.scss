@@ -228,3 +228,23 @@ $button-width: 23px;
   top: 0;
   z-index: -1;
 }
+
+.bottom-choices {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  left: 0;
+}
+
+.different-routes {
+  width: 135px !important;
+  align-items: center;
+}
+
+.center-route {
+  align-items: center;
+  text-align: center;
+  margin-top: 15px;
+}

@@ -1,6 +1,5 @@
 
 <div class="container flex-direction-column justify-content-center">
-
   <div class="text-center">
     <%= form_for @new_node do |f|%>
       <div class="search-container h-100">
@@ -13,9 +12,36 @@
       </div>
     <% end %>
   </div>
+  <div class="bottom-choices">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active different-routes" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">challenger</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link different-routes" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">mornings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link different-routes" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">the casual</a>
+      </li>
+    </ul>
+    <br>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active ml-2 center-route" id="home" role="tabpanel" aria-labelledby="home-tab">
+       <h3><i class="fas fa-running"></i>: 5km   ||   <i class="far fa-clock"></i>: 35mins</h3>
+      </div>
+      <div class="tab-pane fade ml-2 center-route" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <h3><i class="fas fa-running"></i>: 5km   ||   <i class="far fa-clock"></i>: 35mins</h3>
+      </div>
+      <div class="tab-pane fade ml-2 center-route" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <h3><i class="fas fa-running"></i>: 5km   ||   <i class="far fa-clock"></i>: 35mins</h3>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  <div class="card-home">
+
+<!--   <div class="card-home">
     <div class="row">
       <p><i class="fas fa-mug-hot"></i></p>
       <p><i class="fas fa-dumbbell"></i></p>
@@ -27,8 +53,7 @@
     <div>
       <button class="btn-lg btn-danger">Coming Soon...</button>
     </div>
-  </div>
-</div>
+  </div> -->
 
 <!-- add stop - form to be used on the next implementation -->
   <!-- <div class="routes-container">
