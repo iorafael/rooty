@@ -19,7 +19,6 @@ class ParticipantsController < ApplicationController
     participant = Participant.find(params[:participant_id])
     participant.destroy
     event = params[:event_id]
-    raise
     redirect_to event_path(event)
   end
 

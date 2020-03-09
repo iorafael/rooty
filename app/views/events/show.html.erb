@@ -14,7 +14,7 @@
     </div>
     <div>
       <p><strong><i class="fas fa-map-marker-alt"></i></strong>  <%= @event.route.nodes.first.address %></p>
-      <p><strong><i class="fas fa-running"></i></strong>  <%= @event.route.distance %> meters </p>
+      <p><strong><i class="fas fa-running"></i></strong>  <%= @event.route.display_distance %> </p>
       <p><strong><i class="fas fa-clock"></i></strong>  <%= @event.starttime.strftime("%B %d, %Y at %I:%M%p") %></p>
       <p><i class="fas fa-users"></i>  <%= @event.participants.count %></p>
     </div>
@@ -29,7 +29,7 @@
           <button id="join-button" class="btn btn-default charcoal-circle-button">Leave<span class="charcoal-circle-greater-than"></span></button>
           <% end %>
         <% else %>
-        <%= link_to event_participants_path([@event, @participant]), method: :post do  %>
+        <%= link_to event_participants_path([@event, @participant]), method: :post, remote: true do  %>
           <button id="join-button" class="btn btn-default charcoal-circle-button">Join<span class="charcoal-circle-greater-than"></span></button>
         <% end %>
       <% end %>

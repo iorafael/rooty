@@ -22,7 +22,7 @@
                 <div>
                   <h2><%= event.title %></h2>
                   <p><strong> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </strong></p>
-                  <p><strong> Distance: </strong><%= @get_text.call(event.route.distance) %></p>
+                  <p><strong> Distance: </strong><%= event.route.display_distance %></p>
                 </div>
                 <% if event == @today_events.first %>
               </div>
@@ -58,7 +58,7 @@
             <div class="card-body">
               <h2><%= event.title %></h2>
               <p><strong>When:</strong> <%= event.starttime.strftime("%B %d, %Y at %I:%M%p") %> </p>
-              <p><strong> Distance: </strong> <%= event.route.distance %> meters </p>
+              <p><strong> Distance: </strong> <%= event.route.display_distance %></p>
             </div>
           </div>
         </div>
