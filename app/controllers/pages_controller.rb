@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     if params[:route]      
       @paths = []
       route = Route.find(params[:route])
-      
+      @route = route
       @nodes = route.nodes
       @markers = []
       @nodes.each do |node|
@@ -45,6 +45,7 @@ class PagesController < ApplicationController
     else
       @paths = []
       @nodes = [{longitude: -122.486052, latitude: 37.830348}]
+      @route = nil
     end
   end
 end
