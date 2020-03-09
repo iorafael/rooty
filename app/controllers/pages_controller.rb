@@ -33,6 +33,7 @@ class PagesController < ApplicationController
         while number < @nodes.length do
           response = RestClient.get "https://api.mapbox.com/directions/v5/mapbox/cycling/#{@nodes[number-1].longitude},#{@nodes[number-1].latitude};#{@nodes[number].longitude},#{@nodes[number].latitude}?geometries=geojson&exclude=ferry&access_token=#{ENV['MAPBOX_API_KEY']}"
           repos = JSON.parse(response) # => repos is an `Array` of `Hashes`.
+          raise
           @nodes[number].distance = repos['routes'].first['distance']
           @nodes[number].save!
           distance += @nodes[number].distance
