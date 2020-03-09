@@ -51,7 +51,8 @@ if (mapa){
                     },
                     'paint': {
                         'line-color': '#669DF6',
-                        'line-width': 5
+                        'line-width': 5,
+                        'line-offset': 0
                     }
                 });
             };
