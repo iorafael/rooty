@@ -6,4 +6,5 @@ import "bootstrap";
 import "../components/navbar_dropup.js"
 import "../components/map.js"
 import "../components/searchbar.js"
+import "../components/join.js"
 import "../components/calendar.js"

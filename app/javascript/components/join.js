@@ -1,1 +1,0 @@
-button = document.getElementById("join-button")
