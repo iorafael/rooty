@@ -23,8 +23,12 @@ class ParticipantsController < ApplicationController
   def destroy
     participant = Participant.find(params[:participant_id])
     participant.destroy
-    event = params[:event_id]
-    redirect_to event_path(event)
+    @event = Event.find(params[:event_id])
+    @count = @event.participants.count
+    respond_to do |format|
+      format.html { redirect_to @event }
+      format.js 
+    end
   end
 
   private

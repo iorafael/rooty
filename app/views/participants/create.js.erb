@@ -1,6 +1,13 @@
 button = document.getElementById("join-button");
 if (button){
+        const participant = <%= @participant.id %>
+        const event = <%= @event.id %>
+        const text= `<a data-remote="true" rel="nofollow" data-method="delete" href="/events/${event}/participants/${event}?participant_id=${participant}">
+        <button class="btn btn-default charcoal-circle-button">Leave<span class="charcoal-circle-greater-than"></span></button>
+        </a>`
         const count = <%= @count %>;
-        console.log(count)
-        button.innerText = button.innerText == "Leave" ? "Join" : "Leave"
+        const amount = document.getElementById("amount");
+        amount.innerHTML = `<i class="fas fa-users"></i> ${count}`;
+        button.innerHTML = text;
+        <% @participant = Participant.where(event: @event, user: current_user)[0] %>
 }
