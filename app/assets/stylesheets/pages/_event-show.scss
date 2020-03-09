@@ -32,3 +32,18 @@
 .join-container {
   text-align: center;
 }
+
+
+.inline-avatar li {
+  list-style-type: none;
+  margin: none;
+}
+
+.inline-avatar ul {
+  padding-inline-start: 0;
+}
+
+.inline-avatar img {
+  width: 5%;
+  height: 5%;
+}

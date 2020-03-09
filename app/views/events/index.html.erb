@@ -59,6 +59,16 @@
               <h2><%= event.title %></h2>
               <p><strong>When:</strong> <%= event.starttime.strftime("%B %d, %Y at %I:%M%p") %> </p>
               <p><strong> Distance: </strong> <%= event.route.distance %> meters </p>
+
+              <div class="inline-avatar">
+                <ul>
+                  <% if @participants.exists? %>
+                  <% @participants.each do |user| %>
+                      <li>
+                        <%= cl_image_tag(user.photo.key, crop: :fill, class: "profiles-photo") %>
+                      </li>
+                  <% end %>
+                </ul>
             </div>
           </div>
         </div>

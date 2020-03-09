@@ -17,6 +17,15 @@
       <p><strong><i class="fas fa-running"></i></strong>  <%= @event.route.distance %> meters </p>
       <p><strong><i class="fas fa-clock"></i></strong>  <%= @event.starttime.strftime("%B %d, %Y at %I:%M%p") %></p>
       <p><i class="fas fa-users"></i>  <%= @event.participants.count %></p>
+      <div class="inline-avatar">
+        <ul>
+          <% @event.users.each do |user| %>
+              <li>
+                <%= cl_image_tag(user.photo.key, crop: :fill, class: "profiles-photo") %>
+              </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
