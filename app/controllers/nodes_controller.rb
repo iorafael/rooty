@@ -7,9 +7,6 @@ class NodesController < ApplicationController
             dir = [[1,1,1,1],[-1,-1,-1,-1],[-1,-1,1,1],[1,1,-1,-1]].sample
             margin1 = rand(-0.0005..0.0005)
             margin2 = rand(-0.0001..0.0001)
-            puts dir
-            puts margin1
-            puts margin2
             long = init.longitude
             lat = init.latitude
             Node.create!(name: "T1.1", route: newroute, real: false, longitude: long + margin1 + 0.0012 * distance * dir[0], latitude: lat - margin2)

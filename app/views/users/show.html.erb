@@ -67,7 +67,7 @@
                   <%= image_tag "test_map.jpg" %>
                   <div class="card-history-info flex-grow-1">
                     <div>
-                      <p><strong> Distance: </strong> <%= r.distance %> meters</p>
+                      <p><strong> Distance: </strong> <%= r.display_distance %></p>
                       <p><strong> Start point: </strong> <%= r.nodes.first.address.upcase %> </p>
                       <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address.upcase : r.nodes.last.address.upcase %> </p>
                     </div>
@@ -84,7 +84,7 @@
     </div>
   </div>
 
-  <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
+  <div class="tab-pane fade transparent-tab" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
   <div class="container">
   <div class="title-left m-3">
     <div class="routes_history_card">
@@ -98,7 +98,7 @@
                   <h5><strong> <%= e.title %> </strong></h5>
                 </div>
                 <div class="d-flex justify-content-between">
-                  <p><strong>Distance: </strong><%= e.route.distance %> </p>
+                  <p><strong>Distance: </strong><%= e.route.display_distance %> </p>
                   <p><strong> From: </strong> <%= e.route.nodes.first.address.upcase %> </p>
                   <p><strong> To: </strong> <%= e.route.form == "Circular" ? e.route.nodes.first.address.upcase : e.route.nodes.last.address.upcase %> </p>
                 </div>
