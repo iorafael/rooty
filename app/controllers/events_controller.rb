@@ -1,12 +1,13 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index]#, :show]
   def index
-    @today_events = Event.where("starttime between ? and ?", DateTime.now().to_date, (DateTime.now() + 1).to_date)
-    @next_events = Event.where("starttime between ? and ?", (DateTime.now() + 1).to_date, (DateTime.now() + 7).to_date)
+    @today_events = policy_scope(Event).where("starttime between ? and ?", DateTime.now().to_date, (DateTime.now() + 1).to_date)
+    @next_events = policy_scope(Event).where("starttime between ? and ?", (DateTime.now() + 1).to_date, (DateTime.now() + 7).to_date)
   end
 
   def show
     @event = Event.find(params[:id])
+    authorize @event
     @participants = @event.users
     @participant = Participant.where(event: @event, user: current_user)[0]
 

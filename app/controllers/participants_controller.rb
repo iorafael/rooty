@@ -5,6 +5,7 @@ class ParticipantsController < ApplicationController
 
   def create
     @participant = Participant.new
+    authorize @participant
     @participant.user = current_user
     @event = Event.find(params[:event_id])
     @participant.event = @event
@@ -22,6 +23,7 @@ class ParticipantsController < ApplicationController
 
   def destroy
     participant = Participant.find(params[:participant_id])
+    authorize participant
     participant.destroy
     @event = Event.find(params[:event_id])
     @count = @event.participants.count
