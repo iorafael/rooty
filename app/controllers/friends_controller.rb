@@ -5,7 +5,7 @@ class FriendsController < ApplicationController
   end
 
   def show
-    participant = User.where(user: params[:id])
+    participant = User.find(params[:id])
     @events = participant.events
     @routes = participant.routes
     @event = Event.new
