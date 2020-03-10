@@ -1,40 +1,48 @@
-<div class="container">
-  <div class="event_cover">
-  <div id="mapa"
-    data-path="<%= @paths.to_json %>"
-    data-node="<%= @nodes.first.to_json %>"
-    data-markers="<%= @markers.to_json %>"
-    data-zoom_size="12"></div>
-  </div>
-
-  <div>
-    <div class="event-info-show">
-    <h2><%= @event.title %></h2>
-      <p> <strong>Description: </strong><%= @event.description %> </p>
+  <div class="container">
+    <div class="event_cover">
+    <div id="mapa"
+      data-path="<%= @paths.to_json %>"
+      data-node="<%= @nodes.first.to_json %>"
+      data-markers="<%= @markers.to_json %>"
+      data-zoom_size="12"></div>
     </div>
+
     <div>
       <p><strong><i class="fas fa-map-marker-alt"></i></strong>  <%= @event.route.nodes.first.address %></p>
       <p><strong><i class="fas fa-running"></i></strong>  <%= @event.route.display_distance %> </p>
       <p><strong><i class="fas fa-clock"></i></strong>  <%= @event.starttime.strftime("%B %d, %Y at %I:%M%p") %></p>
       <p id="amount"><i class="fas fa-users"></i>  <%= @event.participants.count %></p>
+      <div class="inline-avatar div-size">
+          <ul>
+            <% @event.users.each do |user| %>
+              <li>
+               <%= cl_image_tag(user.photo.key, crop: :fill, class: "profiles-photo") %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
     </div>
   </div>
-</div>
 
-<div class="join-container">
-  <div class="row">
-    <div class="col-md-12" id="join-button">
-      <% if @participant.present? %>
-        <%= link_to event_participant_path(participant_id: @participant.id, event_id: @event.id), method: :delete, remote:true do  %>
-          <button class="btn btn-default charcoal-circle-button">Leave<span class="charcoal-circle-greater-than"></span></button>
+
+  <div class="join-container">
+    <div class="row">
+      <div class="col-md-12">
+        <% if @participant.present? %>
+          <%= link_to event_participant_path(participant_id: @participant.id, event_id: @event.id), method: :delete do  %>
+            <button class="btn btn-default charcoal-circle-button-red">Leave<span class="charcoal-circle-greater-than-red"></span></button>
+            <% end %>
+          <% else %>
+          <%= link_to event_participants_path([@event, @participant]), method: :post do  %>
+            <button class="btn btn-default charcoal-circle-button">Join<span class="charcoal-circle-greater-than"></span></button>
           <% end %>
-        <% else %>
-        <%= link_to event_participants_path(@event), method: :post, remote: true do  %>
-          <button class="btn btn-default charcoal-circle-button">Join<span class="charcoal-circle-greater-than"></span></button>
+
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
+
 </div>
 <div class="bottom-img-events" style="background: linear-gradient(#FFFBE8, rgb(255,255,255), transparent), url(<%= image_path('wireframe.png') %>);">
 </div>
+
