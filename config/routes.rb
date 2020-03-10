@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:edit, :update, :delete, :show]
   resources :routes
+  resources :friends
   resources :nodes
-  resources :events, only: [:index, :show, :new, :create, :edit, :destroy ] do
+  resources :events, only: [:index, :show, :create, :edit, :destroy ] do
     resources :participants, only: [:create, :destroy]
   end
 end

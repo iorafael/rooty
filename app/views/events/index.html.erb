@@ -1,9 +1,9 @@
 <div class="container justify-content-center">
   <div>
     <h1><strong>Events</strong></h1>
-    </br>
-    <h2> Popular in London </h2>
-  </br>
+
+    <h2> Today's runs' </h2>
+
   </div>
 
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -21,7 +21,6 @@
               <% if event == @today_events.first %>
               <div class="card-event-lg-info">
                 <% end %>
-
                 <h2><%= event.title %></h2>
                 <p> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </p>
                 <p> Distance: <%= event.route.distance %> meters</p>
@@ -34,6 +33,7 @@
                         </li>
                     <% end %>
                   </ul>
+
                 </div>
 
                 <% if event == @today_events.first %>
@@ -62,6 +62,7 @@
   <div class="container">
     <% @next_events.each do |event| %>
       <a href="/events/<%= event.id %>">
+
         <div class="event-new-version">
           <div class="card-image">
             <% if event.photo.attached? %>

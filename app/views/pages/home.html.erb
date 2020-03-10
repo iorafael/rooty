@@ -1,6 +1,5 @@
 
 <div class="container flex-direction-column justify-content-center">
-
   <div class="text-center">
     <%= form_for @new_node do |f|%>
       <div class="search-container h-100">
@@ -13,9 +12,17 @@
       </div>
     <% end %>
   </div>
+  <% if @route %>
+  <div class="bottom-choices center-route">
+    <h3 class="m-1 mt-4"><i class="fas fa-running"></i> <%= @route.display_distance %>   ||   <i class="far fa-clock"></i> <%= @route.display_time %></h3>
+    <%= link_to "Different route", edit_route_path(@route), class: "btn btn-dark m-1 text-light" %>
+  </div>
+  <% end %>
+</div>
 
 
-  <div class="card-home">
+
+<!--   <div class="card-home">
     <div class="row">
       <p><i class="fas fa-mug-hot"></i></p>
       <p><i class="fas fa-dumbbell"></i></p>
@@ -27,6 +34,15 @@
     <div>
       <button class="btn-lg btn-danger">Coming Soon...</button>
     </div>
+  </div> -->
+
+</div>
+<div id="home-map">
+  <div id="mapa"
+    data-path="<%= @paths.to_json %>"
+    data-node="<%= @nodes.first.to_json %>"
+    data-markers="<%= @markers.to_json %>"
+    data-zoom_size="13">
   </div>
 </div>
 
@@ -56,12 +72,3 @@
       <input type="text" class="form-control">
     </div>
   </div> -->
-</div>
-<div id="home-map">
-  <div id="mapa"
-    data-path="<%= @paths.to_json %>"
-    data-node="<%= @nodes.first.to_json %>"
-    data-markers="<%= @markers.to_json %>"
-    data-zoom_size="13">
-  </div>
-</div>

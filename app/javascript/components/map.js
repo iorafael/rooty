@@ -18,7 +18,6 @@ if (mapa){
         if (Object.keys(paths).length != 0){
             const markers = JSON.parse(mapa.dataset.markers);
             const zoom = JSON.parse(mapa.dataset.zoom_size);
-            console.log(zoom)
             markers.forEach((marker) => {
                 new mapboxgl.Marker()
                 .setLngLat([ marker.lng, marker.lat ])
@@ -52,7 +51,8 @@ if (mapa){
                     },
                     'paint': {
                         'line-color': '#669DF6',
-                        'line-width': 5
+                        'line-width': 5,
+                        'line-offset': 0
                     }
                 });
             };
