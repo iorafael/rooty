@@ -15,4 +15,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def events_joined
+    ((Participant.where(user: self)).map { |participant| participant.event } + events).uniq
+  end
 end

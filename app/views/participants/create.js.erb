@@ -3,7 +3,7 @@ if (button){
         const participant = <%= @participant.id %>
         const event = <%= @event.id %>
         const text= `<a data-remote="true" rel="nofollow" data-method="delete" href="/events/${event}/participants/${event}?participant_id=${participant}">
-        <button class="btn btn-default charcoal-circle-button">Leave<span class="charcoal-circle-greater-than"></span></button>
+        <button class="btn btn-default charcoal-circle-button-red">Leave<span class="charcoal-circle-greater-than"></span></button>
         </a>`
         const count = <%= @count %>;
         const amount = document.getElementById("amount");
