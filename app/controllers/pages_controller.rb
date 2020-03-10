@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home], :raise => false
 
   def home
-    @new_node = Node.new
     if params[:route]
       @route = Route.find(params[:route])
       authorize @route
@@ -16,6 +15,7 @@ class PagesController < ApplicationController
       @nodes = [{longitude: -122.486052, latitude: 37.830348}]
       @route = nil
     end
+    authorize @nodes
   end
 
   private
