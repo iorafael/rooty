@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 2020_03_09_194915) do
     t.index ["route_id"], name: "index_events_on_route_id"
   end
 
-  create_table "friends", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "friends", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "user_friend_id"
+    t.index ["user_friend_id"], name: "index_friends_on_user_friend_id"
     t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_194915) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "events", "routes"
   add_foreign_key "friends", "users"
+  add_foreign_key "friends", "users", column: "user_friend_id"
   add_foreign_key "nodes", "routes"
   add_foreign_key "participants", "events"
   add_foreign_key "participants", "users"
