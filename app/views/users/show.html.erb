@@ -92,7 +92,11 @@
         <div class="big-card-profile">
           <a href="/events/<%= e.id%>">
             <div class="card-event-profile">
-              <%= cl_image_tag(e.photo.key, width: 400, height: 300, crop: :fill) %>
+            <% if event.photo.attached? %>
+              <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
+            <% else %>
+              <%= image_tag "test_6.jpg", width: 400, height: 300 %>
+            <% end %>
               <div class="card-event-info h-100 p-2">
                 <div>
                   <h5><strong> <%= e.title %> </strong></h5>
