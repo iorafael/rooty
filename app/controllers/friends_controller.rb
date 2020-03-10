@@ -13,11 +13,7 @@ class FriendsController < ApplicationController
     @friend.user = current_user
     @user = User.find(params[:user_id])
     @friend.user = @user
-    if @friend.save
-      redirect_to @user
-    else
-      render 'users/show'
-    end
+    @friend.save
   end
 
   def destroy
