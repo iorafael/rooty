@@ -4,15 +4,16 @@ class Route < ApplicationRecord
   has_many :events, dependent: :destroy
 
   def define_nodes(distance)
-    init = nodes.first
+    init = self.nodes.find_by_name("Max's house")
     dir = [[1,1,1,1],[-1,-1,-1,-1],[-1,-1,1,1],[1,1,-1,-1]].sample
     margin1 = rand(-0.0005..0.0005)
     margin2 = rand(-0.0001..0.0001)
     long = init.longitude
     lat = init.latitude
-    nodes.find_by_name("T1.1").update(name: "T1.1", real: false, longitude: long + margin1 + 0.0012 * distance * dir[0], latitude: lat - margin2)
-    nodes.find_by_name("T1.2").update(name: "T1.2", real: false, longitude: long - margin1 + 0.0012 * distance * dir[1], latitude: lat + margin2 + 0.002 * distance * dir[2])
-    nodes.find_by_name("T1.3").update(name: "T1.3", real: false, longitude: long, latitude: lat + 0.002 * distance * dir[3])
+    self.nodes.find_by_name("T1.1").update(longitude: long + margin1 + 0.0012 * distance * dir[0], latitude: lat - margin2)
+    self.nodes.find_by_name("T1.2").update(longitude: long - margin1 + 0.0012 * distance * dir[1], latitude: lat + margin2 + 0.002 * distance * dir[2])
+    self.nodes.find_by_name("T1.3").update(longitude: long, latitude: lat + 0.002 * distance * dir[3])
+    self.save
   end
 
   def display_time
