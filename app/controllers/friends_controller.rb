@@ -12,21 +12,27 @@ class FriendsController < ApplicationController
   end
 
   def create
-    @friend = Friend.new
-    @friend.user = current_user
-    @user = User.find(params[:user_id])
-    @friend.user = @user
-    if @friend.save
-      redirect_to @user
-    else
-      render 'users/show'
-    end
+   @friend = Friend.new(user_id: current_user.id, user_friend_id: params[:id])
+   @user = User.find(params[:user_id])
+   if @friend.save
+    flash[:notice] = "Added friend."
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
+   else
+    flash[:error] = "Unable to add friend."
+    render 'users/show'
+   end
   end
 
   def destroy
-    friend = Friend.find(params[:friend_id])
-    friend.destroy
-    user = params[:user_id]
-    redirect_to user_path(user)
+   @friend = current_user.friend.find(params[:id])
+   @friend.destroy
+   flash[:notice] = "Removed friend."
+   redirect_to current_user
+  end
+
+  def friend_params
+   params.require(:friend).permit(:user_friend_id, :user_id)
   end
 end

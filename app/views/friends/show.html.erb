@@ -67,9 +67,11 @@
 
 <div class="d-flex justify-content-center">
   <div class="row">
+    <%= link_to friends_path(@user), method: :post, remote: true do %>
     <button type="button" class="btn bg-blue fs-it-btn">
         <i class="fa fa-plus" aria-hidden="true"></i>
         <span class="fs-it-btn-vertical-line"></span>
         Add a friend</button>
+        <% end %>
   </div>
 </div>
