@@ -1,0 +1,47 @@
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="card">
+      <div class="card-header">
+        <div class="profile_pic">
+          <%= cl_image_tag(current_user.photo.key, crop: :fill) %>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="d-flex justify-content-center flex-column">
+          <div class="name_container">
+            <div class="username"><h4> Username: <%= current_user.username %></h4> </div>
+          </div>
+          <div class="fullname"> <p> Full name: <%= current_user.name %> <%= current_user.lastname %></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="d-flex justify-content-center"><h2 class="bungee-font-small-friends">My previous events</h2></div>
+<div class="container">
+<div class="title-left m-3">
+  <div class="routes_history_card">
+    <% @events.each do |e| %>
+      <div class="big-card-profile">
+        <a href="/events/<%= e.id%>">
+          <div class="card-event-profile">
+            <%= cl_image_tag(e.photo.key, width: 400, height: 300, crop: :fill) %>
+            <div class="card-event-info h-100 p-2">
+              <div>
+                <h5><strong> <%= e.title %> </strong></h5>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p><strong>Distance: </strong><%= e.route.distance %> </p>
+                <p><strong> From: </strong> <%= e.route.nodes.first.address.upcase %> </p>
+                <p><strong> To: </strong> <%= e.route.form == "Circular" ? e.route.nodes.first.address.upcase : e.route.nodes.last.address.upcase %> </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
