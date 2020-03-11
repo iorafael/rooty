@@ -27,6 +27,7 @@ class PagesController < ApplicationController
     @routes = current_user.routes
     @event = Event.new
     @requests = current_user.friend_requests
+    @friends = Friend.all
   end
 
   private
