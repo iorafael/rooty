@@ -94,7 +94,11 @@
                       <div class="big-card-profile">
                       <a href="/events/<%= e.id%>">
                           <div class="card-event-profile">
+                            <% if e.photo.attached? %>
                               <%= cl_image_tag(e.photo.key, width: 400, height: 300, crop: :fill) %>
+                            <% else %>
+                              <%= image_tag "test_6.jpg", width: 400, height: 300 %>
+                            <% end %>
                               <div class="card-event-info h-100 p-2">
                                   <div>
                                       <h5><strong> <%= e.title %> </strong></h5>
@@ -121,7 +125,11 @@
                 <% @requests.each do |r| %>
                     <div class="big-card-profile">
                         <div class="card-event-profile">
+                          <% if event.photo.attached? %>
                             <%= cl_image_tag(r.sender.photo.key, width: 400, height: 300, crop: :fill) %>
+                          <% else %>
+                            <%= image_tag "pp.png", width: 400, height: 300 %>
+                          <% end %>
                             <div class="card-event-info h-100 p-2">
                                 <div>
                                     <h5><strong> <%= r.sender.name %> </strong></h5>
@@ -152,28 +160,21 @@
         <div class="routes_history_card">
           <% current_user.friend_list.each do |f| %>
             <div class="big-card-profile">
-              <a href="/users/<%= f.receiver.id%>">
-              <div class="card-event-profile">
-                <% if current_user.id == f.user_id%>
-                  <%= cl_image_tag(f.receiver.photo.key, width: 400, height: 300, crop: :fill) %>
+              <a href="/users/<%= f.friend(current_user).id%>">
+                <div class="card-event-profile">
+                  <% if f.friend(current_user).photo.attached? %>
+                    <%= cl_image_tag(f.friend(current_user).photo.key, width: 400, height: 300, crop: :fill) %>
+                  <% else %>
+                    <%= image_tag("pp.png", width: 400, height: 300, crop: :fill)%>
+                  <% end %>
                   <div class="card-event-info h-100 p-2">
-                      <h4><%= f.receiver.name.capitalize %> <%= f.receiver.lastname.capitalize %> </h4>
+                    <h4><%= f.friend(current_user).name.capitalize %> <%= f.friend(current_user).lastname.capitalize %> </h4>
                     <div class="justify-content-between">
-                      <p> Username: <%= f.receiver.username.capitalize %> </p>
-                      <p><%= f.receiver.email %> </p>
+                      <p> Username: <%= f.friend(current_user).username.capitalize %> </p>
+                      <p><%= f.friend(current_user).email %> </p>
                     </div>
                   </div>
-                <% else %>
-                  <%= cl_image_tag(f.sender.photo.key, width: 400, height: 300, crop: :fill) %>
-                <div class="card-event-info h-100 p-2">
-                    <h4><%= f.sender.name.capitalize %> <%= f.sender.lastname.capitalize %> </h4>
-                  <div class="justify-content-between">
-                    <p> Username: <%= f.sender.username.capitalize %> </p>
-                    <p><%= f.sender.email %> </p>
-                  </div>
-                <% end %>
                 </div>
-              </div>
               </a>
             </div>
           <% end %>
