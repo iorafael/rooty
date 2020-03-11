@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :routes, dependent: :destroy
 
+  include PgSearch::Model
+  pg_search_scope :search_by_name_lastname_username, against: [ :name, :lastname, :username ]
+
   # has_many :friends, dependent: :destroy
   has_many :user_friends, foreign_key: :user_friend_id, class_name: "Friend"
   has_many :friends, through: :user_friends
