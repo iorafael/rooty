@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_lastname_username, against: [ :name, :lastname, :username ]
+
   has_many :routes
 
   # has_many :friends, dependent: :destroy
