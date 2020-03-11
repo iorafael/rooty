@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#intro'
   get '/map' => 'pages#home'
   devise_for :users
-  resources :users, only: [:edit, :update, :delete, :show] do
+  resources :users, only: [:edit, :update, :delete, :show, :index] do
     resources :friends, only: [:create]
   end
   resources :routes
