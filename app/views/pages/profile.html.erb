@@ -16,10 +16,8 @@
       </div>
     </div>
   </div>
-
+</div>
 </br>
-
-<!-- Modal -->
 <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -59,7 +57,7 @@
 </nav>
 </br>
 
-<div class="tab-content" id="nav-tabContent">
+<div class="tab-content tab-scroll" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
     <div class="container">
       <div class="title-left m-3">
@@ -96,7 +94,11 @@
                       <div class="big-card-profile">
                       <a href="/events/<%= e.id%>">
                           <div class="card-event-profile">
+                            <% if e.photo.attached? %>
                               <%= cl_image_tag(e.photo.key, width: 400, height: 300, crop: :fill) %>
+                            <% else %>
+                              <%= image_tag "test_6.jpg", width: 400, height: 300 %>
+                            <% end %>
                               <div class="card-event-info h-100 p-2">
                                   <div>
                                       <h5><strong> <%= e.title %> </strong></h5>
@@ -123,7 +125,11 @@
                 <% @requests.each do |r| %>
                     <div class="big-card-profile">
                         <div class="card-event-profile">
+                          <% if event.photo.attached? %>
                             <%= cl_image_tag(r.sender.photo.key, width: 400, height: 300, crop: :fill) %>
+                          <% else %>
+                            <%= image_tag "pp.png", width: 400, height: 300 %>
+                          <% end %>
                             <div class="card-event-info h-100 p-2">
                                 <div>
                                     <h5><strong> <%= r.sender.name %> </strong></h5>
@@ -154,17 +160,21 @@
         <div class="routes_history_card">
           <% current_user.friend_list.each do |f| %>
             <div class="big-card-profile">
-              <a href="/users/<%= f.id%>">
-              <div class="card-event-profile">
-                <%= cl_image_tag(f.photo.key, width: 400, height: 300, crop: :fill) %>
-                <div class="card-event-info h-100 p-2">
-                  <h2><%= f.name.capitalize %> <%= f.lastname.capitalize %> </h2>
-                  <div class="d-flex justify-content-between">
-                    <p> Username: <%= f.username.capitalize %> </p>
-                    <p><%= f.email.capitalize %> </p>
+              <a href="/users/<%= f.friend(current_user).id%>">
+                <div class="card-event-profile">
+                  <% if f.friend(current_user).photo.attached? %>
+                    <%= cl_image_tag(f.friend(current_user).photo.key, width: 400, height: 300, crop: :fill) %>
+                  <% else %>
+                    <%= image_tag("pp.png", width: 400, height: 300, crop: :fill)%>
+                  <% end %>
+                  <div class="card-event-info h-100 p-2">
+                    <h4><%= f.friend(current_user).name.capitalize %> <%= f.friend(current_user).lastname.capitalize %> </h4>
+                    <div class="justify-content-between">
+                      <p> Username: <%= f.friend(current_user).username.capitalize %> </p>
+                      <p><%= f.friend(current_user).email %> </p>
+                    </div>
                   </div>
                 </div>
-              </div>
               </a>
             </div>
           <% end %>

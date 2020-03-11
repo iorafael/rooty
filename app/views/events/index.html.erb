@@ -2,9 +2,7 @@
   <div>
     <h1 class="bungee-font-m"><strong>Events</strong></h1>
     <h2 class="events-title"> Today's runs' </h2>
-
   </div>
-
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <% @today_events.each do |event| %>
@@ -28,7 +26,11 @@
                     <ul>
                       <% event.users.each do |user| %>
                           <li>
-                            <%= cl_image_tag(user.photo.key, crop: :fill, style:"height: 20px; width: 20px; margin-top:0 !important; margin-left: 10px; margin-bottom: 5px; ") %>
+                            <% if user.photo.attached? %>
+                              <%= cl_image_tag(user.photo.key, crop: :fill, style:"height: 30px; width: 30px; margin-top:0 !important; margin-left: 5px; margin-bottom: 5px; ") %>
+                            <% else %>
+                              <%= image_tag("pp.png", crop: :fill, style:"height: 30px; width: 30px; margin-top:0 !important; margin-left: 5px; margin-bottom: 5px; ") %>
+                            <% end %>
                           </li>
                       <% end %>
                     </ul>
@@ -67,7 +69,8 @@
               <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
             <% else %>
               <%= image_tag "test_6.jpg", width: 400, height: 300 %>
-            <% end %>          <div class="card-event-info">
+            <% end %>
+            <div class="card-event-info">
               <div class="card-content">
                 <h2><%= event.title %></h2>
                 <!-- double check if necessary -->
@@ -75,8 +78,12 @@
                   <ul>
                     <% event.users.first(5).each do |user| %>
                         <li>
-                          <%= cl_image_tag(user.photo.key, crop: :fill, style:"height: 30px; width: 30px; margin-top:0 !important; margin-left: 5px; margin-bottom: 5px; ") %>
-                        </li>
+                          <% if user.photo.attached? %>
+                            <%= cl_image_tag(user.photo.key, crop: :fill, style:"height: 30px; width: 30px; margin-top:0 !important; margin-left: 5px; margin-bottom: 5px; ") %>
+                          <% else %>
+                            <%= image_tag("pp.png", crop: :fill, style:"height: 30px; width: 30px; margin-top:0 !important; margin-left: 5px; margin-bottom: 5px; ") %>
+                          <% end %>
+                          </li>
                     <% end %>
                   </ul>
                 </div> -->

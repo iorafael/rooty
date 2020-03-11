@@ -3,15 +3,19 @@
     <div class="card">
       <div class="card-header">
         <div class="profile_pic">
-          <%= cl_image_tag(current_user.photo.key, crop: :fill) %>
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag(@user.photo.key, crop: :fill) %>
+        <% else %>
+          <%= image_tag("pp.png", crop: :fill)%>
+        <% end %>
         </div>
       </div>
       <div class="card-body">
         <div class="d-flex justify-content-center flex-column">
           <div class="name_container">
-            <div class="username"><h4> Username: <%= current_user.username %></h4> </div>
+            <div class="username"><h4> Username: <%= @user.username %></h4> </div>
           </div>
-          <div class="fullname"> <p> Full name: <%= current_user.name %> <%= current_user.lastname %></p></div>
+          <div class="fullname"> <p> Full name: <%= @user.name %> <%= @user.lastname %></p></div>
         </div>
       </div>
     </div>
@@ -27,7 +31,11 @@
       <div class="big-card-profile">
         <a href="/events/<%= e.id%>">
           <div class="card-event-profile">
+          <% if e.photo.attached? %>
             <%= cl_image_tag(e.photo.key, width: 400, height: 300, crop: :fill) %>
+          <% else %>
+            <%= image_tag "test_6.jpg", width: 400, height: 300 %>
+          <% end %>
             <div class="card-event-info h-100 p-2">
               <div>
                 <h5><strong> <%= e.title %> </strong></h5>
