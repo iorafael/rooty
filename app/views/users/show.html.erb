@@ -14,10 +14,7 @@
       </div>
     </div>
   </div>
-
 </br>
-
-<!-- Modal -->
 <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -62,7 +59,7 @@
         <div class="routes_history_card">
           <% @routes.first(3).each do |r| %>
             <div class="big-card-profile">
-              <a href="/?route=<%= r.id%>">
+              <a href="/map/?route=<%= r.id%>">
                 <div class="card-history-profile">
                   <%= image_tag "test_map.jpg" %>
                   <div class="card-history-info flex-grow-1">
