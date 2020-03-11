@@ -1,9 +1,21 @@
-<div class="container center">
-  <h2 class="bungee-font center-style"> Rooty </i></strong></h2>
-  <br>
-  <h4 class="center-style">Generate a <strong>Route</strong> in 30 seconds!</h4>
-  <br>
-  <div class="center-style">
-    <button class="btn btn-gray large-print"><%= link_to "GENERATE YOUR ROUTE", map_path %></button>
+<div class="home-background-image" style="background-image: url('<%= image_path "main-home.png" %>')">
+  <div class="container center">
+    <h2 class="bungee-font center-style"> Rooty </i></strong></h2>
+    <br>
+    <h4 class="center-style">Generate a <strong>Route</strong> in 30 seconds!</h4>
+
+    <div class="container flex-direction-column justify-content-center">
+      <div class="text-center">
+        <%= form_for @new_node do |f|%>
+          <div class="search-container h-100">
+            <div class="d-flex justify-content-center h-100">
+              <div class="searchbar">
+                <%= f.text_field :address, class: "search_input", placeholder: "Search location" %>
+                <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    </div>
   </div>
 </div>
