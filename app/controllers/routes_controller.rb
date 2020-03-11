@@ -5,7 +5,7 @@ class RoutesController < ApplicationController
   end
 
   def create
-  
+
   end
 
   def index
@@ -34,9 +34,9 @@ class RoutesController < ApplicationController
     newroute = Route.find(params[:id])
     distance = params[:distance] ? params[:distance] : 5
     newroute.define_nodes(distance)
-    redirect_to root_path(route: newroute.id)
+    redirect_to map_path(route: newroute.id)
   end
-  
+
   def delete
     @route = Route.find(params[:id])
     @route.destroy

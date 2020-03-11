@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'pages#intro'
+  get '/map' => 'pages#home'
   devise_for :users
   resources :users, only: [:edit, :update, :delete, :show] do
     resources :friends, only: [:create]
@@ -7,6 +8,6 @@ Rails.application.routes.draw do
   resources :routes
   resources :nodes
   resources :events, only: [:index, :show, :create, :edit, :destroy ] do
-    resources :participants, only: [:create, :destroy]
+  resources :participants, only: [:create, :destroy]
   end
 end
