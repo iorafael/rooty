@@ -1,7 +1,7 @@
 <div class="container justify-content-center">
   <div>
-    <h1><strong>Events</strong></h1>
-
+    <h1 class="bungee-font-m"><strong>Events</strong></h1>
+    </br>
     <h2> Today's runs' </h2>
 
   </div>
@@ -10,36 +10,35 @@
     <div class="carousel-inner">
       <% @today_events.each do |event| %>
         <div class="carousel-item <%= 'active' if event == @today_events.first %>">
-        <a href="/events/<%= event.id %>">
-          <card class="d-block w-100">
-            <div class="card-event-lg">
-              <% if event.photo.attached? %>
-                <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
-              <% else %>
-                <%= image_tag "test_6.jpg", width: 400, height: 300 %>
-              <% end %>
-              <% if event == @today_events.first %>
-              <div class="card-event-lg-info">
+          <a href="/events/<%= event.id %>">
+            <card class="d-block w-100">
+              <div class="card-event-lg">
+                <% if event.photo.attached? %>
+                  <%= cl_image_tag(event.photo.key, width: 400, height: 300, crop: :fill) %>
+                <% else %>
+                  <%= image_tag "test_6.jpg", width: 400, height: 300 %>
                 <% end %>
-                <h2><%= event.title %></h2>
-                <p> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </p>
-                <p> Distance: <%= event.route.distance %> meters</p>
-                <p> <i class="fas fa-user-plus"></i> <%= event.users.count  %></p>
-                <div class="inline-avatar-lg div-size-events-show">
-                  <ul>
-                    <% event.users.each do |user| %>
-                        <li>
-                          <%= cl_image_tag(user.photo.key, crop: :fill, style:"height: 20px; width: 20px; margin-top:0 !important; margin-left: 10px; margin-bottom: 5px; ") %>
-                        </li>
-                    <% end %>
-                  </ul>
-
-                </div>
-
                 <% if event == @today_events.first %>
-              </div>
                 <% end %>
-            </div>
+                <div class="card-event-lg-info">
+                  <h2><%= event.title %></h2>
+                  <p> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </p>
+                  <p> Distance: <%= event.route.distance %> meters</p>
+                  <p> <i class="fas fa-user-plus"></i> <%= event.users.count  %></p>
+                  <div class="inline-avatar-lg div-size-events-show">
+                    <ul>
+                      <% event.users.each do |user| %>
+                          <li>
+                            <%= cl_image_tag(user.photo.key, crop: :fill, style:"height: 20px; width: 20px; margin-top:0 !important; margin-left: 10px; margin-bottom: 5px; ") %>
+                          </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                  <%# if event == @today_events.first %>
+                  <%# end %>
+                </div>
+              </div>
+            </card>
           </a>
         </div>
       <% end %>

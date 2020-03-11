@@ -13,7 +13,7 @@
       <p><strong><i class="fas fa-clock"></i></strong>  <%= @event.starttime.strftime("%B %d, %Y at %I:%M%p") %></p>
       <p id="amount"><i class="fas fa-users"></i>  <%= @event.participants.count %></p>
       <div class="inline-avatar div-size">
-          <ul>
+          <ul id="image-list" class="h-25">
             <% @event.users.each do |user| %>
               <li>
                <%= cl_image_tag(user.photo.key, crop: :fill, class: "profiles-photo") %>

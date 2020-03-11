@@ -1,0 +1,5 @@
+<% @event.users.each do |user| %>
+    <li>
+        <%= cl_image_tag(user.photo.key, crop: :fill, class: "profiles-photo") %>
+    </li>
+<% end %>

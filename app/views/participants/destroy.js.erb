@@ -1,5 +1,7 @@
 button = document.getElementById("join-button");
 if (button){
+    const images = document.getElementById("image-list");
+    images.innerHTML = "<%= j render(partial: 'participants/images', :locals => {user: @participants}) %>";
     const event = <%= @event.id %>
     const text = `<a data-remote="true" rel="nofollow" data-method="post" href="/events/${event}/participants">
     <button id="join-button" class="btn btn-default charcoal-circle-button">Join<span class="charcoal-circle-greater-than"></span></button>
