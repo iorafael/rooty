@@ -1,0 +1,145 @@
+.center-style {
+  text-align: center;
+}
+
+.center-align {
+  align-items: center;
+}
+
+.home-box-center {
+  width: 100%;
+  align-items: center;
+}
+
+.image-background-home {
+ // background-color: #5DB5B5;
+  background-image: url('homepage.png');
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bungee-font-home {
+  font-family: 'Bungee Inline', cursive;
+  font-size: 45px;
+  margin-top: 50px;
+  color: white;
+  text-align: right;
+  position: relative;
+  width: 275px;
+}
+
+.home-review {
+  position: fixed;
+  bottom: 200px;
+  height: 100px;
+  width: 50%;
+  left: 0;
+  background-color: #F9F9F9;
+}
+
+.black-box {
+  position: fixed;
+  bottom: 0;
+  height: 200px;
+  width: 100%;
+  left: 0;
+  background-color: black;
+}
+
+.search-home {
+  margin-left: 27%;
+}
+
+.search-button-home {
+  color: #fff;
+  background-color: #003465;
+  border-color: #343a40;
+  align-items: center;
+}
+.search-box-home {
+  radius: 3px;
+  margin-left: 20%;
+  width: 62%;
+  margin-bottom: 5px;
+  border: 1px solid black;
+  background-color: white;
+}
+.search-input-home {
+  width: 100%;
+  font-family: Nunito;
+  font-style: italic;
+  font-weight: 300;
+  color: black;
+  text-align: center;
+}
+
+.home-box-center {
+  margin-top: 30px;
+}
+
+.white-underline-home {
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: rgba(0,0,0,0);
+  border: 3px solid white;
+  width: 80%;
+  height: 10px;
+  z-index: 1;
+}
+
+.bungee-font-how-to {
+  font-family: 'Bungee Inline', cursive;
+  font-size: 45px;
+  margin-top: 2%;
+  color: white;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.review-text {
+  margin-bottom: 0;
+  font-family: Nunito;
+  font-style: italic;
+  font-weight: 300;
+}
+.color-change-p {
+  color: #4ED1E3 !important;
+}
+
+.color-change {
+  color: #003465 !important;
+}
+
+.color-white-home {
+  color: #C4C4C4 !important;
+}
+
+.bungee-font-p {
+  font-family: 'Bungee inline';
+  font-weight: 200 !important;
+  font-size: 15px;
+  margin-right: 10%;
+  color: white;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.bungee-font-name {
+  font-family: 'Bungee Inline';
+  font-size: 15px;
+  margin-top: 0;
+  margin-left: 30%;
+  color: black;
+  text-align: left;
+  position: relative;
+  width: 400px;
+}

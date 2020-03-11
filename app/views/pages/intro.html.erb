@@ -1,21 +1,33 @@
 <div class="image-background-home another-gradient">
   <div class="container center mt-5">
-      <h2 class="bungee-font-home center-style">A ROUTE LIKE NO OTHER</h2>
+      <h2 class="bungee-font-home center-style">A <strong class='color-change'>ROUTE</strong> LIKE NO OTHER</h2>
       <br>
       <div class="container flex-direction-column justify-content-center">
-        <div class="text-center">
+        <div class="home-box-center">
           <%= form_for @new_node do |f|%>
-            <div class="search-container h-100">
-              <div class="d-flex justify-content-center h-100">
-                <div class="searchbar">
-                  <%= f.text_field :address, class: "search_input", placeholder: "Search location" %>
-                  <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
-                </div>
-              </div>
-            </div>
-         <% end %>
+          <div class="search-box-home">
+          <%= f.text_field :address, class: "search-input-home", placeholder: "e.g. London NW3" %>
+          </div>
+          <div class="search-home">
+            <button type="submit" class="btn search-button-home">GET YOUR ROOTY!</button>
+          </div>
+          <% end %>
         </div>
       </div>
+  </div>
+  <div class="home-review">
+    <p class="review-text">"the best running app I've <span class=color-white-home>n</span>ever used!"</p>
+    <p class="bungee-font-name"><strong>- Max Denton</strong></p>
+  </div>
+  <div class="black-box">
+    <div class="center-style">
+      <h2 class="bungee-font-how-to center-style">HOW IT WORKS</h2>
+    </div>
+    <div class="white-underline-home">
+    </div>
+    <p class="bungee-font-p center-style">1. <strong class='color-change-p'>Generate</strong> your Route</p>
+    <p class="bungee-font-p center-style">2. <strong class='color-change-p'>Share </strong>your Routes with friends</p>
+    <p class="bungee-font-p center-style">3. invite your <strong class="color-change-p">friends</strong> to join!</p>
   </div>
 </div>
 

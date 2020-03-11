@@ -26,6 +26,14 @@ a {
   left: 0;
 }
 
+.bottom-img-friends {
+  opacity: 0.9;
+  position: fixed;
+  z-index:-1;
+  bottom: 0;
+  height: 500px;
+  width: 100% !important;
+}
 .add-stop {
   text-align: left;
   border-radius: 4px;
@@ -35,29 +43,3 @@ a {
   display:block;
   box-sizing: border-box;
 }
-
-.center-style {
-  text-align: center;
-}
-
-.image-background-home {
- // background-color: #5DB5B5;
-  background: linear-gradient(5deg, white 30%, rgba(0, 0, 0, 0) 30%), url('homepage.png');
-  background-position: center;
-  background-size: cover;
-  position: fixed;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-}
-.bungee-font-home {
-  font-family: 'Bungee Inline', cursive;
-  font-size: 45px;
-  margin-top: 70px;
-  color: #413E44;
-  text-align: center;
-  position: relative;
-  }
