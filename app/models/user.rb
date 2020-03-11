@@ -19,4 +19,18 @@ class User < ApplicationRecord
   def events_joined
     ((Participant.where(user: self)).map { |participant| participant.event } + events).uniq
   end
+
+  def friend_requests
+    self.user_friends
+    #Friend.where(user_friend_id: self.id).where(accepted: false)
+  end
+
+  def friend?(friend)
+    self.friend_list.include?(friend)
+  end
+
+  def friend_list
+    self.user_friends + Friend.where(user_id: self.id).where(accepted: true).select(:user_friend_id)
+  end
+
 end

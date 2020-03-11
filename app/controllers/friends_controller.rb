@@ -15,7 +15,7 @@ class FriendsController < ApplicationController
     friend = Friend.new(user_id: current_user.id, user_friend_id: params[:user_id])
     @user = User.find(params[:user_id])
     if friend.save
-      flash[:notice] = "Added friend."
+      flash[:notice] = "Friend request sent."
       respond_to do |format|
         format.html { redirect_to @user }
         format.js
@@ -33,6 +33,7 @@ class FriendsController < ApplicationController
     @friend = Friend.where(user_id: params[:id]).where(user_friend_id: current_user.id)[0]
     if @friend
       @friend.accept
+      @friend.save
       respond_to do |format|
         format.html { redirect_to profile_path }
         format.js

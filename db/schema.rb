@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_201906) do
+ActiveRecord::Schema.define(version: 2020_03_11_104416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_201906) do
     t.index ["route_id"], name: "index_events_on_route_id"
   end
 
-  create_table "friends", id: false, force: :cascade do |t|
+  create_table "friends", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "user_friend_id"
     t.boolean "accepted", default: false
