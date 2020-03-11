@@ -2,7 +2,19 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def intro
-
+    @new_node = Node.new
+    if params[:route]
+      @route = Route.find(params[:route])
+      calculate_distance(@route)
+      while @route.distance < 4000 || @route.distance > 6000
+        @route.define_nodes(5)
+        calculate_distance(@route.reload)
+      end
+    else
+      @paths = []
+      @nodes = [{longitude: -122.486052, latitude: 37.830348}]
+      @route = nil
+    end
   end
 
   def home
