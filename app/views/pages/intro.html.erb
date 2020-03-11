@@ -1,21 +1,21 @@
-<div class="home-background-image" style="background-image: url('<%= image_path "main-home.png" %>')">
-  <div class="container center">
-    <h2 class="bungee-font center-style"> Rooty </i></strong></h2>
-    <br>
-    <h4 class="center-style">Generate a <strong>Route</strong> in 30 seconds!</h4>
-
-    <div class="container flex-direction-column justify-content-center">
-      <div class="text-center">
-        <%= form_for @new_node do |f|%>
-          <div class="search-container h-100">
-            <div class="d-flex justify-content-center h-100">
-              <div class="searchbar">
-                <%= f.text_field :address, class: "search_input", placeholder: "Search location" %>
-                <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
+<div class="image-background-home another-gradient">
+  <div class="container center mt-5">
+      <h2 class="bungee-font-home center-style">A ROUTE LIKE NO OTHER</h2>
+      <br>
+      <div class="container flex-direction-column justify-content-center">
+        <div class="text-center">
+          <%= form_for @new_node do |f|%>
+            <div class="search-container h-100">
+              <div class="d-flex justify-content-center h-100">
+                <div class="searchbar">
+                  <%= f.text_field :address, class: "search_input", placeholder: "Search location" %>
+                  <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
-    </div>
+         <% end %>
+        </div>
+      </div>
   </div>
 </div>
+
