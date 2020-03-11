@@ -11,20 +11,25 @@
       <%= submit_tag "Search", class: "btn btn-dark" %>
     <% end %>
   </div>
-
-  <% @users.each do |f| %>
-    <div>
-      <%= link_to f do %>
-        <div class="card-friend">
-          <%= cl_image_tag(f.photo.key, width: 400, height: 300, crop: :fill) %>
-          <div class="card-friend-infos">
-            <h2><%= f.name.capitalize %> <%= f.lastname.capitalize %> </h2>
-            <p> Username: <%= f.username.capitalize %> </p>
-            <p><%= f.email.capitalize %> </p>
+  <div id="user-list">
+    <% @users.each do |f| %>
+      <div>
+        <%= link_to f do %>
+          <div class="card-friend">
+          <% if f.photo.attached? %>
+            <%= cl_image_tag(f.profile_picture, width: 250, height: 200, crop: :fill) %>
+          <% else %>
+            <%= image_tag("pp.png", width: 300, height: 250, crop: :fill)%>
+          <% end %>
+            <div class="card-friend-infos">
+              <h2><%= f.name.capitalize %> <%= f.lastname.capitalize %> </h2>
+              <p> Username: <%= f.username.capitalize %> </p>
+              <p><%= f.email.capitalize %> </p>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
 </div>
