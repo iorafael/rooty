@@ -31,6 +31,12 @@
   opacity: 1 !important;
 }
 
+.user-profile-page-card {
+  align-items: center !important;
+  display: flex !important;
+  margin-right: -15px;
+  margin-left: -15px;
+}
 .card-event {
   overflow: hidden;
   height: 150px;
@@ -50,7 +56,7 @@
   background: white;
   margin-bottom: 20px;
   border: 10px;
-  border-radius: 16px;
+  border-radius: 10px;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
 
   .card-event-info p {
@@ -177,8 +183,7 @@
   background: white;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-  border-radius: 30px;
+  border-radius: 5px;
   box-shadow: 0 0 12px rgba(0,0,0,0.05);
 }
 

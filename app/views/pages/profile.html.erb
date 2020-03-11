@@ -1,15 +1,17 @@
 <div class="profile-card">
-  <div class="container d-flex background-profile-page" style="background-image: url(<%= image_path('profil-background.jpg') %>);">
+  <div class="container d-flex background-profile-page" style="background: linear-gradient(90deg, #003465 34%, rgb(255,255,255) 34%)">
     <div class="container justify-content-center">
-      <div class="row align-items-center">
-        <% if current_user.photo.attached? %>
-          <%= cl_image_tag(current_user.photo.key, crop: :fill, class: "profiles-photo") %>
-        <% else %>
-          <%= image_tag "pp.png", crop: :fill, class: "profiles-photo"%>
-        <% end %>
+      <div class="user-profile-page-card">
         <div>
-          <h2><%= current_user.username %></h2>
-          <p><%= current_user.name %> <%= current_user.lastname %></p>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag(current_user.photo.key, crop: :fill, class: "profiles-photo") %>
+          <% else %>
+            <%= image_tag "pp.png", crop: :fill, class: "profiles-photo"%>
+          <% end %>
+        </div>
+        <div>
+          <h2 class="username-profile"><%= current_user.username %></h2>
+          <p class="fullname-profile"><%= current_user.name %> <%= current_user.lastname %></p>
         </div>
       </div>
     </div>
@@ -171,5 +173,5 @@
     </div>
   </div>
 </div>
-<div class="bottom-img-profile" style="background: linear-gradient(#FFFBE8, rgb(255,255,255), transparent), url(<%= image_path('city.png') %>);">
+<div class="bottom-img-profile" style="background: linear-gradient(#5DB5B5, rgb(255,255,255), transparent), url(<%= image_path('city.png') %>);">
 </div>
