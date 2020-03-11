@@ -151,12 +151,15 @@ $button-width: 23px;
       &:nth-of-type(4) {
         animation-delay: .50s;
       }
+      &:nth-of-type(5) {
+        animation-delay: .55s;
+      }
     }
   }
   nav {
     position: relative;
     height: 70%;
-    top: 50%;
+    top: 45%;
     transform: translateY(-50%);
     font-size: 50px;
     font-family: 'Vollkorn', serif;
@@ -246,4 +249,14 @@ $button-width: 23px;
 .center-route {
   align-items: center;
   text-align: center;
+}
+
+
+.home-background-image {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }

@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  has_many :routes
+  has_many :routes, dependent: :destroy
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_lastname_username, against: [ :name, :lastname, :username ]
 
   # has_many :friends, dependent: :destroy
   has_many :user_friends, foreign_key: :user_friend_id, class_name: "Friend"
@@ -19,4 +22,18 @@ class User < ApplicationRecord
   def events_joined
     ((Participant.where(user: self)).map { |participant| participant.event } + events).uniq
   end
+
+  def friend_requests
+    self.user_friends.where(accepted: false)
+  end
+
+  def friend?(friend)
+    self.friend_list.each { |friendship| return true if friendship.user_id == friend.id || friendship.user_friend_id == friend.id}
+    false
+  end
+
+  def friend_list
+    self.user_friends.where(accepted: true) + Friend.where(user_id: self.id).where(accepted: true)
+  end
+
 end
