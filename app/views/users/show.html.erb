@@ -1,119 +1,104 @@
-<div class="profile-card">
-  <div class="container d-flex background-profile-page" style="background-image: url(<%= image_path('profil-background.jpg') %>);">
-    <div class="container justify-content-center">
-      <div class="row align-items-center">
-        <% if current_user.photo.attached? %>
-          <%= cl_image_tag(current_user.photo.key, crop: :fill, class: "profiles-photo") %>
-        <% else %>
-          <%= image_tag "pp.png", crop: :fill, class: "profiles-photo"%>
-        <% end %>
-        <div>
-          <h2><%= current_user.username %></h2>
-          <p><%= current_user.name %> <%= current_user.lastname %></p>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="card">
+      <div class="card-header">
+        <div class="profile_pic">
+          <%= cl_image_tag(current_user.photo.key, crop: :fill) %>
         </div>
       </div>
-    </div>
-  </div>
-
-</br>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create your event!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <%= simple_form_for @event do |f| %>
-        <%= f.input :title, placeholder: "Name" %>
-        <%= f.input :description, placeholder: "Enter route description" %>
-        <%= f.input :starttime, as: :string, input_html: {class: "datepicker"} %>
-        <%= f.hidden_field :route %>
-        <%= f.input :photo, label: "Choose a nice picture",
-                    as: :file,
-                    input_html: { multiple: false } %>
-        <div class="modal-footer">
-          <%= f.submit value: "Create event!", class: "btn btn-primary rounded" %>
-          <% end %>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="card-body">
+        <div class="d-flex justify-content-center flex-column">
+          <div class="name_container">
+            <div class="username"><h4> Username: <%= current_user.username %></h4> </div>
+          </div>
+          <div class="fullname"> <p> Full name: <%= current_user.name %> <%= current_user.lastname %></p></div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<br>
 
-<nav>
-  <div class="d-flex justify-content-center"><h2 class="bungee-font-small">My routes</h2></div>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="true">History</a>
-    <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>
-  </div>
-</nav>
-</br>
-
-<div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
-    <div class="container">
-      <div class="title-left m-3">
-        <div class="routes_history_card">
-          <% @routes.first(3).each do |r| %>
-            <div class="big-card-profile">
-              <a href="/?route=<%= r.id%>">
-                <div class="card-history-profile">
-                  <%= image_tag "test_map.jpg" %>
-                  <div class="card-history-info flex-grow-1">
-                    <div>
-                      <p><strong> Distance: </strong> <%= r.display_distance %></p>
-                      <p><strong> Start point: </strong> <%= r.nodes.first.address.upcase %> </p>
-                      <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address.upcase : r.nodes.last.address.upcase %> </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <button type="button" class="event-creator btn btn-primary w-100" data-toggle="modal" data-route="<%= r.id %>" data-target="#exampleModal">
-                  Make it an event!
-              </button>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-  <div class="container">
-  <div class="title-left m-3">
-    <div class="routes_history_card">
-      <% @events.each do |e| %>
-        <div class="big-card-profile">
-          <a href="/events/<%= e.id%>">
-            <div class="card-event-profile">
-            <% if e.photo.attached? %>
-              <%= cl_image_tag(e.photo.key, width: 400, height: 300, crop: :fill) %>
-            <% else %>
-              <%= image_tag "test_6.jpg", width: 400, height: 300 %>
-            <% end %>
-              <div class="card-event-info h-100 p-2">
-                <div>
-                  <h5><strong> <%= e.title %> </strong></h5>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <p><strong>Distance: </strong><%= e.route.display_distance %> </p>
-                  <p><strong> From: </strong> <%= e.route.nodes.first.address.upcase %> </p>
-                  <p><strong> To: </strong> <%= e.route.form == "Circular" ? e.route.nodes.first.address.upcase : e.route.nodes.last.address.upcase %> </p>
-                </div>
+<div class="d-flex justify-content-center"><h2 class="bungee-font-small-friends">My previous events</h2></div>
+<div class="container">
+<div class="title-left m-3">
+  <div class="routes_history_card">
+    <% @events.each do |e| %>
+      <div class="big-card-profile">
+        <a href="/events/<%= e.id%>">
+          <div class="card-event-profile">
+            <%= cl_image_tag(e.photo.key, width: 400, height: 300, crop: :fill) %>
+            <div class="card-event-info h-100 p-2">
+              <div>
+                <h5><strong> <%= e.title %> </strong></h5>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p><strong>Distance: </strong><%= e.route.distance %> </p>
+                <p><strong> From: </strong> <%= e.route.nodes.first.address.upcase %> </p>
+                <p><strong> To: </strong> <%= e.route.form == "Circular" ? e.route.nodes.first.address.upcase : e.route.nodes.last.address.upcase %> </p>
               </div>
             </div>
-          </a>
-        </div>
-      <% end %>
-    </div>
-  </div>
+          </div>
+        </a>
+      </div>
+    <% end %>
   </div>
 </div>
-<div class="bottom-img-profile" style="background: linear-gradient(#FFFBE8, rgb(255,255,255), transparent), url(<%= image_path('city.png') %>);">
+</div>
+
+<div class="d-flex justify-content-center"><h2 class="bungee-font-small-friends">Friends</h2></div>
+<div class="row h-100 justify-content-center align-items-center">
+  <a href="#">
+      <div class="friends-photo">
+          <img class="photo" src="https://s.hdnux.com/photos/51/23/24/10827008/3/920x920.jpg"/>
+      </div>
+  </a>
+  <a href="#">
+      <div class="friends-photo">
+          <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9WTpy07WmMlKbo95DvdZPDM9UkV4A0Ma19s8MKh5ln-YZEata"/>
+      </div>
+  </a>
+  <a href="#">
+      <div class="friends-photo">
+          <img class="photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmT0FivQvJM_ULsAABb4EvdTZ0DIIbC8N1Seec_p_Sa5SLYSKi"/>
+      </div>
+  </a>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="row">
+    <% if current_user.friend?(@user) %>
+      <%= link_to user_friends_path(@user), method: :post, remote: true do %>
+        <button type="button" class="btn btn-danger fs-it-btn">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <span class="fs-it-btn-vertical-line"></span>
+          Remove friend
+        </button>
+      <% end %>
+    <% elsif @request_sent %>
+      <%= link_to user_friends_path(@user), method: :post, remote: true do %>
+        <button type="button" class="btn bg-blue fs-it-btn">
+          <i class="fa fa-check" aria-hidden="true"></i>
+          <span class="fs-it-btn-vertical-line"></span>
+          Friend request sent!
+        </button>
+      <% end %>
+    <% elsif @request_received %>
+      <%= link_to friend_path(@user.id), method: :patch, remote: true do %>
+        <button type="button" class="btn bg-blue fs-it-btn">
+          <i class="fa fa-check" aria-hidden="true"></i>
+          <span class="fs-it-btn-vertical-line"></span>
+          Accept friend
+        </button>
+      <% end %>
+    <% else %>
+      <%= link_to user_friends_path(@user), method: :post, remote: true do %>
+        <button type="button" class="btn bg-blue fs-it-btn">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          <span class="fs-it-btn-vertical-line"></span>
+          Add a friend
+        </button>
+      <% end %>
+    <% end %>
+  </div>
 </div>

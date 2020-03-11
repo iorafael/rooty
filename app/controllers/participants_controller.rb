@@ -9,6 +9,10 @@ class ParticipantsController < ApplicationController
     @participant.user = current_user
     @event = Event.find(params[:event_id])
     @participant.event = @event
+    @participants = @event.users
+
+
+    
     if @participant.save
       @count = @event.participants.count
       respond_to do |format|

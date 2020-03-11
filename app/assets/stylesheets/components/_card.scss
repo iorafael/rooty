@@ -33,15 +33,72 @@
 
 .card-event {
   overflow: hidden;
-  height: 100px;
+  height: 150px;
   width: 100%;
   background: white;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   border: 10px;
-  border-radius: 8px;
+  border-radius: 16px;
   box-shadow: 0 0 8px rgba(0,0,0,0.2)
+}
+
+.event-new-version {
+  height: 220px;
+  overflow: hidden;
+  background: white;
+  margin-bottom: 20px;
+  border: 10px;
+  border-radius: 16px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+
+  .card-event-info p {
+    font-size: 16px;
+    font-weight: ligther;
+  }
+
+  .card-event-info h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .card-event-info h2 , p {
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+}
+
+.event-new-version img {
+  height: 105px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-image {
+  position: relative;
+
+  .div-size-events-show {
+    position: absolute;
+    bottom: 90px;
+    right: 20px;
+  }
+
+  ul {
+    margin: 0;
+
+    img {
+      margin: 0;
+      border-radius: 50%;
+    }
+  }
+}
+
+.event-small-card-image {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .card-history-profile {
@@ -90,7 +147,6 @@
 }
 
 .card-event img {
-  height: 100%;
   width: 30%;
   object-fit: cover;
   border-radius: 8px;
@@ -117,13 +173,13 @@
 
 .card-event-lg {
   overflow: hidden;
-  height: 220px;
+  height: 250px;
   background: white;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  border-radius: 25px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  border-radius: 30px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
 }
 
 .card-event:hover {
@@ -134,31 +190,30 @@
   height: 100%;
   width: 50%;
   object-fit: cover;
-}
 
-.card-event-lg h2 {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0;
-}
 
-.card-event-lg p {
-  font-size: 14px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
 }
-
-.card-event-lg h2, p {
-  text-align: left;
-  margin: 10px;
+  .card-event-lg h2 {
+    font-size: 24px;
+    font-weight: bold;
   }
 
-.card-event-lg-info {
-  display: flex;
-  justify-content: space-between;
-}
+  .card-event-lg p {
+    font-size: 16px;
+    font-weight: ligther;
+  }
+
+  .card-event-lg h2, p {
+    text-align: left;
+    margin: 10px;
+    }
+
+  .card-event-lg-info {
+    display: flex;
+    justify-content: left;
+    display: inline-table;
+  }
+
 
 .bottom-img {
   background-image: url(wireframe.png);

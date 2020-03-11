@@ -1,14 +1,25 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home], :raise => false
 
+  def intro
+
+  end
+
   def home
+    @new_node = Node.new
+    count = 0
     if params[:route]
       @route = Route.find(params[:route])
-      authorize @route
-      calculate_distance(@route)      
-      if @route.distance < 4000 || @route.distance > 6000
+      authorize route
+      calculate_distance(@route)
+      while (@route.distance < 4000 || @route.distance > 6000) && count < 10
         @route.define_nodes(5)
-        calculate_distance(@route)
+        calculate_distance(@route.reload)
+        count += 1
+      end
+      if count > 9
+        flash[:notice] = 'Address not found, please be more specific!'
+        redirect_to map_path
       end
     else
       @paths = []
@@ -16,6 +27,14 @@ class PagesController < ApplicationController
       @route = nil
     end
     authorize @nodes
+  end
+
+  def profile
+    participants = Participant.where(user: current_user)
+    @events = current_user.events_joined
+    @routes = current_user.routes
+    @event = Event.new
+    @requests = current_user.friend_requests
   end
 
   private

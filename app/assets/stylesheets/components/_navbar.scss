@@ -38,7 +38,6 @@
   position: flex;
 }
 
-
 .profile-photo {
    position:absolute;
    top:0;
@@ -65,3 +64,7 @@
   opacity: 0.95;
 }
 
+
+.nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  background-color: #FFFBE8 !important;
+}

@@ -5,25 +5,56 @@ class FriendsController < ApplicationController
   end
 
   def show
-    @friend = Friend.find(params[:id])
+    participant = User.find(params[:id])
+    @events = participant.events_joined
+    @routes = participant.routes
+    @event = Event.new
   end
 
   def create
-    @friend = Friend.new
-    @friend.user = current_user
+    friend = Friend.new(user_id: current_user.id, user_friend_id: params[:user_id])
     @user = User.find(params[:user_id])
-    @friend.user = @user
-    if @friend.save
-      redirect_to @user
+    if friend.save
+      flash[:notice] = "Friend request sent."
+      respond_to do |format|
+        format.html { redirect_to @user }
+        format.js
+      end
     else
-      render 'users/show'
+      flash[:error] = "Unable to add friend."
+      respond_to do |format|
+        format.html { redirect_to @user }
+        format.js
+      end
+    end
+  end
+
+  def update
+    @friend = Friend.where(user_id: params[:id]).where(user_friend_id: current_user.id)[0]
+    if @friend
+      @friend.accept
+      @friend.save
+      respond_to do |format|
+        format.html { redirect_to profile_path }
+        format.js
+      end
+    else
+      flash[:error] = "Unable to accept friend: The friend request was revoked"
+      respond_to do |format|
+        format.html { redirect_to profile_path }
+        format.js
+      end
     end
   end
 
   def destroy
-    friend = Friend.find(params[:friend_id])
-    friend.destroy
-    user = params[:user_id]
-    redirect_to user_path(user)
+   @friend = current_user.friend.find(params[:id])
+   @friend.destroy
+   flash[:notice] = "Removed friend."
+   redirect_to current_user
+  end
+
+  def friend_params
+   params.require(:friend).permit(:user_friend_id, :user_id)
   end
 end
