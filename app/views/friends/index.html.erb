@@ -1,7 +1,14 @@
 <div class="container friends-container">
   <div>
     <h2 class="bungee-font-m">Friends</h2>
-    <input type="text">
+     <%= form_tag users_path, method: :get, class: "form-inline" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find your friends"
+        %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
   </div>
   <% @friends.each do |f| %>
     <div>
@@ -16,7 +23,6 @@
     </div>
   <% end %>
 
-<!-- just template -->
   <div>
     <div class="card-friend">
       <a href="#"></a>
@@ -27,5 +33,4 @@
       </div>
     </div>
   </div>
-
 </div>

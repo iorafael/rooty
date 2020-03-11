@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include PgSearch::Model
-  multisearchable against: [:name, :lastname, :username]
+  pg_search_scope :search_by_title_and_syllabus, against: [ :name, :lastname ]
 
   has_many :routes
 

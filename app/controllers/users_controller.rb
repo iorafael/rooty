@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    if params[:query].blank?
+      @users = User.all
+    else
+      @users = User.search_by_name_and_lastname(params[:query])
+    end
   end
 
   def show
