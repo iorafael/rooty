@@ -63,7 +63,7 @@
         <div class="routes_history_card">
           <% @routes.first(3).each do |r| %>
             <div class="big-card-profile">
-              <a href="/?route=<%= r.id%>">
+              <a href="/map/?route=<%= r.id%>">
                 <div class="card-history-profile">
                   <%= image_tag "test_map.jpg" %>
                   <div class="card-history-info flex-grow-1">

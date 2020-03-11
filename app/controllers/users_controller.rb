@@ -15,7 +15,6 @@ class UsersController < ApplicationController
     @routes = @user.routes
     @request_sent = Friend.where(user_id: current_user).where(user_friend_id: params[:id])[0] 
     @request_received = Friend.where(user_id: params[:id]).where(user_friend_id: current_user)[0]
-    raise
   end
 
   def edit
