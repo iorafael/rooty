@@ -152,15 +152,26 @@
         <div class="routes_history_card">
           <% current_user.friend_list.each do |f| %>
             <div class="big-card-profile">
-              <a href="/users/<%= f.id%>">
+              <a href="/users/<%= f.receiver.id%>">
               <div class="card-event-profile">
-                <%= cl_image_tag(f.photo.key, width: 400, height: 300, crop: :fill) %>
-                <div class="card-event-info h-100 p-2">
-                  <h2><%= f.name.capitalize %> <%= f.lastname.capitalize %> </h2>
-                  <div class="d-flex justify-content-between">
-                    <p> Username: <%= f.username.capitalize %> </p>
-                    <p><%= f.email.capitalize %> </p>
+                <% if current_user.id == f.user_id%>
+                  <%= cl_image_tag(f.receiver.photo.key, width: 400, height: 300, crop: :fill) %>
+                  <div class="card-event-info h-100 p-2">
+                      <h4><%= f.receiver.name.capitalize %> <%= f.receiver.lastname.capitalize %> </h4>
+                    <div class="justify-content-between">
+                      <p> Username: <%= f.receiver.username.capitalize %> </p>
+                      <p><%= f.receiver.email %> </p>
+                    </div>
                   </div>
+                <% else %>
+                  <%= cl_image_tag(f.sender.photo.key, width: 400, height: 300, crop: :fill) %>
+                <div class="card-event-info h-100 p-2">
+                    <h4><%= f.sender.name.capitalize %> <%= f.sender.lastname.capitalize %> </h4>
+                  <div class="justify-content-between">
+                    <p> Username: <%= f.sender.username.capitalize %> </p>
+                    <p><%= f.sender.email %> </p>
+                  </div>
+                <% end %>
                 </div>
               </div>
               </a>
