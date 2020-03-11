@@ -9,10 +9,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    participants = Participant.where(user: current_user)
-    @events = current_user.events_joined
-    @routes = current_user.routes
-    @event = Event.new
+    @user = User.find(params[:id])
+    redirect_to profile_path if current_user == @user
+    @events = @user.events_joined
+    @routes = @user.routes
+    @request_sent = Friend.where(user_id: current_user).where(user_friend_id: params[:id])[0] 
+    @request_received = Friend.where(user_id: params[:id]).where(user_friend_id: current_user)[0]
+    raise
   end
 
   def edit

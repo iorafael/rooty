@@ -1,0 +1,148 @@
+<div class="profile-card">
+  <div class="container d-flex background-profile-page" style="background-image: url(<%= image_path('profil-background.jpg') %>);">
+    <div class="container justify-content-center">
+      <div class="row align-items-center">
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag(current_user.photo.key, crop: :fill, class: "profiles-photo") %>
+        <% else %>
+          <%= image_tag "pp.png", crop: :fill, class: "profiles-photo"%>
+        <% end %>
+        <div>
+          <h2><%= current_user.username %></h2>
+          <p><%= current_user.name %> <%= current_user.lastname %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</br>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create your event!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <%= simple_form_for @event do |f| %>
+        <%= f.input :title, placeholder: "Name" %>
+        <%= f.input :description, placeholder: "Enter route description" %>
+        <%= f.input :starttime, as: :string, input_html: {class: "datepicker"} %>
+        <%= f.hidden_field :route %>
+        <%= f.input :photo, label: "Choose a nice picture",
+                    as: :file,
+                    input_html: { multiple: false } %>
+        <div class="modal-footer">
+          <%= f.submit value: "Create event!", class: "btn btn-primary rounded" %>
+          <% end %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="d-flex justify-content-center"><h2 class="bungee-font-small">My routes</h2></div>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="true">History</a>
+    <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>
+    <a class="nav-item nav-link" id="nav-notifications-tab" data-toggle="tab" href="#nav-notifications" role="tab" aria-controls="nav-notifications" aria-selected="false">Notifications</a>
+  </div>
+</nav>
+</br>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
+    <div class="container">
+      <div class="title-left m-3">
+        <div class="routes_history_card">
+          <% @routes.first(3).each do |r| %>
+            <div class="big-card-profile">
+              <a href="/?route=<%= r.id%>">
+                <div class="card-history-profile">
+                  <%= image_tag "test_map.jpg" %>
+                  <div class="card-history-info flex-grow-1">
+                    <div>
+                      <p><strong> Distance: </strong> <%= r.display_distance %></p>
+                      <p><strong> Start point: </strong> <%= r.nodes.first.address.upcase %> </p>
+                      <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address.upcase : r.nodes.last.address.upcase %> </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <button type="button" class="event-creator btn btn-primary w-100" data-toggle="modal" data-route="<%= r.id %>" data-target="#exampleModal">
+                  Make it an event!
+              </button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="tab-pane fade transparent-tab" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
+        <div class="container">
+            <div class="title-left m-3">
+                <div class="routes_history_card">
+                    <% @events.each do |e| %>
+                        <div class="big-card-profile">
+                        <a href="/events/<%= e.id%>">
+                            <div class="card-event-profile">
+                                <%= cl_image_tag(e.photo.key, width: 400, height: 300, crop: :fill) %>
+                                <div class="card-event-info h-100 p-2">
+                                    <div>
+                                        <h5><strong> <%= e.title %> </strong></h5>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p><strong>Distance: </strong><%= e.route.display_distance %> </p>
+                                        <p><strong> From: </strong> <%= e.route.nodes.first.address.upcase %> </p>
+                                        <p><strong> To: </strong> <%= e.route.form == "Circular" ? e.route.nodes.first.address.upcase : e.route.nodes.last.address.upcase %> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade transparent-tab" id="nav-notifications" role="tabpanel" aria-labelledby="nav-notifications-tab">
+        <div class="container">
+            <div class="title-left m-3">
+                <div class="routes_history_card">
+                    <% @requests.each do |r| %>
+                        <div class="big-card-profile">
+                            <div class="card-event-profile">
+                                <%= cl_image_tag(r.sender.photo.key, width: 400, height: 300, crop: :fill) %>
+                                <div class="card-event-info h-100 p-2">
+                                    <div>
+                                        <h5><strong> <%= r.sender.name %> </strong></h5>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p><strong>Distance: </strong><%=  %> </p>
+                                        <p><strong> From: </strong> <%=  %> </p>
+                                        <p><strong> To: </strong> <%=  %> </p>
+                                    </div>
+                                    <%= link_to friend_path(r.user_id), method: :patch, remote: true do %>
+                                      <button type="button" class="btn bg-blue fs-it-btn">
+                                        <i class="fas fa-check"></i>
+                                        Accept friend
+                                      </button>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-img-profile" style="background: linear-gradient(#FFFBE8, rgb(255,255,255), transparent), url(<%= image_path('city.png') %>);">
+</div>
