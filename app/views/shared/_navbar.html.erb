@@ -9,7 +9,7 @@
   <div class="overlay" id="overlay">
     <nav class="overlay-menu">
      <ul>
-       <li><%= link_to "Home", root_path, class: "bungee-font-nav" %></li>
+       <li><%= link_to "Generate", map_path, class: "bungee-font-nav" %></li>
        <li><%= link_to "Events", events_path, class: "bungee-font-nav" %></li>
        <% if user_signed_in? %>
          <li><%= link_to "Profile", user_path(current_user), class: "bungee-font-nav" %></li>
