@@ -88,8 +88,8 @@ class PagesController < ApplicationController
           number += 1
         end
       end
-      route.distance = distance
-      route.time = (time / 60).round
+      route.distance = distance.round(1)
+      route.time = (time / 40).round
       route.save
   end
 end

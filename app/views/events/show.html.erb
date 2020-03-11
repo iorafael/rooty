@@ -12,14 +12,18 @@
       <p><strong><i class="fas fa-running"></i></strong>  <%= @event.route.display_distance %> </p>
       <p><strong><i class="fas fa-clock"></i></strong>  <%= @event.starttime.strftime("%B %d, %Y at %I:%M%p") %></p>
       <p id="amount"><i class="fas fa-users"></i>  <%= @event.participants.count %></p>
-      <div class="inline-avatar div-size">
-          <ul id="image-list" class="h-25">
+      <div class="div-size">
+          <div id="image-list" class="d-flex">
             <% @event.users.each do |user| %>
-              <li>
-               <%= cl_image_tag(user.photo.key, crop: :fill, class: "profiles-photo") %>
-              </li>
+              <div>
+               <% if user.photo.attached? %>
+                    <%= cl_image_tag(user.photo.key, height: 30, width: 30, crop: :fill, class: "rounded-circle mr-3") %>
+                  <% else %>
+                    <%= image_tag("pp.png", crop: :fill, height: 30, width: 30, class: "rounded-circle")%>
+                  <% end %>
+              </div>
             <% end %>
-          </ul>
+          </div>
         </div>
     </div>
   </div>

@@ -10,6 +10,10 @@ class Friend < ApplicationRecord
     User.find(user_friend_id)
   end
 
+  def friend(user)
+    user == self.sender ? self.receiver : self.sender
+  end
+
   def accept
     self.accepted = true
   end

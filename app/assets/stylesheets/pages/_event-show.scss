@@ -76,11 +76,6 @@
   padding-inline-start: 0;
 }
 
-.inline-avatar img {
-  width: 5%;
-  height: 5%;
-}
-
 .inline-avatar-lg img {
   width: 5px;
   height: 5px;
@@ -96,5 +91,10 @@
 }
 
 .div-size {
+  margin-left: 10px;
   height: 60px;
+}
+
+#image-list{
+  height: 300px;
 }

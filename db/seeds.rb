@@ -2,7 +2,7 @@ user1 = User.create!(name:'max', lastname:"denton", email:"max@mail.com", userna
 user2 = User.create!(username: "test1", name: "Dan", lastname:"ghimpu", email:"daniel@test.com", password:"123456", password_confirmation:"123456")
 distance = 5
 r1 = Route.create!(user: user1)
-init = Node.create!(name: "Max's house", route: r1, real:true, address: "SW18 1PS")
+init = Node.create!(name: "Initial_node", route: r1, real:true, address: "SW18 1PS")
 long = init.longitude
 lat = init.latitude
 Node.create!(name: "T1.1", route: r1, real: false, longitude: long + 0.0012 * distance, latitude: lat)
@@ -11,7 +11,7 @@ Node.create!(name: "T1.3", route: r1, real: false, longitude: long, latitude: la
 
 
 r2 = Route.create!(user: user1)
-init = Node.create!(name: "stinky's house", route: r2, real:true, address: "SW13 0LW")
+init = Node.create!(name: "Initial_node", route: r2, real:true, address: "SW13 0LW")
 long = init.longitude
 lat = init.latitude
 Node.create!(name: "T1.1", route: r2, real: false, longitude: long + 0.0012 * distance, latitude: lat)
@@ -19,7 +19,7 @@ Node.create!(name: "T1.2", route: r2, real: false, longitude: long + 0.0012 * di
 Node.create!(name: "T1.3", route: r2, real: false, longitude: long, latitude: lat + 0.002 * distance)
 
 r3 = Route.create!(user: user1)
-init = Node.create!(name: "willies house", route: r3, real:true, address: "NW2 2AR")
+init = Node.create!(name: "Initial_node", route: r3, real:true, address: "NW2 2AR")
 long = init.longitude
 lat = init.latitude
 Node.create!(name: "T1.1", route: r3, real: false, longitude: long + 0.0012 * distance, latitude: lat)
@@ -27,7 +27,7 @@ Node.create!(name: "T1.2", route: r3, real: false, longitude: long + 0.0012 * di
 Node.create!(name: "T1.3", route: r3, real: false, longitude: long, latitude: lat + 0.002 * distance)
 
 r4 = Route.create!(user: user2)
-init = Node.create!(name: "Max's house", route: r4, real:true, address: "SW15 2SP")
+init = Node.create!(name: "Initial_node", route: r4, real:true, address: "SW15 2SP")
 long = init.longitude
 lat = init.latitude
 Node.create!(name: "T1.1", route: r4, real: false, longitude: long + 0.0012 * distance, latitude: lat)
@@ -35,7 +35,7 @@ Node.create!(name: "T1.2", route: r4, real: false, longitude: long + 0.0012 * di
 Node.create!(name: "T1.3", route: r4, real: false, longitude: long, latitude: lat + 0.002 * distance)
 
 r5 = Route.create!(user: user2)
-init = Node.create!(name: "Max's house", route: r5, real:true, address: "KT12 3PU")
+init = Node.create!(name: "Initial_node", route: r5, real:true, address: "KT12 3PU")
 long = init.longitude
 lat = init.latitude
 Node.create!(name: "T1.1", route: r5, real: false, longitude: long + 0.0012 * distance, latitude: lat)
@@ -43,7 +43,7 @@ Node.create!(name: "T1.2", route: r5, real: false, longitude: long + 0.0012 * di
 Node.create!(name: "T1.3", route: r5, real: false, longitude: long, latitude: lat + 0.002 * distance)
 
 r6 = Route.create!(user: user2, form: "Linear")
-init = Node.create!(name: "Max's house", route: r6, real:true, address: "SW18 1PS")
+init = Node.create!(name: "Initial_node", route: r6, real:true, address: "SW18 1PS")
 long = init.longitude
 lat = init.latitude
 Node.create!(name: "T1.1", route: r6, real: false, longitude: long + 0.0012 * distance, latitude: lat)

@@ -36,4 +36,12 @@ class User < ApplicationRecord
     self.user_friends.where(accepted: true) + Friend.where(user_id: self.id).where(accepted: true)
   end
 
+  def profile_picture
+    if self.photo.attached?
+      return self.photo.key
+    else
+      return "pp.png"
+    end
+  end
+
 end

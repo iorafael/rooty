@@ -2,7 +2,7 @@ class NodesController < ApplicationController
     def create
         distance = params[:node][:distance] ? params[:node][:distance] : 5
         newroute = Route.create!(user: current_user)
-        init = Node.create!(name: "Max's house", route: newroute, real:true, address: params[:node][:address])
+        init = Node.create!(name: "Initial_node", route: newroute, real:true, address: params[:node][:address])
         if init.latitude
             dir = [[1,1,1,1],[-1,-1,-1,-1],[-1,-1,1,1],[1,1,-1,-1]].sample
             margin1 = rand(-0.0005..0.0005)
