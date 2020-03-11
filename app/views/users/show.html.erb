@@ -70,7 +70,7 @@
     <% if current_user.friend?(@user) %>
       <%= link_to user_friends_path(@user), method: :post, remote: true do %>
         <button type="button" class="btn btn-danger fs-it-btn">
-          <i class="fa fa-plus" aria-hidden="true"></i>
+          <i class="fa fa-times" aria-hidden="true"></i>
           <span class="fs-it-btn-vertical-line"></span>
           Remove friend
         </button>
@@ -78,7 +78,7 @@
     <% elsif @request_sent %>
       <%= link_to user_friends_path(@user), method: :post, remote: true do %>
         <button type="button" class="btn bg-blue fs-it-btn">
-          <i class="fa fa-plus" aria-hidden="true"></i>
+          <i class="fa fa-check" aria-hidden="true"></i>
           <span class="fs-it-btn-vertical-line"></span>
           Friend request sent!
         </button>

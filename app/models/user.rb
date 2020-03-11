@@ -28,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def friend?(friend)
-    self.friend_list.each { |friendship| return true if friendship.user_id == friend.id }
+    self.friend_list.each { |friendship| return true if friendship.user_id == friend.id || friendship.user_friend_id == friend.id}
     false
   end
 
