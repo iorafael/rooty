@@ -17,8 +17,9 @@
       <div class="card-friend">
         <%= cl_image_tag(f.photo.key, width: 400, height: 300, crop: :fill) %>
         <div class="card-friend-infos">
-          <h2>Friend name: <%= f.username %> </h2>
-          <p><%= f.email%> </p>
+          <h2><%= f.name.capitalize %> <%= f.lastname.capitalize %> </h2>
+          <p> Username: <%= f.username.capitalize %> </p>
+          <p><%= f.email.capitalize %> </p>
         </div>
       </div>
     </div>
