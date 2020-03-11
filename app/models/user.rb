@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  include PgSearch::Model
+  multisearchable against: [:name, :lastname, :username]
+
   has_many :routes
 
   has_many :friends

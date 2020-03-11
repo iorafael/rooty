@@ -4,6 +4,8 @@ class FriendsController < ApplicationController
     @friends = Friend.all
   end
 
+  end
+
   def show
     @friend = Friend.find(params[:id])
   end
