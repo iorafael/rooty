@@ -32,6 +32,7 @@ class FriendsController < ApplicationController
   def update
     @friend = Friend.where(user_id: params[:id]).where(user_friend_id: current_user.id)[0]
     if @friend
+      raise
       @friend.accept
       @friend.save
       respond_to do |format|

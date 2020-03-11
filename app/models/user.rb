@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :routes
+  has_many :routes, dependent: :destroy
 
   # has_many :friends, dependent: :destroy
   has_many :user_friends, foreign_key: :user_friend_id, class_name: "Friend"
@@ -21,16 +21,16 @@ class User < ApplicationRecord
   end
 
   def friend_requests
-    self.user_friends
-    #Friend.where(user_friend_id: self.id).where(accepted: false)
+    self.user_friends.where(accepted: false)
   end
 
   def friend?(friend)
-    self.friend_list.include?(friend)
+    self.friend_list.each { |friendship| return true if friendship.user_id == friend.id }
+    false
   end
 
   def friend_list
-    self.user_friends + Friend.where(user_id: self.id).where(accepted: true).select(:user_friend_id)
+    self.user_friends.where(accepted: true) + Friend.where(user_id: self.id).where(accepted: true)
   end
 
 end
