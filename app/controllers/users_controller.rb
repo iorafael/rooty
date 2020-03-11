@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     participants = Participant.where(user: current_user)
-    @events = participants.map { |participant| Event.find(participant.id) }.uniq
+    @events = current_user.events_joined
     @routes = current_user.routes
     @event = Event.new
   end

@@ -1,0 +1,31 @@
+<div class="container friends-container">
+  <div>
+    <h2 class="bungee-font-m">Friends</h2>
+    <input type="text">
+  </div>
+  <% @friends.each do |f| %>
+    <div>
+      <div class="card-friend">
+        <%= cl_image_tag(f.user.photo.key, width: 400, height: 300, crop: :fill) %>
+        <div class="card-friend-infos">
+          <h2>Friend name: <%= f.user.username %> </h2>
+          <p><%= f.user.email%> </p>
+          <p>Friend description with <strong>relevant info</strong> only.</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<!-- just template -->
+  <div>
+    <div class="card-friend">
+      <a href="#"></a>
+      <%= cl_image_tag(current_user.photo.key, width: 400, height: 300, crop: :fill) %>
+      <div class="card-friend-infos">
+        <h2><%= current_user.username %> </h2>
+        <p><%= current_user.email%> </p>
+      </div>
+    </div>
+  </div>
+
+</div>

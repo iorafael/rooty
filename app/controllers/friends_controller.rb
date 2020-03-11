@@ -7,7 +7,10 @@ class FriendsController < ApplicationController
   end
 
   def show
-    @friend = Friend.find(params[:id])
+    participant = User.find(params[:id])
+    @events = participant.events_joined
+    @routes = participant.routes
+    @event = Event.new
   end
 
   def create
