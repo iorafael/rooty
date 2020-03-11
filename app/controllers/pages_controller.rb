@@ -22,6 +22,7 @@ class PagesController < ApplicationController
     @events = current_user.events_joined
     @routes = current_user.routes
     @event = Event.new
+    @requests = Friend.where(user_friend_id: current_user).where(accepted: false)
   end
 
   private

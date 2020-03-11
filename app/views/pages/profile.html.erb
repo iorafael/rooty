@@ -117,23 +117,27 @@
         <div class="container">
             <div class="title-left m-3">
                 <div class="routes_history_card">
-                    <% @events.each do |e| %>
+                    <% @requests.each do |r| %>
                         <div class="big-card-profile">
-                        <a href="/events/<%= e.id%>">
                             <div class="card-event-profile">
-                                <%= cl_image_tag(e.photo.key, width: 400, height: 300, crop: :fill) %>
+                                <%= cl_image_tag(r.sender.photo.key, width: 400, height: 300, crop: :fill) %>
                                 <div class="card-event-info h-100 p-2">
                                     <div>
-                                        <h5><strong> <%= e.title %> </strong></h5>
+                                        <h5><strong> <%= r.sender.name %> </strong></h5>
                                     </div>
                                     <div class="d-flex justify-content-between">
-                                        <p><strong>Distance: </strong><%= e.route.display_distance %> </p>
-                                        <p><strong> From: </strong> <%= e.route.nodes.first.address.upcase %> </p>
-                                        <p><strong> To: </strong> <%= e.route.form == "Circular" ? e.route.nodes.first.address.upcase : e.route.nodes.last.address.upcase %> </p>
+                                        <p><strong>Distance: </strong><%=  %> </p>
+                                        <p><strong> From: </strong> <%=  %> </p>
+                                        <p><strong> To: </strong> <%=  %> </p>
                                     </div>
+                                    <%= link_to friend_path(r.user_id), method: :patch, remote: true do %>
+                                      <button type="button" class="btn bg-blue fs-it-btn">
+                                        <i class="fas fa-check"></i>
+                                        Accept friend
+                                      </button>
+                                    <% end %>
                                 </div>
                             </div>
-                        </a>
                         </div>
                     <% end %>
                 </div>

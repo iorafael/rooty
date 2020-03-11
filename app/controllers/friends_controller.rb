@@ -16,14 +16,33 @@ class FriendsController < ApplicationController
     @user = User.find(params[:user_id])
     if friend.save
       flash[:notice] = "Added friend."
-      puts "A"
       respond_to do |format|
         format.html { redirect_to @user }
         format.js
       end
     else
       flash[:error] = "Unable to add friend."
-      render "users/#{params[:user_id]}"
+      respond_to do |format|
+        format.html { redirect_to @user }
+        format.js
+      end
+    end
+  end
+
+  def update
+    @friend = Friend.where(user_id: params[:id]).where(user_friend_id: current_user.id)[0]
+    if @friend
+      @friend.accept
+      respond_to do |format|
+        format.html { redirect_to profile_path }
+        format.js
+      end
+    else
+      flash[:error] = "Unable to accept friend: The friend request was revoked"
+      respond_to do |format|
+        format.html { redirect_to profile_path }
+        format.js
+      end
     end
   end
 

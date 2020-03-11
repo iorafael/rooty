@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   get '/profile', to: "pages#profile"
   devise_for :users
   resources :users, only: [:edit, :update, :delete, :show] do
-    resources :friends, only: [:create]
+    resources :friends, only: [:create, :destroy]
   end
+  resources :friends, only: [:update]
   resources :routes
   resources :nodes
   resources :events, only: [:index, :show, :create, :edit, :destroy ] do
