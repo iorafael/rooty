@@ -7,12 +7,18 @@ class PagesController < ApplicationController
 
   def home
     @new_node = Node.new
+    count = 0
     if params[:route]
       @route = Route.find(params[:route])
       calculate_distance(@route)
-      while @route.distance < 4000 || @route.distance > 6000
+      while (@route.distance < 4000 || @route.distance > 6000) && count < 10
         @route.define_nodes(5)
         calculate_distance(@route.reload)
+        count += 1
+      end
+      if count > 9
+        flash[:notice] = 'Address not found, please be more specific!'
+        redirect_to map_path
       end
     else
       @paths = []

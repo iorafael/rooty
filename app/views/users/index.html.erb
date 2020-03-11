@@ -1,6 +1,6 @@
 <div class="container friends-container">
 
-  <h2 class="bungee-font-m">Friends</h2>
+  <h2 class="bungee-font-m">Runners</h2>
   <div class="friends-search">
       <%= form_tag users_path, method: :get, class: "form-inline search-bar-index" do %>
         <%= text_field_tag :query,
@@ -14,14 +14,16 @@
 
   <% @users.each do |f| %>
     <div>
-      <div class="card-friend">
-        <%= cl_image_tag(f.photo.key, width: 400, height: 300, crop: :fill) %>
-        <div class="card-friend-infos">
-          <h2><%= f.name.capitalize %> <%= f.lastname.capitalize %> </h2>
-          <p> Username: <%= f.username.capitalize %> </p>
-          <p><%= f.email.capitalize %> </p>
+      <%= link_to f do %>
+        <div class="card-friend">
+          <%= cl_image_tag(f.photo.key, width: 400, height: 300, crop: :fill) %>
+          <div class="card-friend-infos">
+            <h2><%= f.name.capitalize %> <%= f.lastname.capitalize %> </h2>
+            <p> Username: <%= f.username.capitalize %> </p>
+            <p><%= f.email.capitalize %> </p>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   <% end %>
 
