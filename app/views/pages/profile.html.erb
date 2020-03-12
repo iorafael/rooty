@@ -62,8 +62,8 @@
                   <div class="card-history-info flex-grow-1">
                     <div>
                       <p><strong> Distance: </strong> <%= r.display_distance %></p>
-                      <p><strong> Start point: </strong> <%= r.nodes.first.address.upcase %> </p>
-                      <p><strong> End point: </strong> <%= r.form == "Circular" ? r.nodes.first.address.upcase : r.nodes.last.address.upcase %> </p>
+                      <p><strong> From: </strong> <%= r.starting %> </p>
+                      <p><strong> To: </strong> <%= r.ending %> </p>
                     </div>
                   </div>
                 </div>
