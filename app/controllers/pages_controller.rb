@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def home
+    distance = 5
     @new_node = Node.new
     count = 0
     if params[:route]
