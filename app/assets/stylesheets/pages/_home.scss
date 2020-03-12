@@ -29,6 +29,7 @@
   color: white;
   border: 0;
   outline: 0;
+  padding: 0;
   background: none;
   width: 0;
   line-height: 30px;
@@ -36,7 +37,7 @@
   }
 
 .searchbar:hover, .searchbar.hover_effect {
-  width: 200px;
+  width: 210px;
  .search_input{
     padding: 0 10px;
     width: 150px;
