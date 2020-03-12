@@ -5,7 +5,7 @@
 </div>
 <div class="container justify-content-center">
   <div>
-    <h2 class="events-title"><strong>Today's runs</strong>  </h2>
+    <h2 class="events-title"><strong>Today's runs'</strong>  </h2>
   </div>
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -15,7 +15,7 @@
             <card class="d-block w-100">
               <div class="card-event-lg">
                 <% if event.photo.attached? %>
-                  <%= cl_image_tag(event.photo.key, width: 480, height: 300, crop: :fill) %>
+                  <%= cl_image_tag(event.photo.key, width: 480, height: 300, crop: :fill, id: "card-event-img") %>
                 <% else %>
                   <%= image_tag "test_6.jpg", width: 400, height: 300 %>
                 <% end %>
@@ -26,14 +26,18 @@
                   <p> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </p>
                   <p> Distance: <%= event.route.distance %>m</p>
                   <p> <i class="fas fa-user-plus mb-2"></i> <%= event.users.count  %></p>
-                  <div class="inline-avatar-lg-events div-size-events-show">
-                    <% event.users.each do |user| %>
-                      <% if user.photo.attached? %>
-                        <%= cl_image_tag(user.photo.key, crop: :fill, style:"height: 30px; width: 30px; margin-top:0 !important; margin-left: 5px; ") %>
-                      <% else %>
-                        <%= image_tag("pp.png", crop: :fill, style:"height: 30px; width: 30px; margin-top:0 !important; margin-left: 5px; ") %>
+                  <div class="div-size">
+                    <div id="image-list" class="d-flex">
+                      <% event.users.each do |user| %>
+                        <div>
+                        <% if user.photo.attached? %>
+                              <%= cl_image_tag(user.photo.key, height: 30, width: 30, crop: :fill, class: "rounded-circle mr-1") %>
+                            <% else %>
+                              <%= image_tag("pp.png", crop: :fill, height: 30, width: 30, class: "rounded-circle")%>
+                            <% end %>
+                        </div>
                       <% end %>
-                    <% end %>
+                    </div>
                   </div>
                   <%# if event == @today_events.first %>
                   <%# end %>

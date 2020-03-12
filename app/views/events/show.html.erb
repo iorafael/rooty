@@ -16,7 +16,7 @@
         <% @event.users.each do |user| %>
           <div>
            <% if user.photo.attached? %>
-                <%= cl_image_tag(user.photo.key, height: 30, width: 30, crop: :fill, class: "rounded-circle") %>
+                <%= cl_image_tag(user.photo.key, height: 30, width: 30, crop: :fill, class: "rounded-circle mr-3") %>
               <% else %>
                 <%= image_tag("pp.png", crop: :fill, height: 30, width: 30, class: "rounded-circle")%>
               <% end %>
