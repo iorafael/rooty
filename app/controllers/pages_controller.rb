@@ -6,7 +6,8 @@ class PagesController < ApplicationController
   end
 
   def home
-    distance = 5
+    @zoom_time = params[:zoom]
+    distance = params[:distance].to_i
     @new_node = Node.new
     count = 0
     if params[:route]

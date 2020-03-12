@@ -12,7 +12,7 @@ class NodesController < ApplicationController
             Node.create!(name: "T1.1", route: newroute, real: false, longitude: long + margin1 + 0.0012 * distance * dir[0], latitude: lat - margin2)
             Node.create!(name: "T1.2", route: newroute, real: false, longitude: long - margin1 + 0.0012 * distance * dir[1], latitude: lat + margin2 + 0.002 * distance * dir[2])
             Node.create!(name: "T1.3", route: newroute, real: false, longitude: long, latitude: lat + 0.002 * distance * dir[3])
-            redirect_to map_path(route: newroute.id)
+            redirect_to map_path(distance: 5,route: newroute.id, zoom: 1500)
         else
             Node.last.delete
             Route.last.delete
