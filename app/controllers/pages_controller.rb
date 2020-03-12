@@ -3,18 +3,6 @@ class PagesController < ApplicationController
 
   def intro
     @new_node = Node.new
-    if params[:route]
-      @route = Route.find(params[:route])
-      calculate_distance(@route)
-      while @route.distance < 4000 || @route.distance > 6000
-        @route.define_nodes(5)
-        calculate_distance(@route.reload)
-      end
-    else
-      @paths = []
-      @nodes = [{longitude: -122.486052, latitude: 37.830348}]
-      @route = nil
-    end
   end
 
   def home
@@ -23,7 +11,7 @@ class PagesController < ApplicationController
     if params[:route]
       @route = Route.find(params[:route])
       calculate_distance(@route)
-      while (@route.distance < 4000 || @route.distance > 6000) && count < 10
+      while (@route.distance < (distance*1000-1000) || @route.distance > (distance*1000 + 1000)) && count < 10
         @route.define_nodes(5)
         calculate_distance(@route.reload)
         count += 1
