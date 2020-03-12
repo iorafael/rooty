@@ -3,5 +3,9 @@ if (button) {
      const text = `<i class="fas fa-check"></i>
     Accepted!`
     button.innerHTML=text;
+    button.disabled = true;
+    friendlist = document.querySelector("#friendslist")
+    if(friendlist){
+        friendlist.innerHTML = "<%= j render(partial: 'pages/friends', :locals => {user: current_user}) %>";
+    }
 }
-console.log(<%= @friend.accepted %>)

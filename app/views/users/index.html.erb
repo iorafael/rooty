@@ -5,7 +5,7 @@
       <%= form_tag users_path, method: :get, class: "form-inline search-bar-index" do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
+          class: "form-control-a",
           placeholder: "Find a friend"
         %>
       <%= submit_tag "Search", class: "btn btn-dark" %>
@@ -16,21 +16,20 @@
       <div>
         <%= link_to f do %>
           <div class="card-friend">
-          <% if f.photo.attached? %>
-            <%= cl_image_tag(f.photo.key, width: 250, height: 200, crop: :fill) %>
-          <% else %>
-            <%= image_tag("pp.png", width: 300, height: 250, crop: :fill)%>
-          <% end %>
+            <% if f.photo.attached? %>
+              <%= cl_image_tag(f.photo.key, width: 600, height: 500, crop: :fill) %>
+            <% else %>
+              <%= image_tag("pp.png", width: 600, height: 500, crop: :fill)%>
+            <% end %>
             <div class="card-friend-infos">
               <h2><%= f.name.capitalize %> <%= f.lastname.capitalize %> </h2>
               <p> Username: <%= f.username.capitalize %> </p>
-              <p><%= f.email.capitalize %> </p>
+              <p><%= f.email %> </p>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+      </div>
+    <% end %>
 </div>
 <div class="bottom-img-friends" style="background: linear-gradient(white, rgb(255,255,255), transparent), url(<%= image_path('bottom-background3.png') %>);">
 </div>

@@ -1,29 +1,18 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :intro]
 
   def intro
     @new_node = Node.new
-    if params[:route]
-      @route = Route.find(params[:route])
-      calculate_distance(@route)
-      while @route.distance < 4000 || @route.distance > 6000
-        @route.define_nodes(5)
-        calculate_distance(@route.reload)
-      end
-    else
-      @paths = []
-      @nodes = [{longitude: -122.486052, latitude: 37.830348}]
-      @route = nil
-    end
   end
 
   def home
+    distance = 5
     @new_node = Node.new
     count = 0
     if params[:route]
       @route = Route.find(params[:route])
       calculate_distance(@route)
-      while (@route.distance < 4000 || @route.distance > 6000) && count < 10
+      while (@route.distance < (distance*1000-1000) || @route.distance > (distance*1000 + 1000)) && count < 10
         @route.define_nodes(5)
         calculate_distance(@route.reload)
         count += 1

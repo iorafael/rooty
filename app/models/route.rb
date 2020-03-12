@@ -30,4 +30,17 @@ class Route < ApplicationRecord
   def build_google
     "https://www.google.com/maps/dir/?api=1&origin=#{self.nodes.find_by_name("Initial_node").latitude},#{self.nodes.find_by_name("Initial_node").longitude}&destination=#{self.nodes.find_by_name("Initial_node").latitude},#{self.nodes.find_by_name("Initial_node").longitude}&travelmode=bicycling&waypoints=#{self.nodes.find_by_name("T1.1").latitude},#{self.nodes.find_by_name("T1.1").longitude}%7C#{self.nodes.find_by_name("T1.2").latitude},#{self.nodes.find_by_name("T1.2").longitude}%7C#{self.nodes.find_by_name("T1.3").latitude},#{self.nodes.find_by_name("T1.3").longitude}&zoom=14"
   end
+
+  def starting
+    return nodes.first.address.upcase.length > 16 ? "#{nodes.first.address.upcase.first(14)}..." : nodes.first.address.upcase;
+  end
+
+  def ending
+    if self.form == "Circular"
+      return nodes.first.address.upcase.length > 16 ? "#{nodes.first.address.upcase.first(14)}..." : nodes.first.address.upcase;
+    else
+      return nodes.last.address.upcase.length > 16 ? "#{nodes.last.address.upcase.first(14)}..." : nodes.last.address.upcase;
+    end
+  end
+
 end

@@ -43,11 +43,14 @@ class EventsController < ApplicationController
     event = Event.new(require_params)
     event.route = params[:event][:route]
     participant = Participant.new
-    participant.user = current_user
-    participant.event = event
-    event.save
-    participant.save
-    redirect_to event
+    if event.save
+      participant.user = current_user
+      participant.event = event
+      participant.save
+      redirect_to event_path(event)
+    else
+      render profile_path
+    end
   end
   
   private
