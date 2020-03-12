@@ -1,10 +1,10 @@
 <div class="profile-card">
-  <div class="container d-flex background-profile-page" style="color: linear-gradient(135deg, #add8e6, #b19cd9)">
+  <div class="container d-flex background-profile-page" style="background:linear-gradient(135deg, #add8e6, #b19cd9)">
   </div>
   <% if current_user.photo.attached? %>
-    <%= cl_image_tag(current_user.photo.key, class: "profiles-photo") %>
+    <%= cl_image_tag(current_user.photo.key, class: "clip_path") %>
   <% else %>
-    <%= image_tag "pp.png", crop: :fill, class: "profiles-photo"%>
+    <%= image_tag "pp.png", crop: :fill, class: "clip_path"%>
   <% end %>
   <h2 class="username-profile">@<%= current_user.username %></h2>
   <p class="fullname-profile"><%= current_user.name %> <%= current_user.lastname %></p>

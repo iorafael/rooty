@@ -41,6 +41,7 @@
   height: 200px;
 
 }
+
 .card-event {
   overflow: hidden;
   height: 150px;
@@ -54,14 +55,6 @@
   box-shadow: 0 0 8px rgba(0,0,0,0.2)
 }
 
-.event-new-version {
-  height: 220px;
-  overflow: hidden;
-  background: white;
-  margin-bottom: 20px;
-  border: 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
 
   .card-event-info p {
     font-size: 16px;
@@ -78,13 +71,8 @@
     margin-left: 10px;
     margin-top: 10px;
   }
-}
 
-.event-new-version img {
-  height: 105px;
-  width: 100%;
-  object-fit: cover;
-}
+
 
 .card-image {
   position: relative;

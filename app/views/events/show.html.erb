@@ -1,52 +1,49 @@
-  <div class="container">
-    <div class="event_cover">
-    <div id="mapa"
-      data-path="<%= @paths.to_json %>"
-      data-node="<%= @nodes.first.to_json %>"
-      data-markers="<%= @markers.to_json %>"
-      data-zoom_size="12"></div>
-    </div>
 
-    <div>
-      <p><strong><i class="fas fa-map-marker-alt"></i></strong>  <%= @event.route.nodes.first.address %></p>
-      <p><strong><i class="fas fa-running"></i></strong>  <%= @event.route.display_distance %> </p>
-      <p><strong><i class="fas fa-clock"></i></strong>  <%= @event.starttime.strftime("%B %d, %Y at %I:%M%p") %></p>
-      <p id="amount"><i class="fas fa-users"></i>  <%= @event.participants.count %></p>
-      <div class="div-size">
-          <div id="image-list" class="d-flex">
-            <% @event.users.each do |user| %>
-              <div>
-               <% if user.photo.attached? %>
-                    <%= cl_image_tag(user.photo.key, height: 30, width: 30, crop: :fill, class: "rounded-circle mr-3") %>
-                  <% else %>
-                    <%= image_tag("pp.png", crop: :fill, height: 30, width: 30, class: "rounded-circle")%>
-                  <% end %>
-              </div>
-            <% end %>
+<div class="event_cover">
+  <div id="mapa"
+  style="border-radius: 5px; margin-left: 8px; margin-bottom: 15px; margin-right: 8px;"
+  data-path="<%= @paths.to_json %>"
+  data-node="<%= @nodes.first.to_json %>"
+  data-markers="<%= @markers.to_json %>"
+  data-zoom_size="12"></div>
+</div>
+<div>
+  <p><strong><i class="fas fa-map-marker-alt"></i></strong>  <%= @event.route.nodes.first.address %></p>
+  <p><strong><i class="fas fa-running"></i></strong>  <%= @event.route.display_distance %> </p>
+  <p><strong><i class="fas fa-clock"></i></strong>  <%= @event.starttime.strftime("%B %d, %Y at %I:%M%p") %></p>
+  <p id="amount"><i class="fas fa-users"></i>  <%= @event.participants.count %></p>
+  <div class="div-size">
+      <div id="image-list" class="d-flex">
+        <% @event.users.each do |user| %>
+          <div>
+           <% if user.photo.attached? %>
+                <%= cl_image_tag(user.photo.key, height: 30, width: 30, crop: :fill, class: "rounded-circle mr-3") %>
+              <% else %>
+                <%= image_tag("pp.png", crop: :fill, height: 30, width: 30, class: "rounded-circle")%>
+              <% end %>
           </div>
-        </div>
-    </div>
-  </div>
-
-
-  <div class="join-container">
-    <div class="row">
-      <div class="col-md-12" id="join-button">
-        <% if @participant.present? %>
-          <%= link_to event_participant_path(participant_id: @participant.id, event_id: @event.id), method: :delete, remote: true do  %>
-            <button class="btn btn-default charcoal-circle-button-red">Leave<span class="charcoal-circle-greater-than-red"></span></button>
-            <% end %>
-          <% else %>
-          <%= link_to event_participants_path([@event, @participant]), method: :post, remote: true do  %>
-            <button class="btn btn-default charcoal-circle-button">Join<span class="charcoal-circle-greater-than"></span></button>
-          <% end %>
-
         <% end %>
       </div>
     </div>
-  </div>
-
 </div>
-<div class="bottom-img-events" style="background: linear-gradient(#5DB5B5, rgb(255,255,255), transparent), url(<%= image_path('wireframe.png') %>);">
+<div class="join-container">
+  <div class="row">
+    <div class="col-md-12" id="join-button">
+      <% if @participant.present? %>
+        <%= link_to event_participant_path(participant_id: @participant.id, event_id: @event.id), method: :delete, remote: true do  %>
+          <button class="btn btn-default charcoal-circle-button-red">Leave<span class="charcoal-circle-greater-than-red"></span></button>
+          <% end %>
+        <% else %>
+        <%= link_to event_participants_path([@event, @participant]), method: :post, remote: true do  %>
+          <button class="btn btn-default charcoal-circle-button">Join<span class="charcoal-circle-greater-than"></span></button>
+        <% end %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="bottom-img-events" style="background: linear-gradient(white, rgb(255,255,255), transparent), url(<%= image_path('wireframe.png') %>);">
 </div>
 
