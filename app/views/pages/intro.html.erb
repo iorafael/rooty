@@ -2,11 +2,12 @@
   <div class="container center mt-5">
       <h2 class="bungee-font-home center-style">A <strong class='color-change'>ROUTE</strong> LIKE NO OTHER</h2>
       <br>
-      <div class="container flex-direction-column justify-content-center">
+      <div class="container flex-direction-column justify-content-center" id="landing">
         <div class="home-box-center">
           <%= form_for @new_node do |f|%>
           <div class="search-box-home">
           <%= f.text_field :address, class: "search-input-home", placeholder: "e.g. London NW3" %>
+          <%= f.hidden_field :distance %>
           </div>
           <div class="search-home">
             <button type="submit" class="btn search-button-home">GET YOUR ROOTY!</button>
