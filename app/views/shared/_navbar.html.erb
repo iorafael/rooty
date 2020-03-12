@@ -1,5 +1,5 @@
-<div class="d-flex justify-content-between w-100 navbar-lewagon <%= 'trans' if action_name == 'home' || 'intro' %>">
- <div>
+<div class="d-flex justify-content-between w-100 navbar-lewagon <%= 'trans' if action_name == 'home' || action_name == 'intro' || action_name == 'profile' %>">
+  <div>
     <div class="button_container" id="toggle">
       <span class="top"></span>
       <span class="middle"></span>
@@ -23,7 +23,7 @@
   </div>
   <div class="logo-position">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "MaxLogo.png" %>
+    <%= image_tag "MaxLogo.png" %>
     <% end %>
   </div>
 </div>

@@ -1,5 +1,5 @@
 .navbar-lewagon {
-  background-color: #FFFBE8;
+  background-color: white;
   justify-content: space-between;
   opacity: 1 !important;
   z-index: 101;
@@ -16,6 +16,12 @@
   width: 40px;
 }
 
+.navbar-brand {
+  margin-right: 5px;
+  margin-top: 3px;
+
+}
+
 .bg-blue {
   background-color: rgba(255,255,255,0.1);
 }
@@ -26,7 +32,7 @@
 
 .navbar-toggler-icon {
   background-image: url("navbar-icons.png");
- border-left: 0;
+  border-left: 0;
 }
 
 .navbar-position {
@@ -34,12 +40,14 @@
 }
 
 .logo-position {
+  position: relative;
+  right: 0;
   margin-top: 0px;
   position: flex;
 }
 
 .profile-photo {
-   position:absolute;
+   position: absolute;
    top:0;
    right:0;
    margin-right: 10px !important;
@@ -66,5 +74,5 @@
 
 
 .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-  background-color: #FFFBE8 !important;
+  background: linear-gradient(135deg, #add8e6, #b19cd9) !important;
 }

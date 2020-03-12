@@ -12,21 +12,22 @@
   position: relative;
   margin-top: 20px;
 }
+
 .charcoal-circle-button:hover {
   color:#ffffff !important;
     background-color: #413E44;
   text-decoration: none;
   border-color: #756868 ;
-
 }
+
 .charcoal-circle-button:visited {
   color:#ffffff;
-    background-color: #413E44;
+  background-color: #413E44;
   text-decoration: none;
-
 }
+
 .charcoal-circle-link-greater-than {
-    font-size: 1em;
+  font-size: 1em;
 }
 
 .charcoal-circle-button-red {
@@ -43,8 +44,9 @@
   position: relative;
   margin-top: 20px;
 }
+
 .charcoal-circle-button-red:hover {
-  color:#ffffff !important;
+  color: #ffffff !important;
   background-color: #AC1B00;
   text-decoration: none;
   border-color: #AC1B00 ;
@@ -56,8 +58,9 @@
   text-decoration: none;
 
 }
+
 .charcoal-circle-link-greater-than-red {
-    font-size: 1em;
+  font-size: 1em;
 }
 
 .join-container {
@@ -97,4 +100,9 @@
 
 #image-list{
   height: 300px;
+}
+
+.fuck-off-bootstrap {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
 }
