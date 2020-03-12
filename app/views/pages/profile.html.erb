@@ -125,7 +125,7 @@
                 <% @requests.each do |r| %>
                     <div class="big-card-profile">
                         <div class="card-event-profile">
-                          <% if event.photo.attached? %>
+                          <% if r.sender.photo.attached? %>
                             <%= cl_image_tag(r.sender.photo.key, width: 400, height: 300, crop: :fill) %>
                           <% else %>
                             <%= image_tag "pp.png", width: 400, height: 300 %>

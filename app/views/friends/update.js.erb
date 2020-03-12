@@ -3,5 +3,7 @@ if (button) {
      const text = `<i class="fas fa-check"></i>
     Accepted!`
     button.innerHTML=text;
+    button.disabled = true;
+
 }
 console.log(<%= @friend.accepted %>)
