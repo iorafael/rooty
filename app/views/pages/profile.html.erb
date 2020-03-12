@@ -1,6 +1,6 @@
+<div class="d-flex background-profile-page" style="background:linear-gradient(135deg, #add8e6, #b19cd9)">
+</div>
 <div class="profile-card">
-  <div class="container d-flex background-profile-page" style="background:linear-gradient(135deg, #add8e6, #b19cd9)">
-  </div>
   <% if current_user.photo.attached? %>
     <%= cl_image_tag(current_user.photo.key, class: "clip_path") %>
   <% else %>

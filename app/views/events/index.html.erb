@@ -1,9 +1,11 @@
-<div class="title-background">
-  <h1 class="bungee-font-title"><strong>Events</strong></h1>
+<div class="image-background-card">
+  <div class="title-background">
+    <h1 class="bungee-font-title"><strong>Events</strong></h1>
+  </div>
 </div>
 <div class="container justify-content-center">
   <div>
-    <h2 class="events-title"> Today's runs' </h2>
+    <h2 class="events-title"><strong>Today's runs</strong>  </h2>
   </div>
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -52,9 +54,7 @@
     </a>
   </div>
 
-  <h2 class="events-title"> Coming up this week..</h2>
-  </br>
-
+  <h2 class="events-title-week"> Coming up this week..</h2>
   <div class="container">
     <% @next_events.each do |event| %>
       <a href="/events/<%= event.id %>">
