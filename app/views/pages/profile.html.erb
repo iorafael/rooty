@@ -95,9 +95,9 @@
                       <a href="/events/<%= e.id%>">
                           <div class="card-event-profile">
                             <% if e.photo.attached? %>
-                              <%= cl_image_tag(e.photo.key, width: 400, height: 300, crop: :fill) %>
+                              <%= cl_image_tag(e.photo.key, width: 600, height: 500, crop: :fill) %>
                             <% else %>
-                              <%= image_tag "test_6.jpg", width: 400, height: 300 %>
+                              <%= image_tag "test_6.jpg", width: 600, height: 500 %>
                             <% end %>
                               <div class="card-event-info h-100 p-2">
                                   <div>
@@ -126,9 +126,9 @@
                     <div class="big-card-profile">
                         <div class="card-event-profile">
                           <% if r.sender.photo.attached? %>
-                            <%= cl_image_tag(r.sender.photo.key, width: 400, height: 300, crop: :fill) %>
+                            <%= cl_image_tag(r.sender.photo.key, width: 600, height: 500, crop: :fill) %>
                           <% else %>
-                            <%= image_tag "pp.png", width: 400, height: 300 %>
+                            <%= image_tag "pp.png", width: 600, height: 500, crop: :fill %>
                           <% end %>
                             <div class="card-event-info h-100 p-2">
                                 <div>
@@ -163,9 +163,9 @@
               <a href="/users/<%= f.friend(current_user).id%>">
                 <div class="card-event-profile">
                   <% if f.friend(current_user).photo.attached? %>
-                    <%= cl_image_tag(f.friend(current_user).photo.key, width: 400, height: 300, crop: :fill) %>
+                    <%= cl_image_tag(f.friend(current_user).photo.key, width: 600, height: 500, crop: :fill) %>
                   <% else %>
-                    <%= image_tag("pp.png", width: 400, height: 300, crop: :fill)%>
+                    <%= image_tag("pp.png", width: 600, height: 500, crop: :fill)%>
                   <% end %>
                   <div class="card-event-info h-100 p-2">
                     <h4><%= f.friend(current_user).name.capitalize %> <%= f.friend(current_user).lastname.capitalize %> </h4>
