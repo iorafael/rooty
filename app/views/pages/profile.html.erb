@@ -1,21 +1,13 @@
 <div class="profile-card">
-  <div class="container d-flex background-profile-page" style="background: linear-gradient(90deg, #003465 34%, rgb(255,255,255) 34%)">
-    <div class="container justify-content-center">
-      <div class="user-profile-page-card">
-        <div>
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag(current_user.photo.key, crop: :fill, class: "profiles-photo") %>
-          <% else %>
-            <%= image_tag "pp.png", crop: :fill, class: "profiles-photo"%>
-          <% end %>
-        </div>
-        <div>
-          <h2 class="username-profile"><%= current_user.username %></h2>
-          <p class="fullname-profile"><%= current_user.name %> <%= current_user.lastname %></p>
-        </div>
-      </div>
-    </div>
+  <div class="container d-flex background-profile-page" style="color: linear-gradient(135deg, #add8e6, #b19cd9)">
   </div>
+  <% if current_user.photo.attached? %>
+    <%= cl_image_tag(current_user.photo.key, class: "profiles-photo") %>
+  <% else %>
+    <%= image_tag "pp.png", crop: :fill, class: "profiles-photo"%>
+  <% end %>
+  <h2 class="username-profile">@<%= current_user.username %></h2>
+  <p class="fullname-profile"><%= current_user.name %> <%= current_user.lastname %></p>
 </div>
 </br>
 <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -183,5 +175,5 @@
     </div>
   </div>
 </div>
-<div class="bottom-img-profile" style="background: linear-gradient(#5DB5B5, rgb(255,255,255), transparent), url(<%= image_path('city.png') %>);">
+<div class="bottom-img-profile" style="background: linear-gradient(white, rgb(255,255,255), transparent), url(<%= image_path('city.png') %>);">
 </div>
