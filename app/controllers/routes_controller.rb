@@ -39,9 +39,6 @@ class RoutesController < ApplicationController
       format.html { redirect_to map_path(distance: 5, route: newroute.id, zoom: 0) }
       format.js
     end
-
-
-    
   end
 
   def delete

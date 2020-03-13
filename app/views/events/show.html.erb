@@ -1,3 +1,5 @@
+
+<h2 class="events-title-page"><%= @event.title %></h2>
 <div class="event_cover">
   <div id="mapa"
   style="margin-bottom: 15px;"
@@ -26,7 +28,7 @@
       </div>
     </div>
 </div>
-<div class="join-container">
+<div class="join-container mb-5">
   <div class="row fuck-off-bootstrap">
     <div class="col-md-12" id="join-button">
       <% if @participant.present? %>
@@ -42,8 +44,5 @@
     </div>
   </div>
 </div>
-
-
-<div class="bottom-img-events" style="background: linear-gradient(white, rgb(255,255,255), transparent), url(<%= image_path('wireframe.png') %>);">
+<div class="bottom-img-profile" style="background: linear-gradient(white, rgb(255,255,255), transparent), url(<%= image_path('city.png') %>);">
 </div>
-
