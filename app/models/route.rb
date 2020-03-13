@@ -32,7 +32,7 @@ class Route < ApplicationRecord
   end
 
   def starting
-    return nodes.first.address.upcase.length > 16 ? "#{nodes.first.address.upcase.first(14)}..." : nodes.first.address.upcase;
+    return nodes.first.address.length > 16 ? "#{nodes.first.address.upcase.first(14)}..." : nodes.first.address.upcase;
   end
 
   def ending
