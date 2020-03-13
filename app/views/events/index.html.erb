@@ -17,12 +17,12 @@
                 <% if event.photo.attached? %>
                   <%= cl_image_tag(event.photo.key, width: 480, height: 300, crop: :fill, id: "card-event-img") %>
                 <% else %>
-                  <%= image_tag "test_6.jpg", width: 400, height: 300 %>
+                  <%= image_tag "test_6.jpg", width: 400, height: 300, id: "card-event-img" %>
                 <% end %>
                 <% if event == @today_events.first %>
                 <% end %>
                 <div class="card-event-lg-info">
-                  <h2><%= event.title %></h2>
+                  <h2><%= event.show_title %></h2>
                   <p> <i class="fas fa-map-marker-alt"></i> <%= event.route.nodes.first.address %> </p>
                   <p> Distance: <%= event.route.distance %>m</p>
                   <p> <i class="fas fa-user-plus mb-2"></i> <%= event.users.count  %></p>
