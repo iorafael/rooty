@@ -56,6 +56,7 @@ if (mapa){
                         'line-offset': 0
                     }
                 });
+                console.log(`route${i}`);
             };
             fitMapToMarkers(map, markers);
         }

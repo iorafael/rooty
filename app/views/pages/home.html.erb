@@ -14,7 +14,7 @@
   <% if @route %>
   <div class="bottom-choices center-route">
     <h3 class="m-1 mt-4"><i class="fas fa-running"></i> <%= @route.display_distance %>   ||   <i class="far fa-clock"></i> <%= @route.display_time %></h3>
-    <%= link_to "Shuffle route", edit_route_path(@route), class: "btn btn-dark m-1 text-light" %>
+    <%= link_to "Shuffle route", edit_route_path(@route), class: "btn btn-dark m-1 text-light", remote: true %>
     <%= link_to "Save route", profile_path, class: "btn btn-dark m-1 text-light" %>
     <a class="btn btn-dark m-1 text-light" href=<%=@route.build_google%> target="_blank">Follow in google maps</a>
   </div>

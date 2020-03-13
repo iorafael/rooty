@@ -34,7 +34,14 @@ class RoutesController < ApplicationController
     newroute = Route.find(params[:id])
     distance = params[:distance] ? params[:distance] : 5
     newroute.define_nodes(distance)
-    redirect_to map_path(distance: 5, route: newroute.id, zoom: 0)
+    newroute.calculate_distance
+    respond_to do |format|
+      format.html { redirect_to map_path(distance: 5, route: newroute.id, zoom: 0) }
+      format.js
+    end
+
+
+    
   end
 
   def delete

@@ -1,0 +1,61 @@
+var mapa = document.getElementById('mapa');
+if (mapa){
+    mapa.dataset.path = <%= @paths.to_json %>;
+    mapa.dataset.node = <%= @nodes.first.to_json %>;
+    mapa.dataset.markers = <%= @markers.to_json %>;
+
+    console.log(mapa);
+    const paths = JSON.parse(mapa.dataset.path)
+    const node = JSON.parse(mapa.dataset.node)
+    const map = new mapboxgl.Map({
+        container: 'mapa',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [node.longitude, node.latitude],
+    });
+
+map.on('load', function() {
+    const markers = JSON.parse(mapa.dataset.markers);
+    const zoom = JSON.parse(mapa.dataset.zoom_size);
+    const time = JSON.parse(mapa.dataset.zoom_time)
+    markers.forEach((marker) => {
+        new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(map);
+    });
+
+    const fitMapToMarkers = (map, markers) => {
+        const bounds = new mapboxgl.LngLatBounds();
+        markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+        map.fitBounds(bounds, { padding: 70, maxZoom: zoom, duration: 0 });
+    };
+    for (var i = 0; i < Object.keys(paths).length; i++){
+        map.addSource(`route${i}`, {
+            'type': 'geojson',
+            'data': {
+                'type': 'Feature',
+                'properties': {},
+                'geometry': {
+                    'type': 'LineString',
+                    'coordinates': paths[i]
+                }
+            }
+        });
+        map.addLayer({
+            'id': `route${i}`,
+            'type': 'line',
+            'source': `route${i}`,
+            'layout': {
+                'line-join': 'miter',
+                'line-cap': 'round'
+            },
+            'paint': {
+                'line-color': '#669DF6',
+                'line-width': 5,
+                'line-offset': 0
+            }
+        });
+    };
+    fitMapToMarkers(map, markers);
+    });
+}
+
